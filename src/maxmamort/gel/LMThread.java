@@ -25,32 +25,31 @@ public class LMThread implements Runnable {
     public void run() {
         //while (_booThreadStop == false) {}
 
-        for(int j = 0; j < _lstArgs.size(); j++){
+        for (int j = 0; j < _lstArgs.size(); j++) {
             System.out.println(_lstArgs.get(j));
         }
     }
 
 
     private void parseArgs(JSONArray Args) {
-        /*String[] _strArgs = Args.split(",");
-        int _intArgsLength = _strArgs.length;
-        System.out.println(_intArgsLength);
-
-        for ( int i = 0; i < _intArgsLength; i++){
-            System.out.println(i);
-            System.out.println( _strArgs[i]);
-            _lstArgs.add(_strArgs[i]);*/
-
-        for (int i = 0; i < Args.length(); i++){
+        JSONArray commands = new JSONArray();
+        ArrayList<JSONObject> tests = new ArrayList<JSONObject>();
+        for (int i = 0; i < Args.length(); i++) {
             try {
                 JSONObject _jsnArgs = Args.getJSONObject(i);
-                System.out.print("line number" + i + ": ");
-                System.out.println(_jsnArgs);
+                if (_jsnArgs.has("outputgroup")) {
+                    tests.add(_jsnArgs);
+                }
+                //System.out.print("line number" + i + ": ");
+                //System.out.println(_jsnArgs);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+        }
 
-
+        System.out.println("conditions found are : ");
+        for (int i = 0; i < tests.size(); i++) {
+            System.out.println(tests.get(i));
         }
     }
 }
