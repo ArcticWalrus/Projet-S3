@@ -1,20 +1,12 @@
-package maxmamort.gel;
+package maxmamort.gel.persistence;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.*;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 
-public class errorManager implements IerrorManager{
+public class errorManager implements IerrorManager {
     public void logError(Exception ex) {
         String _str = ex.getStackTrace().toString();
         _str = ex.fillInStackTrace().toString();

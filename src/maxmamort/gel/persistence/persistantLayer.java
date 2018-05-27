@@ -1,5 +1,7 @@
-package maxmamort.gel;
+package maxmamort.gel.persistence;
 
+import maxmamort.gel.Utils;
+import maxmamort.gel.persistence.dbAccess;
 import org.json.JSONArray;
 import org.json.JSONObject;
 

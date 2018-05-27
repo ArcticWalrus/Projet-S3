@@ -1,4 +1,4 @@
-package maxmamort.gel;
+package maxmamort.gel.persistence;
 
 import java.sql.*;
 import java.lang.*;
