@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class persistantLayer {
-    public static int addInput(String inputName, double defaultValue, int sensorType) {
+    public int addInput(String inputName, double defaultValue, int sensorType) {
         int returnValue = -1;
         String sql = "INSERT INTO public.intinput VALUES(DEFAULT, '" + inputName + "' , '" + defaultValue + "','" + sensorType + "') RETURNING serintinput;";
         dbAccess db = new dbAccess();
@@ -18,7 +18,7 @@ public class persistantLayer {
         return returnValue;
     }
 
-    public static int createInputGroup(int[] inputIds) {
+    public int createInputGroup(int[] inputIds) {
         int returnValue = -1;
         String sql = "INSERT INTO public.inputgroup (serinputgroup, conditiongroup, inputid, ordre) VALUES(DEFAULT, '" + "-1" + "' , '" + inputIds[0] + "',0) RETURNING serinputgroup;";
         dbAccess db = new dbAccess();
@@ -36,7 +36,7 @@ public class persistantLayer {
         return returnValue;
     }
 
-    public static int createCondition(int inputGroup, int outputGroup, int conditionType) {
+    public int createCondition(int inputGroup, int outputGroup, int conditionType) {
         int returnValue = -1;
         dbAccess db = new dbAccess();
         String sql = "INSERT INTO public.conditions (serconditions, inputgroup, outputgroup, operation) VALUES(DEFAULT , '" + inputGroup + "','" + outputGroup + "','" + conditionType + "' ) RETURNING serconditions;";
@@ -45,7 +45,7 @@ public class persistantLayer {
         return returnValue;
     }
 
-    public static JSONArray getConditionsAndInputs(int inputId) {
+    public JSONArray getConditionsAndInputs(int inputId) {
         JSONArray json = null;
 
         ArrayList<JSONArray> conditions = new ArrayList<>();

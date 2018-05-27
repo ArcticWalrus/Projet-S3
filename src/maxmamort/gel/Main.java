@@ -8,20 +8,21 @@ public class Main {
 
 
     public static void main(String[] args) {
-        int temp = persistantLayer.addInput("Test input", 22.5, 0);
-        int temp2 = persistantLayer.addInput("Input2", 21.2, 0);
+        persistantLayer pl = new persistantLayer();
+        int temp = pl.addInput("Test input", 22.5, 0);
+        int temp2 = pl.addInput("Input2", 21.2, 0);
 
-        int inputGroup = persistantLayer.createInputGroup(new int[]{temp, temp2});
+        int inputGroup = pl.createInputGroup(new int[]{temp, temp2});
 
-        int temp3 = persistantLayer.addInput("output1", 1.3, 1);
-        int outputGroup = persistantLayer.createInputGroup(new int[]{temp3});
+        int temp3 = pl.addInput("output1", 1.3, 1);
+        int outputGroup = pl.createInputGroup(new int[]{temp3});
 
-        int conditionId = persistantLayer.createCondition(inputGroup, outputGroup, 1);
+        int conditionId = pl.createCondition(inputGroup, outputGroup, 1);
         //  System.out.println(conditionId);
 
         //TODO add column to differentiate input from output
 
-        JSONArray jsonFinal = persistantLayer.getConditionsAndInputs(temp);
+        JSONArray jsonFinal = pl.getConditionsAndInputs(temp);
         LMThread _lmtLogic = new LMThread(jsonFinal);
         for (int i = 0; i < jsonFinal.length(); i++) {
             System.out.println(jsonFinal.get(i).toString());
