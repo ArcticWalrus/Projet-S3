@@ -44,7 +44,8 @@ public class LMThread implements Runnable {
         for (int i = 0; i < Args.length(); i++){
             try {
                 JSONObject _jsnArgs = Args.getJSONObject(i);
-
+                System.out.print("line number" + i + ": ");
+                System.out.println(_jsnArgs);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

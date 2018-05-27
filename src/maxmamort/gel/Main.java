@@ -29,6 +29,7 @@ public class Main {
         //TODO add column to differentiate input from output
 
         JSONArray jsonFinal = persistantLayer.getConditionsAndInputs(temp);
+        LMThread _lmtLogic = new LMThread(jsonFinal);
         for (int i = 0; i < jsonFinal.length(); i++) {
             System.out.println(jsonFinal.get(i).toString());
         }
