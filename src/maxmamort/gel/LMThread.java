@@ -12,10 +12,12 @@ public class LMThread implements Runnable {
     private ArrayList<String> _lstArgs = new ArrayList<String>();
     private boolean _booThreadStop = false;
     ArrayList<Integer> _lstOutputSerials = new ArrayList<Integer>();
+    ArrayList<JSONObject> _jsnTasks = new ArrayList<>();
 
 
     LMThread(JSONArray _jsnArgs) {
         parseArgs(_jsnArgs);
+        processAllTasks();
     }
 
     public void stop() {
@@ -34,7 +36,7 @@ public class LMThread implements Runnable {
     private void parseArgs(JSONArray Args) {
         System.out.println("--------------------------------------");
         JSONArray commands = new JSONArray();
-        ArrayList<JSONObject> _jsnTasks = new ArrayList<>();
+
 
         for (int i = 0; i < Args.length(); i++) {
             try {
@@ -50,10 +52,18 @@ public class LMThread implements Runnable {
             }
         }
 
+        /******** Will replace current function to seperate and match data
+        for (int i = 0; i < Args.length(); i++) {
+            //Extract outputs
+            //Extract inputs
+            //Match things
+        }
+        */
+
         for (int j = 0; j < _lstOutputSerials.size();j++){
             JSONObject _jsnItemOutput = Args.getJSONObject(j);
             JSONObject _jsnNewCondition = new JSONObject();
-            ArrayList<String> _strInputValues = new ArrayList<String>();
+            ArrayList<Float> _strInputValues = new ArrayList<Float>();
 
             //looking for outputgroup
             if(_jsnItemOutput.has("outputgroup")){
@@ -76,7 +86,7 @@ public class LMThread implements Runnable {
                                         if(_jsnItemInputValues.getInt("serintinput") == _intWantedInputID){
                                             //_jsnNewCondition.put("input", _jsnItemInputValues.getFloat("value"));
                                             float _fltInputValue = _jsnItemInputValues.getFloat("value");
-                                            _strInputValues.add(String.valueOf(_fltInputValue));
+                                            _strInputValues.add(_fltInputValue);
                                         }
                                     }
                                 }
@@ -86,25 +96,34 @@ public class LMThread implements Runnable {
                 }
             }
             _jsnNewCondition.put("input",_strInputValues);
+            System.out.println(_jsnNewCondition);
             _jsnTasks.add(_jsnNewCondition);
         }
-
-
-
-
-
-        System.out.println(_lstOutputSerials.size() + " conditions found are : ");
-        for (int i = 0; i < _jsnTasks.size(); i++) {
-            processTask(_jsnTasks.get(i));
-        }
-
-
-
+        
         System.out.println("--------------------------------------");
     }
 
+    private void processAllTasks(){
+        for (int i = 0; i < _jsnTasks.size(); i++){
+            processTask(_jsnTasks.get(i));
+        }
+    }
+
     private void processTask(JSONObject _jsnTask){
-        //process task by ID and shit
+        int _intTaskID = _jsnTask.getInt("operation");
+        switch(_intTaskID){
+            case 0:
+                System.out.println("task ID is 0. Executing task division");
+                break;
+            case 1:
+                System.out.println("task ID is 1. Executing task greaterThan");
+                break;
+            case 2:
+                System.out.println("task ID is 2. Executing task lessThan");
+            default:
+                System.out.println("task ID is not mapped to any behavior. Task ID received is : " + _intTaskID);
+                break;
+        }
     }
 
     private void updateOutput(int outputID, int value){
