@@ -13,14 +13,13 @@ public class Main
 	public static void main(String[] args)
 	{
         CommServer cseListener = new CommServer();
+        cseListener.start();
 
         CommClient cclWriter = new CommClient();
         cclWriter._seoToSend.setSourceIp("La mère à Josh");
         cclWriter._seoToSend.setTargetIp("La mère à Max");
         cclWriter._seoToSend.setRequestType(INPUTVALUE);
         cclWriter._seoToSend.setDataFrameTime();
-
-        cseListener.start();
         cclWriter.start();
 
         try
