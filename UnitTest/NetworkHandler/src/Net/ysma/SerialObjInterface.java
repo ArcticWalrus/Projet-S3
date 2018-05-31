@@ -1,4 +1,4 @@
-package comm.ysmael.javapkg;
+package Net.ysma;
 
 import java.util.Date;
 import org.json.JSONArray;

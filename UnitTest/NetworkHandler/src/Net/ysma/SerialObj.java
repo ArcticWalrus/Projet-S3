@@ -1,4 +1,4 @@
-package comm.ysmael.javapkg;
+package Net.ysma;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -8,7 +8,7 @@ import org.json.JSONArray;
 public class SerialObj implements SerialObjInterface, Serializable
 {
 	/**
-	 *  ID pour permettre la vérification de la classe lors de la dé-Serialization
+	 *  ID pour permettre la vï¿½rification de la classe lors de la dï¿½-Serialization
 	 */
 	private static final long serialVersionUID = -8973178568329153795L;
 	

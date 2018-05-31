@@ -1,4 +1,4 @@
-package comm.ysmael.javapkg;
+package Net.ysma;
 
 public class Main
 {
