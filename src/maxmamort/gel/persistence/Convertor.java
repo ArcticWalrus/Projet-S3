@@ -1,13 +1,23 @@
+/**
+ * @File:       Convertor.java
+ * @Author:     Maxim Bolduc
+ * @Date:       2018-05-31
+ * @Brief:      Classe utilitaire permettant de convertir des ResultSet en d'autres types
+ * @Reference:  //TODO Find back stackoverflow link
+ */
+
 package maxmamort.gel.persistence;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 
 public class Convertor {
     /**
      * Convert a result set into a JSON Array
+     *
      * @param rs
      * @return a JSONArray
      * @throws Exception
@@ -16,10 +26,10 @@ public class Convertor {
             throws Exception {
         JSONArray json = new JSONArray();
         ResultSetMetaData rsmd = rs.getMetaData();
-        while(rs.next()) {
+        while (rs.next()) {
             int numColumns = rsmd.getColumnCount();
             JSONObject obj = new JSONObject();
-            for (int i=1; i<=numColumns; i++) {
+            for (int i = 1; i <= numColumns; i++) {
                 String column_name = rsmd.getColumnName(i);
                 obj.put(column_name, rs.getObject(column_name));
             }
@@ -30,6 +40,7 @@ public class Convertor {
 
     /**
      * Convert a result set into a XML List
+     *
      * @param resultSet
      * @return a XML String with list elements
      * @throws Exception if something happens
@@ -42,7 +53,8 @@ public class Convertor {
             xmlArray.append("<result ");
             for (int i = 0; i < total_rows; i++) {
                 xmlArray.append(" " + resultSet.getMetaData().getColumnLabel(i + 1)
-                        .toLowerCase() + "='" + resultSet.getObject(i + 1) + "'"); }
+                        .toLowerCase() + "='" + resultSet.getObject(i + 1) + "'");
+            }
             xmlArray.append(" />");
         }
         xmlArray.append("</results>");
