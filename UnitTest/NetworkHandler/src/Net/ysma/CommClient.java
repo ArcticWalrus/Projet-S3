@@ -6,7 +6,7 @@ import java.io.*;
 public class CommClient extends Thread
 {
     public final static String SERVER_HOSTNAME = "127.0.0.1";
-    public final static int COMM_PORT = 8442;  // socket port for client comms
+    public final static int COMM_PORT = 8443;  // socket port for client comms
 
     private Socket _socSocket;
     private int _intPayload;

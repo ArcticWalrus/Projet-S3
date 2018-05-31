@@ -5,7 +5,7 @@ import java.io.*;
 
 public class CommServer extends Thread
 {
-	public final static int COMM_PORT = 8442; // socket port for client comms
+	public final static int COMM_PORT = 8443; // socket port for client comms
 
 	private ServerSocket _ssoServerSocket;
 	private InetSocketAddress _isaInboundAddr;
