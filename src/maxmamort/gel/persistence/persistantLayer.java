@@ -1,7 +1,15 @@
+/**
+ * @File:       persistantLayer.java
+ * @Author:     Maxim Bolduc
+ * @Date:       2018-05-31
+ * @Brief:      Fonctions customs de la couche de persistance effectuant la logique de persistance de l'application
+ */
+
+//TODO comment out this class
+
 package maxmamort.gel.persistence;
 
 import maxmamort.gel.Utils;
-import maxmamort.gel.persistence.dbAccess;
 import org.json.JSONArray;
 import org.json.JSONObject;
 

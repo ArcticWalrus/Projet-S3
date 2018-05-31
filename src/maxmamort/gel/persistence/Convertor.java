@@ -1,3 +1,11 @@
+/**
+ * @File:       Convertor.java
+ * @Author:     Maxim Bolduc
+ * @Date:       2018-05-31
+ * @Brief:      Classe utilitaire permettant de convertir des ResultSet en d'autres types
+ * @Reference:  //TODO Find back stackoverflow link
+ */
+
 package maxmamort.gel.persistence;
 
 import org.json.JSONArray;

@@ -1,4 +1,11 @@
 package maxmamort.gel.persistence;
+/**
+ * @File:       Utils.java
+ * @Author:     Maxim Bolduc
+ * @Date:       2018-05-31
+ * @Brief:      Classe utilitaire multifonctionnelle
+ * @Reference:  //https://stackoverflow.com/questions/7940711/in-java-how-can-i-combine-two-json-arrays-of-objects
+ */
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -6,8 +13,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class Utils {
-    //https://stackoverflow.com/questions/7940711/in-java-how-can-i-combine-two-json-arrays-of-objects
-
     /**
      * @brief Merge multiple JSONArray together
      * @param xyz The ArrayList of JSONArray to merge

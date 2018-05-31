@@ -1,3 +1,10 @@
+/**
+ * @File:       errorManager.java
+ * @Author:     Maxim Bolduc
+ * @Date:       2018-05-31
+ * @Brief:      Gère la gestion et l'archivage des erreurs du programme
+ */
+
 package maxmamort.gel.persistence;
 
 import java.text.DateFormat;
