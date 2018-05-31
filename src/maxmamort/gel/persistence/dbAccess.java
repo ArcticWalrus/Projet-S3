@@ -24,8 +24,8 @@ public class dbAccess implements IdbAccess {
     }
 
     /**
-     * @brief constructor that specifies if error should be logged
      * @param _boo_logError true if errors should be logged, false otherwise
+     * @brief constructor that specifies if error should be logged
      */
     public dbAccess(boolean _boo_logError) {
         boo_logError = _boo_logError;
@@ -33,16 +33,16 @@ public class dbAccess implements IdbAccess {
     }
 
     /**
-     * @brief Verify if an error occured in last query
      * @return true if error, false otherwise
+     * @brief Verify if an error occured in last query
      */
     public boolean isError() {
         return _boolIsError;
     }
 
     /**
-     * @brief Get the active db driver connection
      * @return the dB driver connection
+     * @brief Get the active db driver connection
      */
     public Connection getConnection() {
         return conn;
@@ -91,9 +91,9 @@ public class dbAccess implements IdbAccess {
     }
 
     /**
-     * @brief execute an insert query in db
      * @param str SQL query to be executed
      * @return true if suceeded, false if failed
+     * @brief execute an insert query in db
      */
     public boolean insertQuery(String str) {
         _boolIsError = false;
@@ -116,10 +116,10 @@ public class dbAccess implements IdbAccess {
     }
 
     /**
-     * @brief Execute an SQL insert query and return the id inserted
-     * @param str the SQL query to be executed
+     * @param str         the SQL query to be executed
      * @param IdFieldName Name of the field to return once executed
      * @return the value of the field to return
+     * @brief Execute an SQL insert query and return the id inserted
      */
     public int insertGetIdQuery(String str, String IdFieldName) {
         _boolIsError = false;
@@ -146,9 +146,9 @@ public class dbAccess implements IdbAccess {
     }
 
     /**
-     * @brief execute a select query on the database
      * @param str SQL query to be exeuted
      * @return A JSON formatted output of the query
+     * @brief execute a select query on the database
      */
     public JSONArray selectQuery(String str) {
         _boolIsError = false;
@@ -173,9 +173,9 @@ public class dbAccess implements IdbAccess {
     }
 
     /**
-     * @brief execute an update query
      * @param ps The preparedStatement of the SQL query
      * @return true if suceeded, false if failed
+     * @brief execute an update query
      */
     public boolean updateQuery(PreparedStatement ps) {
         _boolIsError = false;
@@ -203,9 +203,9 @@ public class dbAccess implements IdbAccess {
     }
 
     /**
-     * @brief execute an update query on the database
      * @param sql The SQL query to be executed
      * @return true if suceeded, false if failed
+     * @brief execute an update query on the database
      */
     public boolean updateQuery(String sql) {
         _boolIsError = false;
@@ -232,9 +232,9 @@ public class dbAccess implements IdbAccess {
     }
 
     /**
-     * @brief execute an SQL delete on de db
      * @param str The SQL delete statement to be executed
      * @return true if succeeded, false if failed
+     * @brief execute an SQL delete on de db
      */
     public boolean deleteQuery(String str) {
         _boolIsError = false;

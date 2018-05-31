@@ -8,7 +8,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class persistantLayer implements IpersistantLayer{
+public class persistantLayer implements IpersistantLayer {
     public int addInput(String inputName, double defaultValue, int sensorType) {
         int returnValue = -1;
         String sql = "INSERT INTO public.intinput VALUES(DEFAULT, '" + inputName + "' , '" + defaultValue + "','" + sensorType + "') RETURNING serintinput;";

@@ -8,8 +8,8 @@ import java.nio.file.Paths;
 
 public class errorManager implements IerrorManager {
     /**
-     * @brief Log and exception
      * @param ex The exception to log
+     * @brief Log and exception
      */
     public void logError(Exception ex) {
         String _str = ex.getStackTrace().toString();
@@ -19,9 +19,9 @@ public class errorManager implements IerrorManager {
     }
 
     /**
-     * @brief log an exception
-     * @param ex The exception to be logged
+     * @param ex      The exception to be logged
      * @param _userID The user (CIP) that fired the exception
+     * @brief log an exception
      */
     public void logError(Exception ex, String _userID) {
         String _str = ex.getStackTrace().toString();
@@ -30,19 +30,19 @@ public class errorManager implements IerrorManager {
     }
 
     /**
-     * @brief log an error
-     * @param error The error string to log
+     * @param error   The error string to log
      * @param _userID The user that fired this error
+     * @brief log an error
      */
     public void logError(String error, String _userID) {
         sendError("Custom", error, _userID);
     }
 
     /**
-     * @brief Send the error or exception to the database or file system
      * @param errorCode The code of the error
-     * @param message The string representing the exception or the error
-     * @param user The user that fired the exception
+     * @param message   The string representing the exception or the error
+     * @param user      The user that fired the exception
+     * @brief Send the error or exception to the database or file system
      */
     private void sendError(String errorCode, String message, String user) {
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -51,9 +51,8 @@ public class errorManager implements IerrorManager {
         String data = "'" + errorCode + "','" + dateFormat.format(date) + "','" + message + "','" + user + "'";
         if (!dba.insertQuery("INSERT INTO log (serSerial, valErrorCode, datDate, details, ValCIP) VALUES( DEFAULT," + data + " )")) {
             System.out.println("Failed db query");
-            String fileName = "E://ErrorLog.txt";
             try {
-                Files.write(Paths.get(fileName), data.getBytes());
+                Files.write(Paths.get(logPath), data.getBytes());
             } catch (Exception e) {
                 System.out.println("Failed file writting");
             }
