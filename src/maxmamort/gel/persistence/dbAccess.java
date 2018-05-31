@@ -1,3 +1,4 @@
+
 package maxmamort.gel.persistence;
 
 import java.sql.*;
@@ -14,24 +15,42 @@ public class dbAccess implements IdbAccess {
     private boolean _boolIsError = false;//Bonne variable
     private Connection conn = null;
 
+    /**
+     * @brief default constructor, logging disabled
+     */
     public dbAccess() {
         boo_logError = true;
         initConnection();
     }
 
+    /**
+     * @brief constructor that specifies if error should be logged
+     * @param _boo_logError true if errors should be logged, false otherwise
+     */
     public dbAccess(boolean _boo_logError) {
         boo_logError = _boo_logError;
         initConnection();
     }
 
+    /**
+     * @brief Verify if an error occured in last query
+     * @return true if error, false otherwise
+     */
     public boolean isError() {
         return _boolIsError;
     }
 
+    /**
+     * @brief Get the active db driver connection
+     * @return the dB driver connection
+     */
     public Connection getConnection() {
         return conn;
     }
 
+    /**
+     * @brief terminate de dB driver connexion
+     */
     public void closeConnection() {
         try {
             conn.close();
@@ -44,6 +63,9 @@ public class dbAccess implements IdbAccess {
         }
     }
 
+    /**
+     * @brief initiate de db driver connexion
+     */
     private void initConnection() {
         try {
             Class.forName("org.postgresql.Driver");
@@ -68,6 +90,11 @@ public class dbAccess implements IdbAccess {
         }
     }
 
+    /**
+     * @brief execute an insert query in db
+     * @param str SQL query to be executed
+     * @return true if suceeded, false if failed
+     */
     public boolean insertQuery(String str) {
         _boolIsError = false;
         Statement stmt = null;
@@ -88,6 +115,12 @@ public class dbAccess implements IdbAccess {
         return true;
     }
 
+    /**
+     * @brief Execute an SQL insert query and return the id inserted
+     * @param str the SQL query to be executed
+     * @param IdFieldName Name of the field to return once executed
+     * @return the value of the field to return
+     */
     public int insertGetIdQuery(String str, String IdFieldName) {
         _boolIsError = false;
         Statement stmt = null;
@@ -112,6 +145,11 @@ public class dbAccess implements IdbAccess {
         return returnValue;
     }
 
+    /**
+     * @brief execute a select query on the database
+     * @param str SQL query to be exeuted
+     * @return A JSON formatted output of the query
+     */
     public JSONArray selectQuery(String str) {
         _boolIsError = false;
         Statement stmt = null;
@@ -134,6 +172,11 @@ public class dbAccess implements IdbAccess {
         return returnValue;
     }
 
+    /**
+     * @brief execute an update query
+     * @param ps The preparedStatement of the SQL query
+     * @return true if suceeded, false if failed
+     */
     public boolean updateQuery(PreparedStatement ps) {
         _boolIsError = false;
         try {
@@ -159,6 +202,11 @@ public class dbAccess implements IdbAccess {
         return true;
     }
 
+    /**
+     * @brief execute an update query on the database
+     * @param sql The SQL query to be executed
+     * @return true if suceeded, false if failed
+     */
     public boolean updateQuery(String sql) {
         _boolIsError = false;
         try {
@@ -183,6 +231,11 @@ public class dbAccess implements IdbAccess {
         return true;
     }
 
+    /**
+     * @brief execute an SQL delete on de db
+     * @param str The SQL delete statement to be executed
+     * @return true if succeeded, false if failed
+     */
     public boolean deleteQuery(String str) {
         _boolIsError = false;
         Statement stmt = null;
