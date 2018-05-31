@@ -7,6 +7,10 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class errorManager implements IerrorManager {
+    /**
+     * @brief Log and exception
+     * @param ex The exception to log
+     */
     public void logError(Exception ex) {
         String _str = ex.getStackTrace().toString();
         _str = ex.fillInStackTrace().toString();
@@ -14,16 +18,32 @@ public class errorManager implements IerrorManager {
         sendError(_errorCode, _str, "NULL0000");
     }
 
+    /**
+     * @brief log an exception
+     * @param ex The exception to be logged
+     * @param _userID The user (CIP) that fired the exception
+     */
     public void logError(Exception ex, String _userID) {
         String _str = ex.getStackTrace().toString();
         String _errorCode = ex.toString();
         sendError(_errorCode, _str, _userID);
     }
 
+    /**
+     * @brief log an error
+     * @param error The error string to log
+     * @param _userID The user that fired this error
+     */
     public void logError(String error, String _userID) {
         sendError("Custom", error, _userID);
     }
 
+    /**
+     * @brief Send the error or exception to the database or file system
+     * @param errorCode The code of the error
+     * @param message The string representing the exception or the error
+     * @param user The user that fired the exception
+     */
     private void sendError(String errorCode, String message, String user) {
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date date = new Date();

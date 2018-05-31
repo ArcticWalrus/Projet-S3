@@ -5,8 +5,6 @@ import org.json.JSONArray;
 
 public class Main {
 
-
-
     public static void main(String[] args) {
         persistantLayer pl = new persistantLayer();
         int temp = pl.addInput("Test input", 22.5, 0);
