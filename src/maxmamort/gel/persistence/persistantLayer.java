@@ -23,12 +23,10 @@ public class persistantLayer {
         String sql = "INSERT INTO public.inputgroup (serinputgroup, conditiongroup, inputid, ordre) VALUES(DEFAULT, '" + "-1" + "' , '" + inputIds[0] + "',0) RETURNING serinputgroup;";
         dbAccess db = new dbAccess();
         returnValue = db.insertGetIdQuery(sql, "serinputgroup");
-        //TODO remove update and replace with something that tells sql to put id in conditiongroup
         sql = "UPDATE public.inputgroup SET conditiongroup = " + returnValue + " WHERE serinputgroup = " + returnValue;
         db.updateQuery(sql);
         //   System.out.println(returnValue);
         for (int i = 1; i < inputIds.length; i++) {
-            //TODO merge sql queries with array rather than each individual call
             sql = "INSERT INTO public.inputgroup (serinputgroup, conditiongroup, inputid, ordre) VALUES(DEFAULT, '" + returnValue + "' , '" + inputIds[i] + "','" + i + "');";
             db.insertQuery(sql);
         }
@@ -54,7 +52,7 @@ public class persistantLayer {
 
         dbAccess db = new dbAccess();
         json = db.selectQuery("SELECT * FROM public.inputgroup WHERE inputid = '" + inputId + "'");
-        System.out.println("Input group for given input is: " + json.toString());
+        //System.out.println("Input group for given input is: " + json.toString());
         List<Integer> conditionGroupId = new ArrayList<>();
 
         //Get conditions assosciated with input
