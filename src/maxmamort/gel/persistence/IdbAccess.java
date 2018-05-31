@@ -5,7 +5,6 @@ import org.json.JSONArray;
 import java.lang.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.Timestamp;
 
 public interface IdbAccess {
     String dbLocation = "jdbc:postgresql://209.226.99.228:5433/projectS3"; //REMOTE IP
