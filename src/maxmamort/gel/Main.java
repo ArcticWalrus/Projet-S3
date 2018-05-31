@@ -21,7 +21,7 @@ public class Main {
         int outputGroup = pl.createInputGroup(new int[]{temp3});
         int conditionId = pl.createCondition(inputGroup, outputGroup, 1);
 
-        
+
 
         /* JOSH VALUES FOR LMTHREAD TESTS */
         /* greaterThan test 1. Should pass */
