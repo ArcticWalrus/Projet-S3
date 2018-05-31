@@ -36,3 +36,27 @@ CREATE TABLE Log
   datDate TIMESTAMP not null ,
   Details TEXT not null
 );
+
+CREATE TABLE InputGroup
+(
+  serInputGroup SERIAL not null ,
+  /*nam*/ConditionGroup INTEGER not null ,
+  /*val*/InputId INTEGER not null ,
+  /*val*/Ordre INTEGER not null
+);
+
+CREATE TABLE Conditions
+(
+  serConditions SERIAL not null ,
+  /*val*/Operation INTEGER not null ,
+  /*val*/InputGroup INTEGER not null ,
+  /*val*/OutputGroup INTEGER not null
+);
+
+CREATE TABLE IntInput
+(
+  serIntInput SERIAL not null ,
+  namName TEXT not null ,
+  /*val*/Value numeric not null ,
+  /*val*/Type INTEGER not null
+);
