@@ -30,13 +30,14 @@ public class Main
             System.out.println(cseListener._seoLastValid.getTargetIp());
             System.out.println(cseListener._seoLastValid.getRequestType().toString());
             System.out.println(cseListener._seoLastValid.getDataFrameTime().toString());
-            Thread.sleep(1000);
+            cseListener.commServerStop();
+            cseListener.join();
         }
         catch (Exception e)
         {
             System.out.println(e.toString());
         }
-        cseListener.commServerStop();
+
         System.out.println("Fin du programme");
 	}
 }
