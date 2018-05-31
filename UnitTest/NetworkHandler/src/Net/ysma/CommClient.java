@@ -1,4 +1,4 @@
-package comm.ysmael.javapkg;
+package Net.ysma;
 
 import java.net.*;
 import java.io.*;
@@ -24,13 +24,13 @@ public class CommClient
 	        {
 	            this._socSocket = new Socket(SERVER_HOSTNAME, COMM_PORT);	//Ouvre la connection vers un serveur distant
 	            
-	            //Attends la réponse du serveur distant
+	            //Attends la rï¿½ponse du serveur distant
 	            InputStream iStream = this._socSocket.getInputStream();
 	            ObjectInputStream oiStream = new ObjectInputStream(iStream);
 	            this._intPayload = (int) oiStream.readObject();
 	            System.out.println("Received server acknowledge: Id = " + String.valueOf(this._intPayload));
 	            
-	            //Envoi de l'objet sérialisé
+	            //Envoi de l'objet sï¿½rialisï¿½
             	OutputStream oStream = this._socSocket.getOutputStream();
 				ObjectOutputStream ooStream = new ObjectOutputStream(oStream);
 				ooStream.writeObject(_seoToSend);

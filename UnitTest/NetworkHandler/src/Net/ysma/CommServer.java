@@ -1,4 +1,4 @@
-package comm.ysmael.javapkg;
+package Net.ysma;
 
 import java.net.*;
 import java.io.*;
@@ -69,17 +69,17 @@ public class CommServer
 				if(CommID == 65535)
 					CommID = 1;
 				
-				if(this._seoPayload._reqType != 0)	//Si l'objet est maintenant populé avec des nouvelles valeurs
+				if(this._seoPayload._reqType != 0)	//Si l'objet est maintenant populï¿½ avec des nouvelles valeurs
 				{
-					System.out.println("Un contenu valide demande maintenant la création d'un nouveau thread");
-					//Mettre l'appel de création de thread approprié ICI
+					System.out.println("Un contenu valide demande maintenant la crï¿½ation d'un nouveau thread");
+					//Mettre l'appel de crï¿½ation de thread appropriï¿½ ICI
 				}
 				else
 				{
-					System.out.println("Aucune valeur valide n'a été observée dans l'objet reçu");
+					System.out.println("Aucune valeur valide n'a ï¿½tï¿½ observï¿½e dans l'objet reï¿½u");
 					
 				}
-				//Destruction de l'objet car il a été redirigé dans le nouveau thread
+				//Destruction de l'objet car il a ï¿½tï¿½ redirigï¿½ dans le nouveau thread
 				this._seoPayload = new SerialObj();
 				
 				Thread.sleep(1000);
