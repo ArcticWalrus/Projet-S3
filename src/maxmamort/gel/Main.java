@@ -19,7 +19,6 @@ public class Main {
 
         int conditionId = pl.createCondition(inputGroup, outputGroup, 1);
 
-
         JSONArray jsonFinal = pl.getConditionsAndInputs(temp);
         LMThread _lmtLogic = new LMThread(jsonFinal);
         for (int i = 0; i < jsonFinal.length(); i++) {
