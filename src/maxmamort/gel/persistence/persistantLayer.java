@@ -1,14 +1,22 @@
+/**
+ * @File:       persistantLayer.java
+ * @Author:     Maxim Bolduc
+ * @Date:       2018-05-31
+ * @Brief:      Fonctions customs de la couche de persistance effectuant la logique de persistance de l'application
+ */
+
+//TODO comment out this class
+
 package maxmamort.gel.persistence;
 
 import maxmamort.gel.Utils;
-import maxmamort.gel.persistence.dbAccess;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class persistantLayer {
+public class persistantLayer implements IpersistantLayer {
     public int addInput(String inputName, double defaultValue, int sensorType) {
         int returnValue = -1;
         String sql = "INSERT INTO public.intinput VALUES(DEFAULT, '" + inputName + "' , '" + defaultValue + "','" + sensorType + "') RETURNING serintinput;";
@@ -16,6 +24,13 @@ public class persistantLayer {
         returnValue = db.insertGetIdQuery(sql, "serintinput");
         db.closeConnection();
         return returnValue;
+    }
+
+    public boolean updateOutputValue(int outputId, double value) {
+        dbAccess db = new dbAccess();
+        db.updateQuery("UPDATE public.intinput SET value = '" + value + "' WHERE serintinput = '" + outputId + "'");
+        db.closeConnection();
+        return db.isError();
     }
 
     public int createInputGroup(int[] inputIds) {

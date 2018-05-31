@@ -4,12 +4,12 @@ import maxmamort.gel.persistence.persistantLayer;
 import org.json.JSONArray;
 
 public class Main {
-
     private static final int OUTPUT = 1;
     private static final int INPUT = 0;
     private static final int GREATERTHAN = 0;
     private static final int LESSTHAN = 1;
     private static final int EQUALTO = 2;
+
 
 
     public static void main(String[] args) {

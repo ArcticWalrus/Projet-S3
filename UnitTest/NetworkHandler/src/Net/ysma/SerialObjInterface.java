@@ -1,4 +1,4 @@
-package comm.ysmael.javapkg;
+package Net.ysma;
 
 import java.util.Date;
 import org.json.JSONArray;
@@ -13,6 +13,6 @@ public interface SerialObjInterface
 	public Date getDataFrameTime();
 	public boolean setDataFrame(JSONArray arr);
 	public JSONArray getDataFrame();
-	public void setRequestType(int rt);
-	public int getRequestType();
+	public void setRequestType(Integer rt);
+	public Integer getRequestType();
 }
