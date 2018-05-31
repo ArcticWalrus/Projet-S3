@@ -16,18 +16,12 @@ public class Main {
         persistantLayer pl = new persistantLayer();
         int temp = pl.addInput("Test input", 22.5, INPUT);
         int temp2 = pl.addInput("Input2", 21.2, INPUT);
-
         int inputGroup = pl.createInputGroup(new int[]{temp, temp2});
-
         int temp3 = pl.addInput("output1", 1.3, OUTPUT);
         int outputGroup = pl.createInputGroup(new int[]{temp3});
-
         int conditionId = pl.createCondition(inputGroup, outputGroup, 1);
 
-
-
-
-
+        
 
         /* JOSH VALUES FOR LMTHREAD TESTS */
         /* greaterThan test 1. Should pass */
