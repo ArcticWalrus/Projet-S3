@@ -3,27 +3,30 @@ package Net.ysma;
 import java.net.*;
 import java.io.*;
 
-public class CommServer
+public class CommServer extends Thread
 {
-	public final static int COMM_PORT = 5050; // socket port for client comms
+	public final static int COMM_PORT = 8442; // socket port for client comms
 
 	private ServerSocket _ssoServerSocket;
 	private InetSocketAddress _isaInboundAddr;
 	private SerialObj _seoPayload;
+	public SerialObj _seoLastValid;
+
 
 	boolean _bServerActive = false;
 
 	public CommServer()
 	{
 		this._seoPayload = new SerialObj();
+		this._seoLastValid = new SerialObj();
 		_bServerActive = true;
 	}
 
 	private void init_ssoServerSocket()
 	{
-		this._isaInboundAddr = new InetSocketAddress(COMM_PORT);
 		try
 		{
+			this._isaInboundAddr = new InetSocketAddress(COMM_PORT);
 			this._ssoServerSocket = new java.net.ServerSocket(COMM_PORT);
 			assert this._ssoServerSocket.isBound();
 			if (this._ssoServerSocket.isBound())
@@ -51,6 +54,7 @@ public class CommServer
 		int CommID = 1;
 		init_ssoServerSocket();
 
+        System.out.println("STARTING Listener Thread...");
 		try
 		{
 			while (_bServerActive)
@@ -59,7 +63,7 @@ public class CommServer
 				Socket sock = this._ssoServerSocket.accept();
 				OutputStream oStream = sock.getOutputStream();
 				ObjectOutputStream ooStream = new ObjectOutputStream(oStream);
-				ooStream.writeObject(CommID); 
+				ooStream.writeObject(CommID);
 	            InputStream iStream = sock.getInputStream();
 	            ObjectInputStream oiStream = new ObjectInputStream(iStream);
 	            this._seoPayload = (SerialObj) oiStream.readObject();	// convert serilized _seoPayload
@@ -68,23 +72,24 @@ public class CommServer
 				CommID++;
 				if(CommID == 65535)
 					CommID = 1;
-				
-				if(this._seoPayload._reqType != 0)	//Si l'objet est maintenant popul� avec des nouvelles valeurs
+
+				if(this._seoPayload._reqType != 0)	//Si l'objet est maintenant populé avec des nouvelles valeurs
 				{
-					System.out.println("Un contenu valide demande maintenant la cr�ation d'un nouveau thread");
-					//Mettre l'appel de cr�ation de thread appropri� ICI
+					System.out.println("Un contenu valide demande maintenant la création d'un nouveau thread");
+					//Mettre l'appel de création de thread approprié ICI
+					this._seoLastValid = this._seoPayload;
 				}
 				else
 				{
-					System.out.println("Aucune valeur valide n'a �t� observ�e dans l'objet re�u");
-					
+					System.out.println("Aucune valeur valide n'a été observée dans l'objet re�u");
+
 				}
-				//Destruction de l'objet car il a �t� redirig� dans le nouveau thread
+				//Destruction de l'objet car il a été redirigé dans le nouveau thread
 				this._seoPayload = new SerialObj();
-				
-				Thread.sleep(1000);
+
+				Thread.sleep(100);
 			}
-			System.exit(1);
+            System.out.println("STOPPING Listener Thread...");
 		}
 		catch (ClassNotFoundException cne)
 		{
@@ -95,13 +100,13 @@ public class CommServer
 			System.err.println("Unable to get host address due to security.");
 			System.err.println(se.toString());
 			System.exit(1);
-		} 
+		}
 		catch (IOException ioe)
 		{
 			System.err.println("Unable to read data from an open socket.");
 			System.err.println(ioe.toString());
 			System.exit(1);
-		} 
+		}
 		catch (InterruptedException ie)
 		{
 		} // Thread sleep interrupted
@@ -110,7 +115,7 @@ public class CommServer
 			try
 			{
 				this._ssoServerSocket.close();
-			} 
+			}
 			catch (IOException ioe)
 			{
 				System.err.println("Unable to close an open socket.");

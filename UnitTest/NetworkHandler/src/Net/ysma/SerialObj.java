@@ -8,7 +8,7 @@ import org.json.JSONArray;
 public class SerialObj implements SerialObjInterface, Serializable
 {
 	/**
-	 *  ID pour permettre la v�rification de la classe lors de la d�-Serialization
+	 *  ID pour permettre la vérification de la classe lors de la dé-Serialization
 	 */
 	private static final long serialVersionUID = -8973178568329153795L;
 	
@@ -16,7 +16,7 @@ public class SerialObj implements SerialObjInterface, Serializable
 	String _strIPtarget;
 	Date _dateTimeSent;
 	JSONArray _jsnData;
-	int _reqType;
+	Integer _reqType;
 	
 	public SerialObj()
 	{
@@ -71,12 +71,12 @@ public class SerialObj implements SerialObjInterface, Serializable
 		return _jsnData;
 	}
 	
-	public void setRequestType(int rt)
+	public void setRequestType(Integer rt)
 	{
 			_reqType = rt;
 	}
 	
-	public int getRequestType()
+	public Integer getRequestType()
 	{
 		return _reqType;
 	}
