@@ -11,9 +11,9 @@ public class Main {
     private static final int EQUALTO = 2;
 
 
-
     public static void main(String[] args) {
         persistantLayer pl = new persistantLayer();
+
         int temp = pl.addInput("Test input", 22.5, INPUT);
         int temp2 = pl.addInput("Input2", 21.2, INPUT);
         int inputGroup = pl.createInputGroup(new int[]{temp, temp2});

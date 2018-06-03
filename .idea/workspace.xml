@@ -2,24 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09fc0b72-d918-4e4c-854f-e40ab48df6f5" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/projetS3.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/postgresql_42_2_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/postgresql_42_2_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTest/NetworkHandler/NetworkHandler.iml" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTest/NetworkHandler/NetworkHandler.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/persistantApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/projetS3.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/maxmamort/gel/Convertor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/maxmamort/gel/persistence/Convertor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/maxmamort/gel/IdbAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/maxmamort/gel/persistence/IdbAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/maxmamort/gel/IerrorManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/maxmamort/gel/persistence/IerrorManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/maxmamort/gel/IpersistantLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/maxmamort/gel/persistence/IpersistantLayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/maxmamort/gel/LMThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/maxmamort/gel/LMThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/maxmamort/gel/dbAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/maxmamort/gel/persistence/dbAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/maxmamort/gel/errorManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/maxmamort/gel/persistence/errorManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/maxmamort/gel/persistantLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/maxmamort/gel/persistence/persistantLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/maxmamort/gel/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/maxmamort/gel/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,7 +15,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="projetS3.iml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="projetS3.iml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projetS3.iml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
@@ -52,8 +36,20 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            <state relative-caret-position="187">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LMThread.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/LMThread.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -123,9 +119,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/projetS3.iml" />
         <option value="$PROJECT_DIR$/src/maxmamort/gel/Main.java" />
         <option value="$PROJECT_DIR$/src/maxmamort/gel/LMThread.java" />
-        <option value="$PROJECT_DIR$/projetS3.iml" />
       </list>
     </option>
   </component>
@@ -153,6 +149,19 @@
               <item name="projetS3" type="b2602c69:ProjectViewProjectNode" />
               <item name="projetS3" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="projetS3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projetS3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="gel" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="projetS3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projetS3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="gel" type="462c0819:PsiDirectoryNode" />
+              <item name="persistence" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -284,16 +293,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/LMThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="134" column="16" selection-start-line="134" selection-start-column="16" selection-end-line="134" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/IpersistantLayer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -329,16 +328,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/IdbAccess.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -364,6 +353,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="9" lean-forward="true" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/LMThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -7,11 +7,12 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import maxmamort.gel.persistence.persistantLayer;
 
 public class LMThread implements Runnable {
 
     private static final double TOLERANCE = 0.01;
-    //private persistanceLayer pl = new persistaceLayer();
+    private persistantLayer pl = new persistantLayer();
     private int _intInstruction;
     private ArrayList<String> _lstArgs = new ArrayList<String>();
     private boolean _booThreadStop = false;
@@ -116,24 +117,33 @@ public class LMThread implements Runnable {
     }
 
     private void processTask(JSONObject _jsnTask) {
-        boolean result = false;
         int _intTaskID = _jsnTask.getInt("operation");
         int outputID = _jsnTask.getInt("output");
         switch (_intTaskID) {
             case 0:
                 System.out.println("task ID is 0. Executing task greaterThan");
-                result = greaterThan(_jsnTask);
-                //   pl.updateOutputValue(outputID, (float)result);
+                if (greaterThan(_jsnTask)) {
+                    pl.updateOutputValue(outputID, 1.0);
+                } else {
+                    pl.updateOutputValue(outputID, 0.0);
+                }
                 break;
             case 1:
                 System.out.println("task ID is 1. Executing task lessThan");
-                result = lessThan(_jsnTask);
-                //  pl.updateOutputValue(outputID, (float)result);
+                if (lessThan(_jsnTask)) {
+                    pl.updateOutputValue(outputID, 1.0);
+                } else {
+                    pl.updateOutputValue(outputID, 0.0);
+                }
                 break;
             case 2:
                 System.out.println("task ID is 2. Executing task equalTo");
-                result = equalTo(_jsnTask);
-                //  pl.updateOutputValue(outputID, (float)result);
+                if (equalTo(_jsnTask)) {
+                    pl.updateOutputValue(outputID, 1.0);
+                } else {
+                    pl.updateOutputValue(outputID, 0.0);
+                }
+                break;
             default:
                 System.out.println("task ID is not mapped to any behavior. Task ID received is : " + _intTaskID);
                 break;
