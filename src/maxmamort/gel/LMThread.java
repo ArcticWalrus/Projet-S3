@@ -4,7 +4,6 @@ package maxmamort.gel;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import maxmamort.gel.persistence.persistantLayer;
 
 import java.util.ArrayList;
 
@@ -12,7 +11,7 @@ import java.util.ArrayList;
 public class LMThread implements Runnable {
 
     private static final double TOLERANCE = 0.01;
-    private persistanceLayer pl = new persistaceLayer();
+    //private persistanceLayer pl = new persistaceLayer();
     private int _intInstruction;
     private ArrayList<String> _lstArgs = new ArrayList<String>();
     private boolean _booThreadStop = false;
@@ -20,7 +19,6 @@ public class LMThread implements Runnable {
     ArrayList<JSONObject> _lstJSONInput = new ArrayList<JSONObject>();
     ArrayList<JSONObject> _lstJSONInputValues = new ArrayList<JSONObject>();
     ArrayList<JSONObject> _jsnTasks = new ArrayList<>();
-
 
 
     LMThread(JSONArray _jsnArgs) {
@@ -49,9 +47,9 @@ public class LMThread implements Runnable {
         System.out.println("--------------------------------------");
     }
 
-    private void matchIOC(){
+    private void matchIOC() {
         /* get condition number for all outputs */
-        for(int i = 0; i < _lstJSONOutput.size(); i++){
+        for (int i = 0; i < _lstJSONOutput.size(); i++) {
             JSONObject _jsnCurrentOutput = _lstJSONOutput.get(i);
             JSONObject _jsnCurrentTask = new JSONObject();
 
@@ -63,27 +61,27 @@ public class LMThread implements Runnable {
         }
 
         /* for all conditions */
-        for(int j = 0; j < _jsnTasks.size(); j++){
+        for (int j = 0; j < _jsnTasks.size(); j++) {
             JSONObject _jsnCurrentTask = _jsnTasks.get(j);
             int currentOutputConditionGroup = _jsnCurrentTask.getInt("conditionNumber");
             ArrayList<Integer> inputNumbers = new ArrayList<>();
             ArrayList<Double> inputValues = new ArrayList<>();
 
             /* find all associated inputs */
-            for (int k = 0; k < _lstJSONInput.size(); k++){
+            for (int k = 0; k < _lstJSONInput.size(); k++) {
                 JSONObject _jsnCurrentInputItem = _lstJSONInput.get(k);
                 int _intCurrentItemCondGroup = _jsnCurrentInputItem.getInt("conditiongroup");
-                if( _intCurrentItemCondGroup == currentOutputConditionGroup){
+                if (_intCurrentItemCondGroup == currentOutputConditionGroup) {
                     inputNumbers.add(_jsnCurrentInputItem.getInt("inputid"));
                 }
             }
 
             /* find values of all inputs */
-            for (int l = 0; l < inputNumbers.size(); l++){
+            for (int l = 0; l < inputNumbers.size(); l++) {
                 int _intCurrentInputNumber = inputNumbers.get(l);
-                for(int i = 0; i < _lstJSONInputValues.size(); i++){
+                for (int i = 0; i < _lstJSONInputValues.size(); i++) {
                     JSONObject _jsnCurrentItem = _lstJSONInputValues.get(i);
-                    if(_jsnCurrentItem.getInt("serintinput") == _intCurrentInputNumber){
+                    if (_jsnCurrentItem.getInt("serintinput") == _intCurrentInputNumber) {
                         inputValues.add(_jsnCurrentItem.getDouble("value"));
                         break;
                     }
@@ -95,57 +93,54 @@ public class LMThread implements Runnable {
         }
     }
 
-    private void seperateIOC(JSONArray Args){
+    private void seperateIOC(JSONArray Args) {
         System.out.println("seperating inputs/outputs/conds");
         for (int i = 0; i < Args.length(); i++) {
 
             JSONObject _jsnItem = Args.getJSONObject(i);
 
-            if(_jsnItem.has("outputgroup")){
+            if (_jsnItem.has("outputgroup")) {
                 _lstJSONOutput.add(Args.getJSONObject(i));
-            }
-
-            else if(_jsnItem.has("inputid")){
+            } else if (_jsnItem.has("inputid")) {
                 _lstJSONInput.add(Args.getJSONObject(i));
-            }
-
-            else {
+            } else {
                 _lstJSONInputValues.add(Args.getJSONObject(i));
             }
         }
     }
 
-    private void processAllTasks(){
-        for (int i = 0; i < _jsnTasks.size(); i++){
+    private void processAllTasks() {
+        for (int i = 0; i < _jsnTasks.size(); i++) {
             processTask(_jsnTasks.get(i));
         }
     }
 
-    private void processTask(JSONObject _jsnTask){
+    private void processTask(JSONObject _jsnTask) {
+        boolean result = false;
         int _intTaskID = _jsnTask.getInt("operation");
         int outputID = _jsnTask.getInt("output");
-        switch(_intTaskID){
+        switch (_intTaskID) {
             case 0:
                 System.out.println("task ID is 0. Executing task greaterThan");
-                boolean result = greaterThan(_jsnTask);
-                pl.updateOutputValue(outputID, (float)result);
+                result = greaterThan(_jsnTask);
+                //   pl.updateOutputValue(outputID, (float)result);
                 break;
             case 1:
                 System.out.println("task ID is 1. Executing task lessThan");
-                boolean result = lessThan(_jsnTask);
-                pl.updateOutputValue(outputID, (float)result);
+                result = lessThan(_jsnTask);
+                //  pl.updateOutputValue(outputID, (float)result);
                 break;
             case 2:
                 System.out.println("task ID is 2. Executing task equalTo");
-                boolean result = equalTo(_jsnTask);
-                pl.updateOutputValue(outputID, (float)result);
+                result = equalTo(_jsnTask);
+                //  pl.updateOutputValue(outputID, (float)result);
             default:
                 System.out.println("task ID is not mapped to any behavior. Task ID received is : " + _intTaskID);
                 break;
         }
     }
 
-    private boolean greaterThan(JSONObject _jsnTask){
+    private boolean greaterThan(JSONObject _jsnTask) {
 
         double input1, input2;
 
@@ -154,36 +149,34 @@ public class LMThread implements Runnable {
         input2 = _jsnInputs.getDouble(1);
 
         System.out.println("GT test for values: " + input1 + " and " + input2);
-        if(input1 > input2){
+        if (input1 > input2) {
             System.out.println("input1 is greater than input2. PASSED");
             return true;
 
-        }
-        else{
+        } else {
             System.out.println("input1 is less than input2. FAILED");
             return false;
         }
     }
 
-    private boolean lessThan(JSONObject _jsnTask){
+    private boolean lessThan(JSONObject _jsnTask) {
         double input1, input2;
 
         JSONArray _jsnInputs = _jsnTask.getJSONArray("input");
         input1 = _jsnInputs.getDouble(0);
         input2 = _jsnInputs.getDouble(1);
         System.out.println("LT test for values: " + input1 + " and " + input2);
-        if(input1 < input2){
+        if (input1 < input2) {
             System.out.println("input1 is less than input2. PASSED");
             return true;
 
-        }
-        else{
+        } else {
             System.out.println("input1 is greater than input2. FAILED");
             return false;
         }
     }
 
-    private boolean equalTo(JSONObject _jsnTask){
+    private boolean equalTo(JSONObject _jsnTask) {
         double input1, input2;
 
         JSONArray _jsnInputs = _jsnTask.getJSONArray("input");
@@ -194,12 +187,10 @@ public class LMThread implements Runnable {
         double _dblUpperLimit = input1 * (1.0 + TOLERANCE);
         double _dblLowerLimit = input1 * (1.0 - TOLERANCE);
 
-        if(input2 < _dblUpperLimit && input2 > _dblLowerLimit){
+        if (input2 < _dblUpperLimit && input2 > _dblLowerLimit) {
             System.out.println("input1 is equal to input2. PASSED");
             return true;
-        }
-
-        else{
+        } else {
             System.out.println("input1 is not equal to input2. FAILED");
             return false;
         }

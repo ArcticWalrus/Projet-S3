@@ -112,7 +112,7 @@ public class persistantLayer implements IpersistantLayer {
         //     System.out.println("data is: " + conditions.get(i).toString());
         //}
         //   System.out.println(conditions.toString() + "\n\n");
-        json = Utils.getMergeJson(conditions);
+        json = maxmamort.gel.Utils.getMergeJson(conditions);
 
         //Get ouput group
         for (int i = 0; i < json.length(); i++) {
@@ -125,7 +125,7 @@ public class persistantLayer implements IpersistantLayer {
         for (int i = 0; i < conditionGroupId.size(); i++) {
             inputGroups.add(db.selectQuery("SELECT * FROM public.inputgroup WHERE conditiongroup = " + conditionGroupId.get(i)));
         }
-        json = Utils.getMergeJson(inputGroups);
+        json = maxmamort.gel.Utils.getMergeJson(inputGroups);
 
         //Get inputs associated with groupid
         for (int i = 0; i < json.length(); i++) {
