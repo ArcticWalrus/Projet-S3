@@ -1,0 +1,11 @@
+CREATE TRIGGER Struct_is_new_column
+  AFTER INSERT
+  ON tblstruct
+  FOR EACH ROW
+  EXECUTE PROCEDURE tblupdate();
+
+CREATE TRIGGER Logging
+  AFTER INSERT
+  ON *
+  FOR EACH ROW
+  EXECUTE PROCEDURE ;
