@@ -13,14 +13,13 @@ public class Main
 	public static void main(String[] args)
 	{
         CommServer cseListener = new CommServer();
+        cseListener.start();
 
         CommClient cclWriter = new CommClient();
         cclWriter._seoToSend.setSourceIp("La mère à Josh");
         cclWriter._seoToSend.setTargetIp("La mère à Max");
         cclWriter._seoToSend.setRequestType(INPUTVALUE);
         cclWriter._seoToSend.setDataFrameTime();
-
-        cseListener.start();
         cclWriter.start();
 
         try
@@ -30,13 +29,14 @@ public class Main
             System.out.println(cseListener._seoLastValid.getTargetIp());
             System.out.println(cseListener._seoLastValid.getRequestType().toString());
             System.out.println(cseListener._seoLastValid.getDataFrameTime().toString());
-            Thread.sleep(1000);
+            cseListener.commServerStop();
+            cseListener.join();
         }
         catch (Exception e)
         {
             System.out.println(e.toString());
         }
-        cseListener.commServerStop();
+
         System.out.println("Fin du programme");
 	}
 }
