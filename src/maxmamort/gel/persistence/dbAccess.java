@@ -8,11 +8,10 @@
 
 package maxmamort.gel.persistence;
 
-import java.sql.*;
-import java.lang.*;
-import java.sql.ResultSet;
-
 import org.json.JSONArray;
+
+import java.sql.*;
+import java.sql.ResultSet;
 
 public class dbAccess implements IdbAccess {
 

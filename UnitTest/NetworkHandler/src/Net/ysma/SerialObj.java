@@ -1,9 +1,9 @@
 package Net.ysma;
 
+import org.json.JSONArray;
+
 import java.io.Serializable;
 import java.util.Date;
-
-import org.json.JSONArray;
 
 public class SerialObj implements SerialObjInterface, Serializable
 {

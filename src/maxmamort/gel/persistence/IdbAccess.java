@@ -2,7 +2,6 @@ package maxmamort.gel.persistence;
 
 import org.json.JSONArray;
 
-import java.lang.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 

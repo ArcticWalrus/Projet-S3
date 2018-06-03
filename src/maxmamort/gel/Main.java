@@ -31,7 +31,7 @@ public class Main {
 
         /* JOSH VALUES FOR LMTHREAD TESTS */
         /* greaterThan test 1. Should pass */
-        int gtTest1_value1 = pl.addInput("gtTest1_value1", 23.5, INPUT);
+        //int gtTest1_value1 = pl.addInput("gtTest1_value1", 23.5, INPUT);
         int gtTest1_value2 = pl.addInput("gtTest1_value2", 21.5, INPUT);
         int gtTest1_InputGroup = pl.createInputGroup(new int[]{temp, gtTest1_value2});
         int gtTest1_output = pl.addInput("gtTest1_output", 1.3, OUTPUT);
@@ -39,7 +39,7 @@ public class Main {
         int gtTest1_condID = pl.createCondition(gtTest1_InputGroup, gtTest1_OutputGroup, GREATERTHAN);
 
         /* lessthan test 1. Should pass */
-        int ltTest1_value1 = pl.addInput("ltTest1_value1", 23.5, INPUT);
+        //int ltTest1_value1 = pl.addInput("ltTest1_value1", 23.5, INPUT);
         int ltTest1_value2 = pl.addInput("gtTest1_value2", 23.5, INPUT);
         int ltTest1_InputGroup = pl.createInputGroup(new int[]{temp, ltTest1_value2});
         int ltTest1_output = pl.addInput("ltTest1_output", 1.3, OUTPUT);
@@ -47,7 +47,7 @@ public class Main {
         int ltTest1_condID = pl.createCondition(ltTest1_InputGroup, ltTest1_OutputGroup, LESSTHAN);
 
         /* equal to test1. Should pass */
-        int etTest1_value1 = pl.addInput("etTest1_value1", 22.5, INPUT);
+        //int etTest1_value1 = pl.addInput("etTest1_value1", 22.5, INPUT);
         int etTest1_value2 = pl.addInput("etTest1_value2", 22.5, INPUT);
         int etTest1_InputGroup = pl.createInputGroup(new int[]{temp, etTest1_value2});
         int etTest1_output = pl.addInput("etTest1_output", 1.3, OUTPUT);

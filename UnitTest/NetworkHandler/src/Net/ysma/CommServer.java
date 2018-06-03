@@ -1,7 +1,7 @@
 package Net.ysma;
 
-import java.net.*;
 import java.io.*;
+import java.net.*;
 
 public class CommServer extends Thread
 {

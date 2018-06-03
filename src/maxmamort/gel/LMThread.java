@@ -2,16 +2,17 @@
 
 package maxmamort.gel;
 
-import java.util.ArrayList;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
+import maxmamort.gel.persistence.persistantLayer;
+
+import java.util.ArrayList;
 
 
 public class LMThread implements Runnable {
 
     private static final double TOLERANCE = 0.01;
-
+    private persistanceLayer pl = new persistaceLayer();
     private int _intInstruction;
     private ArrayList<String> _lstArgs = new ArrayList<String>();
     private boolean _booThreadStop = false;
@@ -88,8 +89,8 @@ public class LMThread implements Runnable {
                     }
                 }
             }
-            System.out.println("for output: " + _jsnCurrentTask.getInt("output") + " input ids are: " + inputNumbers);
-            System.out.println("for output: " + _jsnCurrentTask.getInt("output") + " input values are: " + inputValues);
+            //System.out.println("for output: " + _jsnCurrentTask.getInt("output") + " input ids are: " + inputNumbers);
+            //System.out.println("for output: " + _jsnCurrentTask.getInt("output") + " input values are: " + inputValues);
             _jsnCurrentTask.put("input", inputValues);
         }
     }
@@ -122,25 +123,29 @@ public class LMThread implements Runnable {
 
     private void processTask(JSONObject _jsnTask){
         int _intTaskID = _jsnTask.getInt("operation");
+        int outputID = _jsnTask.getInt("output");
         switch(_intTaskID){
             case 0:
                 System.out.println("task ID is 0. Executing task greaterThan");
-                greaterThan(_jsnTask);
+                boolean result = greaterThan(_jsnTask);
+                pl.updateOutputValue(outputID, (float)result);
                 break;
             case 1:
                 System.out.println("task ID is 1. Executing task lessThan");
-                lessThan(_jsnTask);
+                boolean result = lessThan(_jsnTask);
+                pl.updateOutputValue(outputID, (float)result);
                 break;
             case 2:
                 System.out.println("task ID is 2. Executing task equalTo");
-                equalTo(_jsnTask);
+                boolean result = equalTo(_jsnTask);
+                pl.updateOutputValue(outputID, (float)result);
             default:
                 System.out.println("task ID is not mapped to any behavior. Task ID received is : " + _intTaskID);
                 break;
         }
     }
 
-    private void greaterThan(JSONObject _jsnTask){
+    private boolean greaterThan(JSONObject _jsnTask){
 
         double input1, input2;
 
@@ -151,14 +156,16 @@ public class LMThread implements Runnable {
         System.out.println("GT test for values: " + input1 + " and " + input2);
         if(input1 > input2){
             System.out.println("input1 is greater than input2. PASSED");
+            return true;
 
         }
         else{
             System.out.println("input1 is less than input2. FAILED");
+            return false;
         }
     }
 
-    private void lessThan(JSONObject _jsnTask){
+    private boolean lessThan(JSONObject _jsnTask){
         double input1, input2;
 
         JSONArray _jsnInputs = _jsnTask.getJSONArray("input");
@@ -167,14 +174,16 @@ public class LMThread implements Runnable {
         System.out.println("LT test for values: " + input1 + " and " + input2);
         if(input1 < input2){
             System.out.println("input1 is less than input2. PASSED");
+            return true;
 
         }
         else{
             System.out.println("input1 is greater than input2. FAILED");
+            return false;
         }
     }
 
-    private void equalTo(JSONObject _jsnTask){
+    private boolean equalTo(JSONObject _jsnTask){
         double input1, input2;
 
         JSONArray _jsnInputs = _jsnTask.getJSONArray("input");
@@ -187,10 +196,12 @@ public class LMThread implements Runnable {
 
         if(input2 < _dblUpperLimit && input2 > _dblLowerLimit){
             System.out.println("input1 is equal to input2. PASSED");
+            return true;
         }
 
         else{
             System.out.println("input1 is not equal to input2. FAILED");
+            return false;
         }
     }
 }

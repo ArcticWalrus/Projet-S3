@@ -7,11 +7,11 @@
 
 package maxmamort.gel.persistence;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 public class errorManager implements IerrorManager {
     /**
