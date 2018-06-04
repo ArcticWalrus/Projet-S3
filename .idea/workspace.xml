@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="09fc0b72-d918-4e4c-854f-e40ab48df6f5" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/maxmamort/gel/LMThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/maxmamort/gel/LMThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/maxmamort/gel/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/maxmamort/gel/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/maxmamort/gel/persistence/IpersistantLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/maxmamort/gel/persistence/IpersistantLayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/maxmamort/gel/persistence/dbAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/maxmamort/gel/persistence/dbAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/maxmamort/gel/persistence/persistantLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/maxmamort/gel/persistence/persistantLayer.java" afterDir="false" />
-    </list>
+    <list default="true" id="09fc0b72-d918-4e4c-854f-e40ab48df6f5" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,8 +24,8 @@
       <file leaf-file-name="persistantLayer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/persistantLayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="95" selection-start-line="95" selection-end-line="95" />
+            <state relative-caret-position="-1101">
+              <caret line="72" column="45" selection-start-line="72" selection-start-column="45" selection-end-line="72" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -150,8 +144,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="176" />
-    <option name="y" value="52" />
+    <option name="x" value="310" />
+    <option name="y" value="556" />
     <option name="width" value="2800" />
     <option name="height" value="1248" />
   </component>
@@ -413,8 +407,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/persistantLayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="95" selection-start-line="95" selection-end-line="95" />
+        <state relative-caret-position="-1101">
+          <caret line="72" column="45" selection-start-line="72" selection-start-column="45" selection-end-line="72" selection-end-column="45" />
         </state>
       </provider>
     </entry>
