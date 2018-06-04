@@ -123,25 +123,25 @@ public class LMThread implements Runnable {
             case 0:
                 System.out.println("task ID is 0. Executing task greaterThan");
                 if (greaterThan(_jsnTask)) {
-                    pl.updateOutputValue(outputID, 1.0);
+                    pl.updateValueOutputGroup(outputID, 1.0);
                 } else {
-                    pl.updateOutputValue(outputID, 0.0);
+                    pl.updateValueOutputGroup(outputID, 0.0);
                 }
                 break;
             case 1:
                 System.out.println("task ID is 1. Executing task lessThan");
                 if (lessThan(_jsnTask)) {
-                    pl.updateOutputValue(outputID, 1.0);
+                    pl.updateValueOutputGroup(outputID, 1.0);
                 } else {
-                    pl.updateOutputValue(outputID, 0.0);
+                    pl.updateValueOutputGroup(outputID, 0.0);
                 }
                 break;
             case 2:
                 System.out.println("task ID is 2. Executing task equalTo");
                 if (equalTo(_jsnTask)) {
-                    pl.updateOutputValue(outputID, 1.0);
+                    pl.updateValueOutputGroup(outputID, 1.0);
                 } else {
-                    pl.updateOutputValue(outputID, 0.0);
+                    pl.updateValueOutputGroup(outputID, 0.0);
                 }
                 break;
             default:

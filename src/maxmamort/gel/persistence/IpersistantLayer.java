@@ -7,6 +7,8 @@ public interface IpersistantLayer {
 
     boolean updateOutputValue(int outputId, double value);
 
+    boolean updateValueOutputGroup(int outputGroup, double value);
+
     int createInputGroup(int[] inputIds);
 
     int createCondition(int inputGroup, int outputGroup, int conditionType);

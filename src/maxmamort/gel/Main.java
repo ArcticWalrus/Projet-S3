@@ -21,8 +21,6 @@ public class Main {
         int outputGroup = pl.createInputGroup(new int[]{temp3});
         int conditionId = pl.createCondition(inputGroup, outputGroup, 1);
 
-
-
         /* JOSH VALUES FOR LMTHREAD TESTS */
         /* greaterThan test 1. Should pass */
         //int gtTest1_value1 = pl.addInput("gtTest1_value1", 23.5, INPUT);
@@ -51,10 +49,12 @@ public class Main {
 
         JSONArray jsonFinal = pl.getConditionsAndInputs(temp);
         LMThread _lmtLogic = new LMThread(jsonFinal);
-        for (int i = 0; i < jsonFinal.length(); i++) {
-            System.out.println(jsonFinal.get(i).toString());
-        }
-        System.out.println("\n\n" + jsonFinal.toString());
+        /*
+            for (int i = 0; i < jsonFinal.length(); i++) {
+                System.out.println(jsonFinal.get(i).toString());
+            }
+            System.out.println("\n\n" + jsonFinal.toString());
+        */
 
         //TEST methods for error manager
      /*   System.out.println("\n Division by zero exception handling in database");
