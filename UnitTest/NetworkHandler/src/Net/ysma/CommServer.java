@@ -5,7 +5,7 @@ import java.io.*;
 
 public class CommServer extends Thread
 {
-    public final static int COMM_PORT = 8443; // socket port for client comms
+    private int COMM_PORT; // socket port for client comms
 
     private ServerSocket _ssoServerSocket;
     private InetSocketAddress _isaInboundAddr;
@@ -16,6 +16,14 @@ public class CommServer extends Thread
     boolean _bServerActive = false;
 
     public CommServer() {
+        this.COMM_PORT = 8443; // socket port for client comms
+        this._seoPayload = new SerialObj();
+        this._seoLastValid = new SerialObj();
+        _bServerActive = true;
+    }
+
+    public CommServer(int iPort) {
+        COMM_PORT = iPort; // socket port for client comms
         this._seoPayload = new SerialObj();
         this._seoLastValid = new SerialObj();
         _bServerActive = true;

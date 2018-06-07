@@ -5,8 +5,8 @@ import java.io.*;
 
 public class CommClient extends Thread
 {
-    public final static String SERVER_HOSTNAME = "127.0.0.1";
-    public final static int COMM_PORT = 8443;  // socket port for client comms
+    private String SERVER_HOSTNAME;
+    private int COMM_PORT;  // socket port for client comms
 
     private Socket _socSocket;
     private int _intPayload;
@@ -15,6 +15,22 @@ public class CommClient extends Thread
     /** Default constructor. */
     public CommClient()
     {
+        this.SERVER_HOSTNAME = "127.0.0.1";
+        this.COMM_PORT = 8443;  // socket port for client comms
+        this._seoToSend = new SerialObj();
+    }
+
+    public CommClient(String strHostName)
+    {
+        this.SERVER_HOSTNAME = strHostName;
+        this.COMM_PORT = 8443;  // socket port for client comms
+        this._seoToSend = new SerialObj();
+    }
+
+    public CommClient(String strHostName, int iPort)
+    {
+        this.SERVER_HOSTNAME = strHostName;
+        this.COMM_PORT = iPort;  // socket port for client comms
         this._seoToSend = new SerialObj();
     }
 
