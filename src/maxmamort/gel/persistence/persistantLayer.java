@@ -91,7 +91,6 @@ public class persistantLayer implements IpersistantLayer {
         for (int i = 0; i < json.length(); i++) {
             JSONObject obj = json.getJSONObject(i);
             int id = obj.getInt("inputid");
-            System.out.println(id);
             updateOutputValue(id, value);
         }
         db.closeConnection();
@@ -104,7 +103,7 @@ public class persistantLayer implements IpersistantLayer {
      * @brief Get the conditions and what is needed to manage them from an InputID
      */
     public JSONArray getConditionsAndInputs(int inputId) {
-        JSONArray json = null;
+        JSONArray json = null;//result JSON
 
         ArrayList<JSONArray> conditions = new ArrayList<>();
         ArrayList<JSONArray> inputGroups = new ArrayList<>();
@@ -122,10 +121,7 @@ public class persistantLayer implements IpersistantLayer {
             // System.out.println("Condition ID: " + conditionGroupId.get(i));
             conditions.add(db.selectQuery("SELECT * FROM public.conditions WHERE inputgroup = " + conditionGroupId.get(i)));
         }
-        //  for(int i = 0; i < conditions.size(); i++ ){
-        //     System.out.println("data is: " + conditions.get(i).toString());
-        //}
-        //   System.out.println(conditions.toString() + "\n\n");
+
         json = maxmamort.gel.Utils.getMergeJson(conditions);
 
         //Get ouput group

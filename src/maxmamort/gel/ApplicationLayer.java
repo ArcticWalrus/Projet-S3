@@ -14,14 +14,12 @@ public class ApplicationLayer {
     private static final int LESSTHAN = 1;
     private static final int EQUALTO = 2;
 
-    public ApplicationLayer()
-    {
-        persistantLayer pl = new persistantLayer();
+    public ApplicationLayer() {
+        pl = new persistantLayer();
         //LMThread _lmtLogic = new LMThread(jsonFinal); //Dont have JSON during construction.
     }
 
-    public void Populate()
-    {
+    public void Populate() {
         int temp = pl.addInput("Test input", 22.5, INPUT);
         temp_test = temp;
         int temp2 = pl.addInput("Input2", 21.2, INPUT);
@@ -56,11 +54,9 @@ public class ApplicationLayer {
         int etTest1_condID = pl.createCondition(etTest1_InputGroup, etTest1_OutputGroup, EQUALTO);
     }
 
-    public void Logic_Module_Parse(JSONArray _jsnArgstest)
-    {
-        LMThread _lmtLogic = new LMThread(_jsnArgstest);
+    public void Logic_Module_Parse(JSONArray _jsnArgstest) {
+        _lmtLogic = new LMThread(_jsnArgstest);
     }
-
 
 
 }

@@ -7,7 +7,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="java-json1" level="project" />
     <orderEntry type="library" name="java-json" level="project" />
     <orderEntry type="module" module-name="projetS3" />
   </component>

@@ -16,6 +16,7 @@ public class LMThread implements Runnable {
     private int _intInstruction;
     private ArrayList<String> _lstArgs = new ArrayList<String>();
     private boolean _booThreadStop = false;
+
     ArrayList<JSONObject> _lstJSONOutput = new ArrayList<JSONObject>();
     ArrayList<JSONObject> _lstJSONInput = new ArrayList<JSONObject>();
     ArrayList<JSONObject> _lstJSONInputValues = new ArrayList<JSONObject>();
@@ -151,7 +152,6 @@ public class LMThread implements Runnable {
     }
 
     private boolean greaterThan(JSONObject _jsnTask) {
-
         double input1, input2;
 
         JSONArray _jsnInputs = _jsnTask.getJSONArray("input");
@@ -163,10 +163,9 @@ public class LMThread implements Runnable {
             System.out.println("input1 is greater than input2. PASSED");
             return true;
 
-        } else {
-            System.out.println("input1 is less than input2. FAILED");
-            return false;
         }
+        System.out.println("input1 is less than input2. FAILED");
+        return false;
     }
 
     private boolean lessThan(JSONObject _jsnTask) {
@@ -180,10 +179,9 @@ public class LMThread implements Runnable {
             System.out.println("input1 is less than input2. PASSED");
             return true;
 
-        } else {
-            System.out.println("input1 is greater than input2. FAILED");
-            return false;
         }
+        System.out.println("input1 is greater than input2. FAILED");
+        return false;
     }
 
     private boolean equalTo(JSONObject _jsnTask) {
@@ -200,9 +198,8 @@ public class LMThread implements Runnable {
         if (input2 < _dblUpperLimit && input2 > _dblLowerLimit) {
             System.out.println("input1 is equal to input2. PASSED");
             return true;
-        } else {
-            System.out.println("input1 is not equal to input2. FAILED");
-            return false;
         }
+        System.out.println("input1 is not equal to input2. FAILED");
+        return false;
     }
 }
