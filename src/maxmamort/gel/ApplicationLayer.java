@@ -16,14 +16,14 @@ public class ApplicationLayer {
 
     public ApplicationLayer()
     {
-        persistantLayer pl = new persistantLayer();
+        pl = new persistantLayer();
         //LMThread _lmtLogic = new LMThread(jsonFinal); //Dont have JSON during construction.
     }
 
     public void Populate()
     {
         int temp = pl.addInput("Test input", 22.5, INPUT);
-        temp_test = temp;
+        temp_test = temp; //for creation of LM thread in main
         int temp2 = pl.addInput("Input2", 21.2, INPUT);
         int inputGroup = pl.createInputGroup(new int[]{temp, temp2});
         int temp3 = pl.addInput("output1", 1.3, OUTPUT);
@@ -58,7 +58,7 @@ public class ApplicationLayer {
 
     public void Logic_Module_Parse(JSONArray _jsnArgstest)
     {
-        LMThread _lmtLogic = new LMThread(_jsnArgstest);
+        _lmtLogic = new LMThread(_jsnArgstest);
     }
 
 
