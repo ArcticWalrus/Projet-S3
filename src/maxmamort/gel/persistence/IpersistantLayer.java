@@ -7,7 +7,7 @@ public interface IpersistantLayer {
 
     boolean updateOutputValue(int outputId, double value);
 
-    boolean updateValueOutputGroup(int outputGroup, double value);
+    boolean updateValueOutputGroup(JSONArray jsonUpdate);
 
     int createInputGroup(int[] inputIds);
 

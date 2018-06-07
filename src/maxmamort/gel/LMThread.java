@@ -123,32 +123,31 @@ public class LMThread implements Runnable {
         switch (_intTaskID) {
             case 0:
                 System.out.println("task ID is 0. Executing task greaterThan");
-                if (greaterThan(_jsnTask)) {
-                    pl.updateValueOutputGroup(outputID, 1.0);
-                } else {
-                    pl.updateValueOutputGroup(outputID, 0.0);
-                }
+                sendValues(greaterThan(_jsnTask), outputID);
                 break;
             case 1:
                 System.out.println("task ID is 1. Executing task lessThan");
-                if (lessThan(_jsnTask)) {
-                    pl.updateValueOutputGroup(outputID, 1.0);
-                } else {
-                    pl.updateValueOutputGroup(outputID, 0.0);
-                }
+                sendValues(lessThan(_jsnTask), outputID);
                 break;
             case 2:
                 System.out.println("task ID is 2. Executing task equalTo");
-                if (equalTo(_jsnTask)) {
-                    pl.updateValueOutputGroup(outputID, 1.0);
-                } else {
-                    pl.updateValueOutputGroup(outputID, 0.0);
-                }
+                sendValues(equalTo(_jsnTask), outputID);
                 break;
             default:
                 System.out.println("task ID is not mapped to any behavior. Task ID received is : " + _intTaskID);
                 break;
         }
+    }
+
+    private void sendValues(boolean condition, int outputId) {
+        double value = 0.0;
+        JSONObject jsonObj = new JSONObject();
+        if (condition) {
+            value = 1.0;
+        }
+        jsonObj.put("outputgroupid", outputId);
+        jsonObj.put("newvalue", value);
+        pl.updateValueOutputGroup(new JSONArray().put(jsonObj));
     }
 
     private boolean greaterThan(JSONObject _jsnTask) {

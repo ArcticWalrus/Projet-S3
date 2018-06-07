@@ -85,25 +85,11 @@ public class persistantLayer implements IpersistantLayer {
         return returnValue;
     }
 
-    //DEPRECIATED, TO BE REMOVED
-    public boolean updateValueOutputGroup(int outputGroup, double value) {
-        dbAccess db = new dbAccess();
-        JSONArray json = db.selectQuery("SELECT * FROM public.inputgroup WHERE conditiongroup = " + outputGroup);
-        for (int i = 0; i < json.length(); i++) {
-            JSONObject obj = json.getJSONObject(i);
-            int id = obj.getInt("inputid");
-            updateOutputValue(id, value);
-        }
-        db.closeConnection();
-        return db.isError();
-    }
-
     /**
-     *
      * @param jsonUpdate Json containing the id of the outputgroupid and the newvalue
      * @return
      */
-    public boolean updateValueOutputGroup(JSONArray jsonUpdate){
+    public boolean updateValueOutputGroup(JSONArray jsonUpdate) {
         dbAccess db = new dbAccess();
         JSONArray json = db.selectQuery("SELECT * FROM public.inputgroup WHERE conditiongroup = " + jsonUpdate.getJSONObject(0).getInt("outputgroupid"));
         for (int i = 0; i < json.length(); i++) {
