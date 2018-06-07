@@ -16,8 +16,8 @@ public class Main {
        ApplicationLayer al = new ApplicationLayer();
        al.Populate();
 
-       JSONArray jsonFinal = al.pl.getConditionsAndInputs(al.temp);
-       al.Logic_Module_Parse(jsonFinal);
+       //JSONArray jsonFinal = al.pl.getConditionsAndInputs(al.temp);
+       //al.Logic_Module_Parse(jsonFinal);
 
 
 
