@@ -6,6 +6,7 @@ import org.json.JSONArray;
 public class ApplicationLayer {
     persistantLayer pl;
     LMThread _lmtLogic;
+    int temp_test;
 
     private static final int OUTPUT = 1;
     private static final int INPUT = 0;
@@ -22,6 +23,7 @@ public class ApplicationLayer {
     public void Populate()
     {
         int temp = pl.addInput("Test input", 22.5, INPUT);
+        temp_test = temp;
         int temp2 = pl.addInput("Input2", 21.2, INPUT);
         int inputGroup = pl.createInputGroup(new int[]{temp, temp2});
         int temp3 = pl.addInput("output1", 1.3, OUTPUT);
@@ -52,7 +54,6 @@ public class ApplicationLayer {
         int etTest1_output = pl.addInput("etTest1_output", 1.3, OUTPUT);
         int etTest1_OutputGroup = pl.createInputGroup(new int[]{etTest1_output});
         int etTest1_condID = pl.createCondition(etTest1_InputGroup, etTest1_OutputGroup, EQUALTO);
-
     }
 
     public void Logic_Module_Parse(JSONArray _jsnArgstest)
