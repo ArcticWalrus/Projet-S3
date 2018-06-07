@@ -6,7 +6,6 @@ import org.json.JSONArray;
 public class ApplicationLayer {
     persistantLayer pl;
     LMThread _lmtLogic;
-    int temp; //Here until I solve scope issue.
 
     private static final int OUTPUT = 1;
     private static final int INPUT = 0;
@@ -22,7 +21,7 @@ public class ApplicationLayer {
 
     public void Populate()
     {
-        temp = pl.addInput("Test input", 22.5, INPUT);
+        int temp = pl.addInput("Test input", 22.5, INPUT);
         int temp2 = pl.addInput("Input2", 21.2, INPUT);
         int inputGroup = pl.createInputGroup(new int[]{temp, temp2});
         int temp3 = pl.addInput("output1", 1.3, OUTPUT);
@@ -61,7 +60,6 @@ public class ApplicationLayer {
         LMThread _lmtLogic = new LMThread(_jsnArgstest);
     }
 
-    public void
 
 
 }
