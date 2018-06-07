@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/maxmamort/gel/LMThread.java" line="91" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ded6833-c140-4d05-a184-714643bc6bab" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="09fc0b72-d918-4e4c-854f-e40ab48df6f5" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/src/maxmamort/gel/LMThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/maxmamort/gel/LMThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/maxmamort/gel/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/maxmamort/gel/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/maxmamort/gel/persistence/IpersistantLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/maxmamort/gel/persistence/IpersistantLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/maxmamort/gel/persistence/persistantLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/maxmamort/gel/persistence/persistantLayer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,26 +16,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LMThread.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/LMThread.java">
+      <file leaf-file-name="projetS3.iml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projetS3.iml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
-              <folding>
-                <element signature="e#447#459#0" expanded="true" />
-                <element signature="e#515#527#0" expanded="true" />
-                <element signature="e#591#603#0" expanded="true" />
-                <element signature="method#LMThread#0;class#LMThread#0" />
-                <element signature="method#run#0;class#LMThread#0" />
-                <element signature="method#parseArgs#0;class#LMThread#0" />
-                <element signature="method#matchIOC#0;class#LMThread#0" />
-                <element signature="method#seperateIOC#0;class#LMThread#0" />
-                <element signature="method#processAllTasks#0;class#LMThread#0" />
-                <element signature="method#processTask#0;class#LMThread#0" />
-                <element signature="method#greaterThan#0;class#LMThread#0" />
-                <element signature="method#lessThan#0;class#LMThread#0" />
-                <element signature="method#equalTo#0;class#LMThread#0" />
-              </folding>
+            <state relative-caret-position="153">
+              <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="persistantLayer.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/persistantLayer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="259">
+              <caret line="99" column="23" selection-start-line="99" selection-start-column="23" selection-end-line="99" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -46,8 +37,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="42" column="72" lean-forward="true" selection-start-line="42" selection-start-column="72" selection-end-line="42" selection-end-column="72" />
+            <state relative-caret-position="374">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -55,58 +46,118 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="ApplicationLayer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/ApplicationLayer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="239">
+              <caret line="53" column="13" selection-start-line="53" selection-start-column="13" selection-end-line="53" selection-end-column="13" />
+              <folding>
+                <element signature="e#2768#2769#0" expanded="true" />
+                <element signature="e#2822#2823#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LMThread.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/LMThread.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="139" column="5" lean-forward="true" selection-start-line="139" selection-start-column="5" selection-end-line="139" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#seperateIOC#0;class#LMThread#0" />
+                <element signature="method#processAllTasks#0;class#LMThread#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Convertor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/Convertor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dbAccess.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/dbAccess.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-272">
+              <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
+              <folding>
+                <element signature="docComment;method#dbAccess#0;class#dbAccess#0" />
+                <element signature="docComment;method#dbAccess#1;class#dbAccess#0" />
+                <element signature="method#dbAccess#1;class#dbAccess#0" />
+                <element signature="docComment;method#isError#0;class#dbAccess#0" />
+                <element signature="docComment;method#getConnection#0;class#dbAccess#0" />
+                <element signature="docComment;method#closeConnection#0;class#dbAccess#0" />
+                <element signature="method#closeConnection#0;class#dbAccess#0" />
+                <element signature="docComment;method#initConnection#0;class#dbAccess#0" />
+                <element signature="docComment;method#insertQuery#0;class#dbAccess#0" />
+                <element signature="method#insertQuery#0;class#dbAccess#0" />
+                <element signature="docComment;method#insertGetIdQuery#0;class#dbAccess#0" />
+                <element signature="method#insertGetIdQuery#0;class#dbAccess#0" />
+                <element signature="docComment;method#selectQuery#0;class#dbAccess#0" />
+                <element signature="method#selectQuery#0;class#dbAccess#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="errorManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/errorManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IdbAccess.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/IdbAccess.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IpersistantLayer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/IpersistantLayer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>fordate</find>
-      <find>fortime</find>
-      <find>sys</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
-    <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/maxmamort/gel/Client.java" />
-        <option value="$PROJECT_DIR$/src/maxmamort/gel/Converter.java" />
-        <option value="$PROJECT_DIR$/src/maxmamort/gel/IerrorManager.java" />
-        <option value="$PROJECT_DIR$/src/maxmamort/gel/errorManager.java" />
-        <option value="$PROJECT_DIR$/src/maxmamort/gel/Convertor.java" />
-        <option value="$PROJECT_DIR$/src/maxmamort/gel/dbAccess.java" />
-        <option value="$PROJECT_DIR$/src/maxmamort/gel/IUtils.java" />
-        <option value="$PROJECT_DIR$/src/maxmamort/gel/Utils.java" />
-        <option value="$PROJECT_DIR$/src/maxmamort/gel/persistantLayer.java" />
-        <option value="$PROJECT_DIR$/src/maxmamort/gel/IdbAccess.java" />
+        <option value="$PROJECT_DIR$/projetS3.iml" />
         <option value="$PROJECT_DIR$/src/maxmamort/gel/persistence/dbAccess.java" />
-        <option value="$PROJECT_DIR$/src/maxmamort/gel/persistence/errorManager.java" />
-        <option value="$PROJECT_DIR$/src/maxmamort/gel/persistence/Convertor.java" />
-        <option value="$PROJECT_DIR$/src/maxmamort/gel/persistence/Utils.java" />
-        <option value="$PROJECT_DIR$/src/maxmamort/gel/persistence/persistantLayer.java" />
-        <option value="$PROJECT_DIR$/src/maxmamort/gel/persistence/IdbAccess.java" />
         <option value="$PROJECT_DIR$/src/maxmamort/gel/Main.java" />
+        <option value="$PROJECT_DIR$/src/maxmamort/gel/ApplicationLayer.java" />
         <option value="$PROJECT_DIR$/src/maxmamort/gel/LMThread.java" />
+        <option value="$PROJECT_DIR$/src/maxmamort/gel/persistence/persistantLayer.java" />
+        <option value="$PROJECT_DIR$/src/maxmamort/gel/persistence/IpersistantLayer.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="176" />
-    <option name="y" value="52" />
+    <option name="x" value="310" />
+    <option name="y" value="556" />
     <option name="width" value="2800" />
     <option name="height" value="1248" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -130,29 +181,28 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="gel" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="projetS3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projetS3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="gel" type="462c0819:PsiDirectoryNode" />
+              <item name="persistence" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="maxmamort.gel.persistence" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\inteliJWorkplace\persistantApp\src\org\json" />
-    </key>
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/postgresql-42.2.2.jar" />
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.notifications" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -167,12 +217,57 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="maxmamort.gel.Main" />
-      <module name="persistantApp" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
+      <module name="projetS3" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="maxmamort.gel.persistence.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <properties />
+      <listeners />
     </configuration>
     <recent_temporary>
       <list>
@@ -185,344 +280,61 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="5ded6833-c140-4d05-a184-714643bc6bab" name="Default" comment="" />
-      <created>1527078323602</created>
+      <changelist id="09fc0b72-d918-4e4c-854f-e40ab48df6f5" name="Default" comment="" />
+      <created>1528068673744</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1527078323602</updated>
+      <updated>1528068673744</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <frame x="-6" y="-6" width="1613" height="873" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32694355" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32985657" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="right" id="Maven Projects" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3258786" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" order="3" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.33376792" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info id="Capture Tool" order="6" />
-      <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22180451" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="2" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24953096" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39895698" />
+      <window_info id="UI Designer" order="2" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32985657" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/maxmamort/gel/persistence/persistantLayer.java</url>
-          <line>36</line>
-          <properties class="maxmamort.gel.persistence.persistantLayer" method="createCondition">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="5" />
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/Convertor.java" />
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/errorManager.java" />
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/Converter.java" />
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/Client.java" />
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/IerrorManager.java" />
-    <entry file="file://$PROJECT_DIR$/src/org/json/JSONArray.java" />
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/errorManager.java" />
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/IUtils.java" />
-    <entry file="file://$PROJECT_DIR$/src/org/json/JSONObject.java" />
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/dbAccess.java">
+    <entry file="file://$PROJECT_DIR$/projetS3.iml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/IdbAccess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/Convertor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        <state>
+          <caret selection-end-line="11" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1751">
-          <caret line="103" column="28" selection-start-line="103" selection-start-column="28" selection-end-line="103" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="40" lean-forward="true" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/dbAccess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="32" lean-forward="true" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/IerrorManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="48" lean-forward="true" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/IdbAccess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/Convertor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="70" selection-start-line="38" selection-start-column="70" selection-end-line="38" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/errorManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="44" column="14" lean-forward="true" selection-start-line="44" selection-start-column="14" selection-end-line="44" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="40" column="28" selection-start-line="40" selection-end-line="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/Client.java" />
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/Convertor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="38" column="70" selection-start-line="38" selection-start-column="70" selection-end-line="38" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/errorManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="23" column="25" lean-forward="true" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/dbAccess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1411">
-          <caret line="83" column="17" selection-start-line="83" selection-start-column="17" selection-end-line="83" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="40" column="28" selection-start-line="40" selection-end-line="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/errorManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/Client.java" />
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/Convertor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="70" selection-start-line="38" selection-start-column="70" selection-end-line="38" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/dbAccess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="40" column="28" selection-start-line="40" selection-end-line="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/Client.java" />
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/dbAccess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="44" selection-start-line="44" selection-end-line="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/Convertor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="70" lean-forward="true" selection-start-line="38" selection-start-column="70" selection-end-line="38" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/errorManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="31" lean-forward="true" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/Converter.java" />
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/Client.java" />
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/IUtils.java" />
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" selection-start-line="8" selection-end-line="19" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/json/JSONObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5270">
-          <caret line="739" selection-start-line="739" selection-end-line="739" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/errorManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/json/JSONArray.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="259" selection-start-line="259" selection-end-line="259" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/IerrorManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/IpersistantLayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/persistantLayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#addInput#0;class#persistantLayer#0" />
-            <element signature="method#createInputGroup#0;class#persistantLayer#0" />
-            <element signature="method#createCondition#0;class#persistantLayer#0" />
-            <element signature="method#getConditionsAndInputs#0;class#persistantLayer#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/Convertor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="50" column="1" lean-forward="true" selection-start-line="50" selection-start-column="1" selection-end-line="50" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/dbAccess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2707">
-          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/IdbAccess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="42" column="72" lean-forward="true" selection-start-line="42" selection-start-column="72" selection-end-line="42" selection-end-column="72" />
+        <state relative-caret-position="527">
+          <caret line="32" column="41" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -531,23 +343,278 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/LMThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+        <state relative-caret-position="2006">
+          <caret line="125" column="36" selection-start-line="125" selection-start-column="36" selection-end-line="125" selection-end-column="36" />
           <folding>
-            <element signature="e#447#459#0" expanded="true" />
-            <element signature="e#515#527#0" expanded="true" />
-            <element signature="e#591#603#0" expanded="true" />
-            <element signature="method#LMThread#0;class#LMThread#0" />
-            <element signature="method#run#0;class#LMThread#0" />
-            <element signature="method#parseArgs#0;class#LMThread#0" />
-            <element signature="method#matchIOC#0;class#LMThread#0" />
+            <element signature="imports" expanded="true" />
             <element signature="method#seperateIOC#0;class#LMThread#0" />
             <element signature="method#processAllTasks#0;class#LMThread#0" />
-            <element signature="method#processTask#0;class#LMThread#0" />
-            <element signature="method#greaterThan#0;class#LMThread#0" />
-            <element signature="method#lessThan#0;class#LMThread#0" />
-            <element signature="method#equalTo#0;class#LMThread#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/Convertor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/dbAccess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="32" column="7" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
+          <folding>
+            <element signature="docComment;method#dbAccess#0;class#dbAccess#0" />
+            <element signature="docComment;method#dbAccess#1;class#dbAccess#0" />
+            <element signature="method#dbAccess#1;class#dbAccess#0" />
+            <element signature="docComment;method#isError#0;class#dbAccess#0" />
+            <element signature="docComment;method#getConnection#0;class#dbAccess#0" />
+            <element signature="docComment;method#closeConnection#0;class#dbAccess#0" />
+            <element signature="method#closeConnection#0;class#dbAccess#0" />
+            <element signature="docComment;method#initConnection#0;class#dbAccess#0" />
+            <element signature="docComment;method#insertQuery#0;class#dbAccess#0" />
+            <element signature="method#insertQuery#0;class#dbAccess#0" />
+            <element signature="docComment;method#insertGetIdQuery#0;class#dbAccess#0" />
+            <element signature="method#insertGetIdQuery#0;class#dbAccess#0" />
+            <element signature="docComment;method#selectQuery#0;class#dbAccess#0" />
+            <element signature="method#selectQuery#0;class#dbAccess#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/errorManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/IdbAccess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/IerrorManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/IpersistantLayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="58" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/persistantLayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2193">
+          <caret line="129" column="39" selection-start-line="129" selection-start-column="39" selection-end-line="129" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projetS3.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="11" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" column="41" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/LMThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2125">
+          <caret line="125" column="36" selection-start-line="125" selection-start-column="36" selection-end-line="125" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#seperateIOC#0;class#LMThread#0" />
+            <element signature="method#processAllTasks#0;class#LMThread#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/Convertor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/dbAccess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" column="7" lean-forward="true" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
+          <folding>
+            <element signature="docComment;method#dbAccess#0;class#dbAccess#0" />
+            <element signature="docComment;method#dbAccess#1;class#dbAccess#0" />
+            <element signature="method#dbAccess#1;class#dbAccess#0" />
+            <element signature="docComment;method#isError#0;class#dbAccess#0" />
+            <element signature="docComment;method#getConnection#0;class#dbAccess#0" />
+            <element signature="docComment;method#closeConnection#0;class#dbAccess#0" />
+            <element signature="method#closeConnection#0;class#dbAccess#0" />
+            <element signature="docComment;method#initConnection#0;class#dbAccess#0" />
+            <element signature="docComment;method#insertQuery#0;class#dbAccess#0" />
+            <element signature="method#insertQuery#0;class#dbAccess#0" />
+            <element signature="docComment;method#insertGetIdQuery#0;class#dbAccess#0" />
+            <element signature="method#insertGetIdQuery#0;class#dbAccess#0" />
+            <element signature="docComment;method#selectQuery#0;class#dbAccess#0" />
+            <element signature="method#selectQuery#0;class#dbAccess#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/errorManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/IdbAccess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/IerrorManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/IpersistantLayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="58" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/persistantLayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1598">
+          <caret line="94" column="9" lean-forward="true" selection-start-line="94" selection-start-column="9" selection-end-line="94" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/IerrorManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/persistantApp.iml" />
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/IdbAccess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projetS3.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/errorManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/dbAccess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-272">
+          <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
+          <folding>
+            <element signature="docComment;method#dbAccess#0;class#dbAccess#0" />
+            <element signature="docComment;method#dbAccess#1;class#dbAccess#0" />
+            <element signature="method#dbAccess#1;class#dbAccess#0" />
+            <element signature="docComment;method#isError#0;class#dbAccess#0" />
+            <element signature="docComment;method#getConnection#0;class#dbAccess#0" />
+            <element signature="docComment;method#closeConnection#0;class#dbAccess#0" />
+            <element signature="method#closeConnection#0;class#dbAccess#0" />
+            <element signature="docComment;method#initConnection#0;class#dbAccess#0" />
+            <element signature="docComment;method#insertQuery#0;class#dbAccess#0" />
+            <element signature="method#insertQuery#0;class#dbAccess#0" />
+            <element signature="docComment;method#insertGetIdQuery#0;class#dbAccess#0" />
+            <element signature="method#insertGetIdQuery#0;class#dbAccess#0" />
+            <element signature="docComment;method#selectQuery#0;class#dbAccess#0" />
+            <element signature="method#selectQuery#0;class#dbAccess#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/ApplicationLayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="53" column="13" selection-start-line="53" selection-start-column="13" selection-end-line="53" selection-end-column="13" />
+          <folding>
+            <element signature="e#2768#2769#0" expanded="true" />
+            <element signature="e#2822#2823#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/Convertor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/LMThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="139" column="5" lean-forward="true" selection-start-line="139" selection-start-column="5" selection-end-line="139" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#seperateIOC#0;class#LMThread#0" />
+            <element signature="method#processAllTasks#0;class#LMThread#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/IpersistantLayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/persistantLayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="99" column="23" selection-start-line="99" selection-start-column="23" selection-end-line="99" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -603,12 +670,11 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>persistantApp</last-edited>
+          <last-edited>projetS3</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -628,7 +694,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>postgresql-42.2.2</last-edited>
+          <last-edited>postgresql-42.2.22</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

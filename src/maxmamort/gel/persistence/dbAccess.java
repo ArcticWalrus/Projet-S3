@@ -8,11 +8,10 @@
 
 package maxmamort.gel.persistence;
 
-import java.sql.*;
-import java.lang.*;
-import java.sql.ResultSet;
-
 import org.json.JSONArray;
+
+import java.sql.*;
+import java.sql.ResultSet;
 
 public class dbAccess implements IdbAccess {
 
@@ -219,6 +218,7 @@ public class dbAccess implements IdbAccess {
             conn.createStatement().executeUpdate(sql);
             conn.commit();
         } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
             if (boo_logError) {
                 errorManager ema = new errorManager();
                 ema.logError(ex);
@@ -226,6 +226,7 @@ public class dbAccess implements IdbAccess {
             _boolIsError = true;
             return false;
         } catch (Exception ex) {
+            System.out.println(ex.getMessage());
             if (boo_logError) {
                 errorManager ema = new errorManager();
                 ema.logError(ex);

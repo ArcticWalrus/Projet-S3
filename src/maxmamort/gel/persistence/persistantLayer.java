@@ -19,11 +19,11 @@ import java.util.List;
 public class persistantLayer implements IpersistantLayer {
 
     /**
-     * @brief Add input to database
-     * @param inputName Name of the input
+     * @param inputName    Name of the input
      * @param defaultValue Value to add as the default one
-     * @param sensorType 1 for output, 0 for input. More types to come
+     * @param sensorType   1 for output, 0 for input. More types to come
      * @return The Id of the newly added input
+     * @brief Add input to database
      */
     public int addInput(String inputName, double defaultValue, int sensorType) {
         int returnValue = -1;
@@ -35,22 +35,23 @@ public class persistantLayer implements IpersistantLayer {
     }
 
     /**
-     * @brief Update the value of an output
      * @param outputId The Id of the output that has to be updated
-     * @param value The new value of that output
+     * @param value    The new value of that output
      * @return True if everything worked, false if failed
+     * @brief Update the value of an output
      */
     public boolean updateOutputValue(int outputId, double value) {
         dbAccess db = new dbAccess();
-        db.updateQuery("UPDATE public.intinput SET value = '" + value + "' WHERE serintinput = '" + outputId + "'");
+        String query = "UPDATE public.intinput SET value='" + value + "' WHERE serintinput = '" + outputId + "'";
+        db.updateQuery(query);
         db.closeConnection();
         return db.isError();
     }
 
     /**
-     * @brief Create an input group from a list of inputId
      * @param inputIds array of inputId
      * @return The iD of the inputGroup created
+     * @brief Create an input group from a list of inputId
      */
     public int createInputGroup(int[] inputIds) {
         int returnValue = -1;
@@ -69,11 +70,11 @@ public class persistantLayer implements IpersistantLayer {
     }
 
     /**
-     * @brief Create a new condition
-     * @param inputGroup The Id of the inputGroup
-     * @param outputGroup The Id of the output group
+     * @param inputGroup    The Id of the inputGroup
+     * @param outputGroup   The Id of the output group
      * @param conditionType The type of condition (see logic module for the different kinds)
      * @return The Id of the newly created Condition
+     * @brief Create a new condition
      */
     public int createCondition(int inputGroup, int outputGroup, int conditionType) {
         int returnValue = -1;
@@ -85,12 +86,28 @@ public class persistantLayer implements IpersistantLayer {
     }
 
     /**
-     * @brief Get the conditions and what is needed to manage them from an InputID
+     * @param jsonUpdate Json containing the id of the outputgroupid and the newvalue
+     * @return
+     */
+    public boolean updateValueOutputGroup(JSONArray jsonUpdate) {
+        dbAccess db = new dbAccess();
+        JSONArray json = db.selectQuery("SELECT * FROM public.inputgroup WHERE conditiongroup = " + jsonUpdate.getJSONObject(0).getInt("outputgroupid"));
+        for (int i = 0; i < json.length(); i++) {
+            JSONObject obj = json.getJSONObject(i);
+            int id = obj.getInt("inputid");
+            updateOutputValue(id, jsonUpdate.getJSONObject(0).getInt("newvalue"));
+        }
+        db.closeConnection();
+        return db.isError();
+    }
+
+    /**
      * @param inputId The Id of the updated input. Will be used to get the right conditions
      * @return The JSONArray representing the conditions and what is needed to handle them
+     * @brief Get the conditions and what is needed to manage them from an InputID
      */
     public JSONArray getConditionsAndInputs(int inputId) {
-        JSONArray json = null;
+        JSONArray json = null;//result JSON
 
         ArrayList<JSONArray> conditions = new ArrayList<>();
         ArrayList<JSONArray> inputGroups = new ArrayList<>();
@@ -108,11 +125,8 @@ public class persistantLayer implements IpersistantLayer {
             // System.out.println("Condition ID: " + conditionGroupId.get(i));
             conditions.add(db.selectQuery("SELECT * FROM public.conditions WHERE inputgroup = " + conditionGroupId.get(i)));
         }
-        //  for(int i = 0; i < conditions.size(); i++ ){
-        //     System.out.println("data is: " + conditions.get(i).toString());
-        //}
-        //   System.out.println(conditions.toString() + "\n\n");
-        json = Utils.getMergeJson(conditions);
+
+        json = maxmamort.gel.Utils.getMergeJson(conditions);
 
         //Get ouput group
         for (int i = 0; i < json.length(); i++) {
@@ -125,7 +139,7 @@ public class persistantLayer implements IpersistantLayer {
         for (int i = 0; i < conditionGroupId.size(); i++) {
             inputGroups.add(db.selectQuery("SELECT * FROM public.inputgroup WHERE conditiongroup = " + conditionGroupId.get(i)));
         }
-        json = Utils.getMergeJson(inputGroups);
+        json = maxmamort.gel.Utils.getMergeJson(inputGroups);
 
         //Get inputs associated with groupid
         for (int i = 0; i < json.length(); i++) {

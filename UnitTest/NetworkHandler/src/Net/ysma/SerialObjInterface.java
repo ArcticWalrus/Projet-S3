@@ -1,7 +1,8 @@
 package Net.ysma;
 
-import java.util.Date;
 import org.json.JSONArray;
+
+import java.util.Date;
 
 public interface SerialObjInterface
 {	

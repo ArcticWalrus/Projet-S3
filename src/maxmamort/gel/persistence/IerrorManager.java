@@ -1,7 +1,5 @@
 package maxmamort.gel.persistence;
 
-import java.lang.*;
-
 public interface IerrorManager {
     String logPath = "E://ErrorLog.txt";
 
