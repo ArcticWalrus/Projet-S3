@@ -14,22 +14,20 @@ public class Main {
 
     public static void main(String[] args) {
 
-       ApplicationLayer al = new ApplicationLayer();
-       al.Populate();
+        ApplicationLayer al = new ApplicationLayer();
+        al.Populate();
 
-       JSONArray jsonFinal = al.pl.getConditionsAndInputs(al.temp_test);
-
-       al.Logic_Module_Parse(jsonFinal);
-
-
-       //JSONArray jsonFinal = al.pl.getConditionsAndInputs(al.temp);
-       //al.Logic_Module_Parse(jsonFinal);
+        JSONArray jsonFinal = al.pl.getConditionsAndInputs(al.temp_test);
+        System.out.println(jsonFinal.toString());
+        //    al.Logic_Module_Parse(jsonFinal);
 
 
+        //JSONArray jsonFinal = al.pl.getConditionsAndInputs(al.temp);
+        //al.Logic_Module_Parse(jsonFinal);
 
 
         //Commented by Malcolm for test
-       // persistantLayer pl = new persistantLayer();
+        // persistantLayer pl = new persistantLayer();
 
        /* int temp = pl.addInput("Test input", 22.5, INPUT);
         int temp2 = pl.addInput("Input2", 21.2, INPUT);
@@ -64,7 +62,7 @@ public class Main {
         int etTest1_condID = pl.createCondition(etTest1_InputGroup, etTest1_OutputGroup, EQUALTO);*/
 
 
-       // JSONArray jsonFinal = pl.getConditionsAndInputs(temp);
+        // JSONArray jsonFinal = pl.getConditionsAndInputs(temp);
         //LMThread _lmtLogic = new LMThread(jsonFinal);
 
         //end comment malcolm

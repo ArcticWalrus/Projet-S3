@@ -9,9 +9,7 @@ public interface IpersistantLayer {
 
     boolean updateValueOutputGroup(JSONArray jsonUpdate);
 
-    int createInputGroup(int[] inputIds);
-
-    int createCondition(int inputGroup, int outputGroup, int conditionType);
+    int createInputGroupCondition(int[] inputIds, int operation);
 
     JSONArray getConditionsAndInputs(int inputId);
 }
