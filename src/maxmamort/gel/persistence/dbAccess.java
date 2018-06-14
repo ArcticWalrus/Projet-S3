@@ -240,6 +240,29 @@ public class dbAccess implements IdbAccess {
         return true;
     }
 
+    public int updateGetIdQuery(String sql){
+        _boolIsError = false;
+        Statement stmt = null;
+        ResultSet rs = null;
+        int returnValue = -1;
+        try {
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(sql);
+            conn.commit();
+            rs.next();
+            returnValue = rs.getInt(1);
+            rs.close();
+            stmt.close();
+        } catch (SQLException e) {
+            if (boo_logError) {
+                errorManager ema = new errorManager();
+                ema.logError(e);
+            }
+            _boolIsError = true;
+            return returnValue;
+        }
+        return returnValue;
+    }
     /**
      * @param str The SQL delete statement to be executed
      * @return true if succeeded, false if failed

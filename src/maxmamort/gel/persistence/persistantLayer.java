@@ -9,6 +9,7 @@
 
 package maxmamort.gel.persistence;
 
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import maxmamort.gel.Utils;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -35,10 +36,98 @@ public class persistantLayer implements IpersistantLayer {
         return returnValue;
     }
 
-    public void bindInputToIO(int inputId, int IOId) {
-        //TODO write method
+    public int getInputIDForIO(int IOID) {
+        //TODO Test method
+        String sql = "SELECT valinputid FROM public.io WHERE serio = " + IOID + ";";
+        dbAccess db = new dbAccess();
+        int value = db.selectQuery(sql).getJSONObject(0).getInt("valinputid");
+        db.closeConnection();
+        return value;
     }
 
+    public void createDevice(String MAC, String cip, String name) {
+        //TODO Test method
+        String sql = "INSERT INTO public.devices (serdevices, namdevice, valcip, valip, valmac) VALUES ( DEFAULT, " + name + ", " + cip + " , 0.0.0.0, " + MAC + " );";
+        dbAccess db = new dbAccess();
+        db.insertQuery(sql);
+        db.closeConnection();
+    }
+
+    public JSONArray getDevicesByUser(String cip) {
+        //TODO test method
+        JSONArray json = new JSONArray();
+        String sql = "SELECT * FROM public.devices WHERE valcip = " + cip + ";";
+        dbAccess db = new dbAccess();
+        json = db.selectQuery(sql);
+        db.closeConnection();
+        return json;
+    }
+
+    public void renameDevice(String MAC, String name) {
+        //TODO test method
+        String sql = "UPDATE public.devices SET namdevice = " + name + " WHERE valmac = " + MAC + " ;";
+        dbAccess db = new dbAccess();
+        db.updateQuery(sql);
+        db.closeConnection();
+    }
+
+    public void renameIO(int IOID, String name) {
+        //TODO test method
+        String sql = "UPDATE public.io SET namio = " + name + " WHERE serio = " + IOID + ";";
+        dbAccess db = new dbAccess();
+        db.updateQuery(sql);
+        db.closeConnection();
+    }
+
+    public void updateConfigurationBit(int IOID, int ConfigurationBit) {
+        //TODO test method
+        int sensorType = getSensorTypeFromConfigurationBit(ConfigurationBit);
+        String sql = "UPDATE public.io SET configurationbits = " + ConfigurationBit + " WHERE serio = " + IOID + " RETURNING valinputid;";
+        dbAccess db = new dbAccess();
+        int id = db.updateGetIdQuery(sql);
+        sql = "UPDATE public.intinput SET valtype = " + sensorType + " WHERE serio = " + id + ";";
+        db.updateQuery(sql);
+        db.closeConnection();
+    }
+
+    public void updatePhysicalMapping(int IOID, int physicalPin) {
+        //TODO test method
+        String sql = "UPDATE public.io SET pinid = " + physicalPin + " WHERE serio = " + IOID + ";";
+        dbAccess db = new dbAccess();
+        db.updateQuery(sql);
+        db.closeConnection();
+    }
+
+    public void updateDeviceIP(String mac, String ip) {
+        //TODO test this
+        String sql = "UPDATE public.devices SET valip='" + ip + "' WHERE valmac = '" + mac + "';";
+        dbAccess db = new dbAccess();
+        db.updateQuery(sql);
+        db.closeConnection();
+    }
+
+    public int createIO(String IoName, int DeviceId, int physicalPinMapping, int configurationBit) {
+        //TODO ADD namio
+        //TODO test method
+        int sensorType = getSensorTypeFromConfigurationBit(configurationBit);
+        int inputId = addInput(IoName, 0, sensorType);
+        String sql = "INSERT INTO public.io (serio, namio, configurationbits, pinid, valinputid) " +
+                "VALUES (DEFAULT, XXXXXXX, " + configurationBit + ", " + physicalPinMapping + ", " + inputId + ") RETURNING serio;";
+        dbAccess db = new dbAccess();
+        int value = db.insertGetIdQuery(sql, "serio");
+        db.closeConnection();
+        return value;
+    }
+
+    //Method is there in case some more fancy configuration are added
+    public int getSensorTypeFromConfigurationBit(int ConfigurationBit) {
+        if (ConfigurationBit == 0) {
+            return 0;
+        } else if (ConfigurationBit == 1) {
+            return 1;
+        }
+        return 0;
+    }
 
     /**
      * @param outputId The Id of the output that has to be updated
