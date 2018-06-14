@@ -45,6 +45,15 @@ public class persistantLayer implements IpersistantLayer {
         return value;
     }
 
+    public JSONArray getIOByDevice(int deviceID) {
+        JSONArray json = new JSONArray();
+        String sql = "SELECT * FROM public.io WHERE namio = " + deviceID + " ;";
+        dbAccess db = new dbAccess();
+        json = db.selectQuery(sql);
+        db.closeConnection();
+        return json;
+    }
+
     public void createDevice(String MAC, String cip, String name) {
         //TODO Test method
         String sql = "INSERT INTO public.devices (serdevices, namdevice, valcip, valip, valmac) VALUES ( DEFAULT, " + name + ", " + cip + " , 0.0.0.0, " + MAC + " );";
@@ -59,6 +68,21 @@ public class persistantLayer implements IpersistantLayer {
         String sql = "SELECT * FROM public.devices WHERE valcip = " + cip + ";";
         dbAccess db = new dbAccess();
         json = db.selectQuery(sql);
+        db.closeConnection();
+        return json;
+    }
+
+    public JSONArray getIOForUser(String cip) {
+        //TODO test method
+        JSONArray json = new JSONArray();
+        dbAccess db = new dbAccess();
+        json = getDevicesByUser(cip);
+        String sql = "SELECT * FROM public.io WHERE ";
+        for (int i = 0; i < json.length(); i++) {
+            if (i == json.length() - 1) {
+                sql += " OR ";
+            }
+        }
         db.closeConnection();
         return json;
     }
@@ -112,7 +136,7 @@ public class persistantLayer implements IpersistantLayer {
         int sensorType = getSensorTypeFromConfigurationBit(configurationBit);
         int inputId = addInput(IoName, 0, sensorType);
         String sql = "INSERT INTO public.io (serio, namio, configurationbits, pinid, valinputid) " +
-                "VALUES (DEFAULT, XXXXXXX, " + configurationBit + ", " + physicalPinMapping + ", " + inputId + ") RETURNING serio;";
+                "VALUES (DEFAULT, " + DeviceId + ", " + configurationBit + ", " + physicalPinMapping + ", " + inputId + ") RETURNING serio;";
         dbAccess db = new dbAccess();
         int value = db.insertGetIdQuery(sql, "serio");
         db.closeConnection();
@@ -137,7 +161,7 @@ public class persistantLayer implements IpersistantLayer {
      */
     public boolean updateOutputValue(int outputId, double value) {
         dbAccess db = new dbAccess();
-        String query = "UPDATE public.intinput SET valvalue='" + value + "' WHERE serintinput = '" + outputId + "'";
+        String query = "UPDATE public.intinput SET valvalue = '" + value + "' WHERE serintinput = '" + outputId + "'";
         db.updateQuery(query);
         db.closeConnection();
         return db.isError();
