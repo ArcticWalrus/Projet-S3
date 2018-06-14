@@ -65,7 +65,7 @@ public class persistantLayer implements IpersistantLayer {
         String sql = "INSERT INTO public.inputgroup(serinputgroup, namconditiongroup , valinputid, valordre, valoperation) VALUES (DEFAULT, DEFAULT, " + inputIds[0] + ", 0," + operation + ") RETURNING namconditiongroup;";
         returnValue = db.insertGetIdQuery(sql, "namconditiongroup");
         for (int i = 1; i < inputIds.length; i++) {
-            db.insertQuery("INSERT INTO public.inputgroup(serinputgroup, namconditiongroup , valinputid, valordre, valoperation) VALUES (DEFAULT, " + returnValue + ", " + inputIds[0] + ", " + i + " ," + operation + ");");
+            db.insertQuery("INSERT INTO public.inputgroup(serinputgroup, namconditiongroup , valinputid, valordre, valoperation) VALUES (DEFAULT, " + returnValue + ", " + inputIds[i] + ", " + i + " ," + operation + ");");
         }
         db.insertQuery(sql);
         return returnValue;
