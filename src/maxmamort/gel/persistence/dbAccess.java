@@ -1,17 +1,20 @@
 /**
- * @File:       dbAccess.java
- * @Author:     Maxim Bolduc
- * @Date:       2018-05-31
- * @Brief:      Gestion des différents types de query pour la database et du JDBC
- * @Reference:  https://www.tutorialspoint.com/postgresql/postgresql_java.htm
+ * @File: dbAccess.java
+ * @Author: Maxim Bolduc
+ * @Date: 2018-05-31
+ * @Brief: Gestion des différents types de query pour la database et du JDBC
+ * @Reference: https://www.tutorialspoint.com/postgresql/postgresql_java.htm
  */
 
 package maxmamort.gel.persistence;
 
 import org.json.JSONArray;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.*;
 import java.sql.ResultSet;
+import java.util.Properties;
 
 public class dbAccess implements IdbAccess {
 
