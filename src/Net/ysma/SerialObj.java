@@ -16,14 +16,14 @@ public class SerialObj implements SerialObjInterface, Serializable {
     private String _strIPtarget;
     private Integer _strPorttarget;
     private Date _dateTimeSent;
-    private JSONArray _jsnData;
+    private String _jsnData;
     private Integer _reqTargetType;
     private String _reqType;
     private boolean _booNeedFeedback;
 
     public SerialObj() {
         this._reqTargetType = 10;
-        _jsnData = new JSONArray();
+        _jsnData = new String();
         _booNeedFeedback = false;
     }
 
@@ -68,11 +68,11 @@ public class SerialObj implements SerialObjInterface, Serializable {
     }
 
     public void setDataFrame(JSONArray arr) {
-        _jsnData = arr;
+        _jsnData = arr.toString();
     }
 
     public JSONArray getDataFrame() {
-        return _jsnData;
+        return new JSONArray(_jsnData);
     }
 
     public void setTargetType(Integer rt) {
@@ -91,13 +91,11 @@ public class SerialObj implements SerialObjInterface, Serializable {
         return _reqType;
     }
 
-    public void setIfFeedbackNeeded(boolean boo)
-    {
+    public void setIfFeedbackNeeded(boolean boo) {
         _booNeedFeedback = boo;
     }
 
-    public boolean getIfFeedbackNeeded()
-    {
+    public boolean getIfFeedbackNeeded() {
         return _booNeedFeedback;
     }
 

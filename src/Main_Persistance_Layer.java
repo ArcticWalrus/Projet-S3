@@ -4,6 +4,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import maxmamort.gel.Utils;
 
+import java.util.Date;
+
 import static Net.ysma.SerialObjInterface.*;
 
 public class Main_Persistance_Layer {
@@ -28,10 +30,10 @@ public class Main_Persistance_Layer {
         Integer tempInt = temp.getTargetType();
         if (tempInt == PERSISTANCE) {
             json = to_persistance(temp);
-        } else if (tempInt == ERRORPROCESS) {
+        } else if (tempInt.equals(ERRORPROCESS)) {
             to_error_logger(temp);
         } else {
-            System.out.println("2. Ya done fucked up");
+            System.out.println("2. Ya done fucked up " + tempInt + "   " + ERRORPROCESS);
         }
         return json;
     }
@@ -87,6 +89,7 @@ public class Main_Persistance_Layer {
 
     static void to_error_logger(SerialObj sro_temp) {
         errorManager er = new errorManager();
-        er.logError(sro_temp.toString(), "stjm2505");
+        //TODO log more fields
+        er.logError("target:" + sro_temp.getTargetIp() + "   source:" + sro_temp.getSourceIp() + "   " + sro_temp.getDataFrame().toString(), "stjm2505");
     }
 }
