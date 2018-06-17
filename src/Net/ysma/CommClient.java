@@ -87,6 +87,16 @@ public class CommClient extends Thread
 
     //Méthodes d'accès pour populer l'objet série ci-dessous
 
+    public void setSerialObject(SerialObj seoToSend)
+    {
+        _seoToSend = seoToSend;
+    }
+
+    public SerialObj getSerialObject()
+    {
+        return _seoToSend;
+    }
+
     /**
      * Permet d'écrire l'adresse d'origine dans le produit de communication
      * @param str
