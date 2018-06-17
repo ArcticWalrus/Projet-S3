@@ -36,14 +36,17 @@ public class Main_Application_Layer {
 
     void to_persistance(SerialObj sro_temp) {
         CommClient pers_client = new CommClient("127.0.0.1", 45010);
+        pers_client.setSerialObject(sro_temp);
     }
 
     void to_logic(SerialObj sro_temp) {
         CommClient lm_client = new CommClient("127.0.0.1", 45020);
+        lm_client.setSerialObject(sro_temp);
     }
 
     void to_device(SerialObj sro_temp) {
         CommClient device_client = new CommClient(sro_temp.getTargetIp(), sro_temp.getTargetPort());
+        device_client.setSerialObject(sro_temp);
     }
 
 }
