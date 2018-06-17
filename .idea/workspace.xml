@@ -27,8 +27,8 @@
       <file leaf-file-name="Main_Application_Layer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main_Application_Layer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="48" column="46" selection-start-line="48" selection-start-column="46" selection-end-line="48" selection-end-column="46" />
+            <state relative-caret-position="449">
+              <caret line="51" column="30" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -238,6 +238,14 @@
       <option name="presentableId" value="Default" />
       <updated>1528068673744</updated>
     </task>
+    <task id="LOCAL-00001" summary="Through intelliJ">
+      <created>1529262231031</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1529262231031</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -246,14 +254,14 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.4996873" weight="0.32724902" />
+      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.4996873" weight="0.32704404" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.39738664" side_tool="true" weight="0.336478" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6026134" weight="0.336478" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="7" visible="true" weight="0.32861635" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32861635" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -319,6 +327,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Through intelliJ" />
+    <option name="LAST_COMMIT_MESSAGE" value="Through intelliJ" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -776,8 +788,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main_Application_Layer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="48" column="46" selection-start-line="48" selection-start-column="46" selection-end-line="48" selection-end-column="46" />
+        <state relative-caret-position="449">
+          <caret line="51" column="30" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
