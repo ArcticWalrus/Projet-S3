@@ -17,8 +17,7 @@ public class Main_Persistance_Layer {
                     System.out.println(e.toString());
                     System.out.println(e.toString());
                 }
-            }
-            else {
+            } else {
                 try {
                     Thread.sleep(100);
                 } catch (Exception e) {
@@ -31,40 +30,59 @@ public class Main_Persistance_Layer {
 
     static void aiguilleur(SerialObj temp) {
         Integer tempint = temp.getTargetType();
-        if (tempint== APPSERVER) {
-            System.out.println("Communication to APPSERVER");
-        } else if (tempint == PERSISTANCE) {
+        if (tempint == PERSISTANCE) {
+
             to_persistance(temp);
-        } else if (tempint== LOGIC) {
-            to_logic(temp);
-        } else if (tempint == DEVICE) {
-            to_device(temp);
-        } else if (tempint == UI) {
-            System.out.println("Communication to UI");
-        } else if (tempint == LOGICSETUP) {
-            to_logic(temp);
         } else if (tempint == ERRORPROCESS) {
-            to_persistance(temp);
+            to_error_logger(temp);
         } else {
-            System.out.println("1. Ya done fucked up");
+            System.out.println("2. Ya done fucked up");
         }
     }
 
     static void to_persistance(SerialObj sro_temp) {
-        CommClient pers_client = new CommClient("127.0.0.1", 45010);
-        pers_client.setSerialObject(sro_temp);
-        pers_client.start();
+        String tempvalue = sro_temp.getRequestType();
+        persistantLayer pl = new persistantLayer();
+        if ("addInput".equalsIgnoreCase(tempvalue)) {
+
+        } else if ("getInputIDForIO".equalsIgnoreCase(tempvalue)) {
+
+        } else if ("getIOByDevice".equalsIgnoreCase(tempvalue)) {
+
+        } else if ("createDevice".equalsIgnoreCase(tempvalue)) {
+
+        } else if ("createUser".equalsIgnoreCase(tempvalue)) {
+
+        } else if ("getDevicesByUser".equalsIgnoreCase(tempvalue)) {
+
+        } else if ("getIOForUser".equalsIgnoreCase(tempvalue)) {
+
+        } else if ("renameDevice".equalsIgnoreCase(tempvalue)) {
+
+        } else if ("renameIO".equalsIgnoreCase(tempvalue)) {
+
+        } else if ("updateConfigurationBit".equalsIgnoreCase(tempvalue)) {
+
+        } else if ("updatePhysicalMapping".equalsIgnoreCase(tempvalue)) {
+
+        } else if ("updateDeviceIP".equalsIgnoreCase(tempvalue)) {
+
+        } else if ("createIO".equalsIgnoreCase(tempvalue)) {
+
+        } else if ("updateOutputValue".equalsIgnoreCase(tempvalue)) {
+
+        } else if ("createInputGroupCondition".equalsIgnoreCase(tempvalue)) {
+
+        } else if ("updateValueOutputGroup".equalsIgnoreCase(tempvalue)) {
+
+        } else if ("getConditionsandInputs".equalsIgnoreCase(tempvalue)) {
+
+        }
     }
 
-    static void to_logic(SerialObj sro_temp) {
-        CommClient lm_client = new CommClient("127.0.0.1", 45020);
-        lm_client.setSerialObject(sro_temp);
-        lm_client.start();
+    static void to_error_logger(SerialObj sro_temp) {
+        errorManager er = new errorManager();
+        er.logError(sro_temp.toString(), "stjm2505");
     }
 
-    static void to_device(SerialObj sro_temp) {
-        CommClient device_client = new CommClient(sro_temp.getTargetIp(), sro_temp.getTargetPort());
-        device_client.setSerialObject(sro_temp);
-        device_client.start();
-    }
 }

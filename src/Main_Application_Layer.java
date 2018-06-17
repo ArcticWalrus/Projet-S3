@@ -18,8 +18,7 @@ public class Main_Application_Layer {
                     System.out.println(e.toString());
                     System.out.println(e.toString());
                 }
-            }
-            else {
+            } else {
                 try {
                     Thread.sleep(100);
                 } catch (Exception e) {
@@ -36,7 +35,7 @@ public class Main_Application_Layer {
             System.out.println("Communication to APPSERVER");
         } else if (tempint == PERSISTANCE) {
             to_persistance(temp);
-        } else if (tempint== LOGIC) {
+        } else if (tempint == LOGIC) {
             to_logic(temp);
         } else if (tempint == DEVICE) {
             to_device(temp);
