@@ -2,21 +2,24 @@ package Net.ysma;
 
 import java.io.*;
 import java.net.*;
+import java.util.ArrayList;
+import java.util.List;
 
-public class CommServer extends Thread
-{
+
+public class CommServer extends Thread {
     private int COMM_PORT; // socket port for client comms
 
     private ServerSocket _ssoServerSocket;
     private InetSocketAddress _isaInboundAddr;
     private SerialObj _seoPayload;
     public SerialObj _seoLastValid;
+    private List<NewDataFrameListener> listeners = new ArrayList<NewDataFrameListener>();
 
 
     boolean _bServerActive = false;
 
     public CommServer() {
-        this.COMM_PORT = 8443; // socket port for client comms
+        this.COMM_PORT = 45000; // socket port for client comms
         this._seoPayload = new SerialObj();
         this._seoLastValid = new SerialObj();
         _bServerActive = true;
@@ -50,17 +53,13 @@ public class CommServer extends Thread
         }
     }
 
-    public void run()
-    {
+    public void run() {
         int CommID = 1;
+        System.out.println("STARTING Listener Thread...");
         init_ssoServerSocket();
 
-        System.out.println("STARTING Listener Thread...");
-
-        while (_bServerActive)
-        {
-            try
-            {
+        while (_bServerActive) {
+            try {
                 // listen for and accept a client connection to _ssoServerSocket
                 Socket sock = this._ssoServerSocket.accept();
                 OutputStream oStream = sock.getOutputStream();
@@ -77,56 +76,58 @@ public class CommServer extends Thread
 
                 if (this._seoPayload._reqType != 0)    //Si l'objet est maintenant populé avec des nouvelles valeurs
                 {
-                    System.out.println("Un contenu valide demande maintenant la création d'un nouveau thread");
+                    System.out.println("Un contenu valide demande maintenant la notification des listeners");
                     //Mettre l'appel de création de thread approprié ICI
                     this._seoLastValid = this._seoPayload;
-                }
-                else
-                {
+                    this.callListeners();
+                } else {
                     System.out.println("Aucune valeur valide n'a été observée dans l'objet reçu");
                 }
                 //Destruction de l'objet car il a été redirigé dans le nouveau thread
                 this._seoPayload = new SerialObj();
                 Thread.sleep(100);
-            }
-            catch(ClassNotFoundException cne)
-            {
+            } catch (ClassNotFoundException cne) {
                 System.out.println("Wanted class TcpPayload, but got class " + cne);
-            }
-            catch(SecurityException se)
-            {
+            } catch (SecurityException se) {
                 System.err.println("Unable to get host address due to security.");
                 System.err.println(se.toString());
                 System.exit(1);
-            }
-            catch(SocketTimeoutException ste)
-            {
+            } catch (SocketTimeoutException ste) {
 
-            }
-            catch(IOException ioe)
-            {
+            } catch (IOException ioe) {
                 System.err.println("Unable to read data from an open socket.");
                 System.err.println(ioe.toString());
                 System.exit(1);
-            }
-            catch(InterruptedException ie)
-            {
+            } catch (InterruptedException ie) {
             } // Thread sleep interrupted
         }
         System.out.println("STOPPING Listener Thread...");
-        try
-        {
+        try {
             this._ssoServerSocket.close();
-        }
-        catch (IOException ioe)
-        {
+        } catch (IOException ioe) {
             System.err.println("Unable to close an open socket.");
             System.err.println(ioe.toString());
             System.exit(1);
         }
     }
 
-    void commServerStop() {
+    public void addListener(NewDataFrameListener toAdd) {
+        listeners.add(toAdd);
+    }
+
+    private void callListeners() {
+        System.out.println("New valid data received!");
+        // Notify everybody that may be interested.
+        for (NewDataFrameListener hl : listeners)
+            hl.receivedNewDataFrame();
+    }
+
+    public SerialObj getNewPayload()
+    {
+        return this._seoLastValid;
+    }
+
+    public void commServerStop() {
         _bServerActive = false;
     }
 }

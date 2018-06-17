@@ -1,5 +1,7 @@
 package Net.ysma;
 
+import org.json.JSONArray;
+
 import java.io.*;
 import java.net.*;
 
@@ -10,23 +12,35 @@ public class CommClient extends Thread
 
     private Socket _socSocket;
     private int _intPayload;
-    public SerialObj _seoToSend;
+    private SerialObj _seoToSend;
 
-    /** Default constructor. */
+    /**
+     *Constructeur par défault qui pointe le target hostname "localhost"
+     * et le port 45000
+     */
     public CommClient()
     {
         this.SERVER_HOSTNAME = "127.0.0.1";
-        this.COMM_PORT = 8443;  // socket port for client comms
+        this.COMM_PORT = 45000;  // socket port for client comms
         this._seoToSend = new SerialObj();
     }
 
+    /**
+     * Constructeur qui reçoit une ip spécifique mais conserve le port du "Application CORE"
+     * @param strHostName Permet de spécifier un hostname différent de "localhost"
+     */
     public CommClient(String strHostName)
     {
         this.SERVER_HOSTNAME = strHostName;
-        this.COMM_PORT = 8443;  // socket port for client comms
+        this.COMM_PORT = 45000;  // socket port for client comms
         this._seoToSend = new SerialObj();
     }
 
+    /**
+     * Constucteur qui doit être utilisé pour viser un autre module que le "Core"
+     * @param strHostName Spécifie l'adresse IP target
+     * @param iPort Sécifie le port qui doit être pointé
+     */
     public CommClient(String strHostName, int iPort)
     {
         this.SERVER_HOSTNAME = strHostName;
@@ -34,9 +48,12 @@ public class CommClient extends Thread
         this._seoToSend = new SerialObj();
     }
 
+    /**
+     * Application qui sera initialisé par le thread start
+     */
     public void run()
     {
-        System.out.println("STARTING Sender Thread...");
+        System.out.println("STARTING Writer Thread...");
         try
         {
             this._socSocket = new Socket(SERVER_HOSTNAME, COMM_PORT);	//Ouvre la connection vers un serveur distant
@@ -66,5 +83,53 @@ public class CommClient extends Thread
             System.out.println("Wanted class int, but got class " + cne);
         }
         System.out.println("STOPPING Sender Thread...");
+    }
+
+    //Méthodes d'accès pour populer l'objet série ci-dessous
+
+    /**
+     * Permet d'écrire l'adresse d'origine dans le produit de communication
+     * @param str
+     */
+    public void setSourceIp(String str)
+    {
+        _seoToSend.setSourceIp(str);
+    }
+
+    /**
+     * Permet d'écrire l'adresse visée dans le produit de communication
+     * @param str
+     */
+    public void setTargetIp(String str)
+    {
+        _seoToSend.setTargetIp(str);
+    }
+
+    /**
+     * Permet de mettre le timestamp dans le produit de communication
+     */
+    public void setDataFrameTime()
+    {
+        _seoToSend.setDataFrameTime();
+    }
+
+    /**
+     * Permet de populer le fichier JSON dans le produit de communication
+     * @param arr Reçoit le contenu sous forme de JSONArray pour en permettre la transmission
+     * @return Une booléenne pour confirmer la réussite de l'opération
+     */
+    public boolean setDataFrame(JSONArray arr)
+    {
+        return _seoToSend.setDataFrame(arr);
+    }
+
+    /**
+     * Permet d'indiquer le type de trame véhiculée
+     * @param rt Doit être un Integer qui est dans le range proposé dans l'interface de l'objet série
+     * @return Booléenne qui confirme la réussite de de l'enregistrement du type
+     */
+    public boolean setRequestType(Integer rt)
+    {
+        return _seoToSend.setRequestType(rt);
     }
 }

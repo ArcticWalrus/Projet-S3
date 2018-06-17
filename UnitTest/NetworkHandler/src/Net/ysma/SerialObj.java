@@ -71,9 +71,13 @@ public class SerialObj implements SerialObjInterface, Serializable
 		return _jsnData;
 	}
 	
-	public void setRequestType(Integer rt)
+	public boolean setRequestType(Integer rt)
 	{
+		if((rt <= ERRORPROCESS) && (rt >= UNKNOWN))
 			_reqType = rt;
+		else
+			return false;
+		return true;
 	}
 	
 	public Integer getRequestType()
