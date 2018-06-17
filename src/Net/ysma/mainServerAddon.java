@@ -48,6 +48,10 @@ public class mainServerAddon implements NewDataFrameListener
     public void receivedNewDataFrame() {
         System.out.println("Got to save and use that new data");
         _serData = _cseListener.getNewPayload();
+        if(_serData.getIfFeedbackNeeded())
+        {
+
+        }
         _booNewData = true;
     }
 }
