@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="09fc0b72-d918-4e4c-854f-e40ab48df6f5" name="Default" comment="">
+    <list default="true" id="09fc0b72-d918-4e4c-854f-e40ab48df6f5" name="Default" comment="Refactoring">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main_Application_Layer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main_Application_Layer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main_Persistance_Layer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main_Persistance_Layer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Net/ysma/SerialObj.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Net/ysma/SerialObj.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Net/ysma/SerialObjInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Net/ysma/SerialObjInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/maxmamort/gel/ApplicationLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/maxmamort/gel/ApplicationLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/maxmamort/gel/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/maxmamort/gel/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,17 +22,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main_Application_Layer.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Main_Application_Layer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="449">
-              <caret line="51" column="30" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
+            <state relative-caret-position="285">
+              <caret line="19" column="46" lean-forward="true" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -36,24 +31,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main_Persistance_Layer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main_Persistance_Layer.java">
+      <file leaf-file-name="Main_Application_Layer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Main_Application_Layer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+              <caret line="8" column="66" lean-forward="true" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="66" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ApplicationLayer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/ApplicationLayer.java">
+      <file leaf-file-name="Main_Persistance_Layer.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Main_Persistance_Layer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="80" column="5" lean-forward="true" selection-start-line="70" selection-start-column="4" selection-end-line="80" selection-end-column="5" />
+            <state relative-caret-position="212">
+              <caret line="38" column="27" lean-forward="true" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#Populate#0;class#ApplicationLayer#0" />
-                <element signature="method#to_device#0;class#ApplicationLayer#0" />
               </folding>
             </state>
           </provider>
@@ -62,17 +58,24 @@
       <file leaf-file-name="SerialObjInterface.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Net/ysma/SerialObjInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="16" column="32" lean-forward="true" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+            <state relative-caret-position="261">
+              <caret line="23" column="35" lean-forward="true" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CommClient.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Net/ysma/CommClient.java">
+      <file leaf-file-name="SerialObj.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Net/ysma/SerialObj.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="43" column="52" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="52" />
+            <state relative-caret-position="555">
+              <caret line="110" column="4" lean-forward="true" selection-start-line="110" selection-start-column="4" selection-end-line="110" selection-end-column="4" />
+              <folding>
+                <element signature="method#setDataFrame#0;class#SerialObj#0" />
+                <element signature="e#1765#1766#0" expanded="true" />
+                <element signature="e#1795#1796#0" expanded="true" />
+                <element signature="e#1598#1599#0" expanded="true" />
+                <element signature="e#1620#1621#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -107,12 +110,13 @@
         <option value="$PROJECT_DIR$/src/maxmamort/gel/persistence/dbAccess.java" />
         <option value="$PROJECT_DIR$/src/maxmamort/gel/persistence/IdbAccess.java" />
         <option value="$PROJECT_DIR$/src/maxmamort/gel/persistence/persistantLayer.java" />
-        <option value="$PROJECT_DIR$/src/Net/ysma/SerialObj.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/Main_Application_Layer.java" />
         <option value="$PROJECT_DIR$/src/maxmamort/gel/ApplicationLayer.java" />
         <option value="$PROJECT_DIR$/src/maxmamort/gel/Main.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/Net/ysma/SerialObj.java" />
         <option value="$PROJECT_DIR$/src/Net/ysma/SerialObjInterface.java" />
-        <option value="$PROJECT_DIR$/src/Main_Application_Layer.java" />
+        <option value="$PROJECT_DIR$/src/Main_Persistance_Layer.java" />
       </list>
     </option>
   </component>
@@ -141,6 +145,18 @@
               <item name="projetS3" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="projetS3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projetS3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="gel" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="projetS3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projetS3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ysma" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -168,7 +184,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main_Application_Layer">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="maxmamort.gel.Main" />
       <module name="projetS3" />
@@ -179,6 +195,11 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+    </configuration>
+    <configuration name="Main_Application_Layer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main_Application_Layer" />
+      <module name="projetS3" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -221,8 +242,13 @@
       <properties />
       <listeners />
     </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Main_Application_Layer" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main_Application_Layer" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -245,7 +271,21 @@
       <option name="project" value="LOCAL" />
       <updated>1529262231031</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Starts">
+      <created>1529262287037</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1529262287037</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Main application layer listening">
+      <created>1529262916315</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1529262916315</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -260,12 +300,12 @@
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.39738664" side_tool="true" weight="0.336478" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6026134" weight="0.336478" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6026134" visible="true" weight="0.20754717" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32861635" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2021522" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16218294" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
@@ -330,7 +370,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Through intelliJ" />
-    <option name="LAST_COMMIT_MESSAGE" value="Through intelliJ" />
+    <MESSAGE value="Starts" />
+    <MESSAGE value="Main application layer listening" />
+    <MESSAGE value="Refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -349,6 +392,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -435,6 +481,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="32" column="41" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -528,6 +577,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
           <caret line="32" column="41" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -713,31 +765,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Net/ysma/CommClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="43" column="52" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Net/ysma/SerialObj.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="42" column="31" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
@@ -760,36 +791,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Net/ysma/SerialObjInterface.java">
+    <entry file="file://$PROJECT_DIR$/src/Main_Application_Layer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="16" column="32" lean-forward="true" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+        <state relative-caret-position="120">
+          <caret line="8" column="66" lean-forward="true" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="66" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="46" lean-forward="true" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Net/ysma/CommClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="43" column="52" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="52" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/ApplicationLayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="80" column="5" lean-forward="true" selection-start-line="70" selection-start-column="4" selection-end-line="80" selection-end-column="5" />
+        <state relative-caret-position="228">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#Populate#0;class#ApplicationLayer#0" />
+            <element signature="e#2618#2619#0" expanded="true" />
+            <element signature="e#2660#2661#0" expanded="true" />
             <element signature="method#to_device#0;class#ApplicationLayer#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Net/ysma/SerialObjInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="23" column="35" lean-forward="true" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Net/ysma/SerialObj.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="110" column="4" lean-forward="true" selection-start-line="110" selection-start-column="4" selection-end-line="110" selection-end-column="4" />
+          <folding>
+            <element signature="method#setDataFrame#0;class#SerialObj#0" />
+            <element signature="e#1765#1766#0" expanded="true" />
+            <element signature="e#1795#1796#0" expanded="true" />
+            <element signature="e#1598#1599#0" expanded="true" />
+            <element signature="e#1620#1621#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main_Persistance_Layer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main_Application_Layer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="51" column="30" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
+        <state relative-caret-position="212">
+          <caret line="38" column="27" lean-forward="true" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

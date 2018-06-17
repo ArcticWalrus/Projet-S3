@@ -1,4 +1,5 @@
 package maxmamort.gel;
+
 import Net.ysma.*;
 
 import maxmamort.gel.persistence.persistantLayer;
@@ -17,7 +18,7 @@ public class ApplicationLayer {
     private static final int EQUALTO = 2;
 
     public ApplicationLayer() {
-        pl = new persistantLayer();
+
     }
 
     public void Populate() {
@@ -62,6 +63,10 @@ public class ApplicationLayer {
 
         //Used to debug devices
         //System.out.println(pl.getDevicesByUser("bolm2210").toString());
+    }
+
+    public void Create_Persistance_Layer() {
+        pl = new persistantLayer();
     }
 
     public void Logic_Module_Parse(JSONArray _jsnArgstest) {

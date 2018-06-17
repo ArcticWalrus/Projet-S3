@@ -18,11 +18,12 @@ public class SerialObj implements SerialObjInterface, Serializable
 	Integer _strPorttarget;
 	Date _dateTimeSent;
 	JSONArray _jsnData;
-	Integer _reqType;
+	Integer _reqTargetType;
+	String _reqType;
 	
 	public SerialObj()
 	{
-		this._reqType = 0;
+		this._reqTargetType = 0;
 	}
 	
 	public void setSourceIp(String str)
@@ -92,18 +93,26 @@ public class SerialObj implements SerialObjInterface, Serializable
 	{
 		return _jsnData;
 	}
+
+    public void setTargetType(Integer rt)
+    {
+            _reqTargetType = rt;
+    }
+
+    public Integer getTargetType()
+    {
+        return _reqTargetType;
+    }
 	
-	public boolean setRequestType(Integer rt)
+	public void setRequestType(String rt)
 	{
-		if((rt <= ERRORPROCESS) && (rt >= APPSERVER))
-			_reqType = rt;
-		else
-			return false;
-		return true;
+        _reqType = rt;
 	}
 	
-	public Integer getRequestType()
+	public String getRequestType()
 	{
 		return _reqType;
 	}
+
+
 }

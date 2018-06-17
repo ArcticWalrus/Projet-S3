@@ -25,6 +25,8 @@ public interface SerialObjInterface
 	public Date getDataFrameTime();
 	public boolean setDataFrame(JSONArray arr);
 	public JSONArray getDataFrame();
-	public boolean setRequestType(Integer rt);
-	public Integer getRequestType();
+    public void setTargetType(Integer rt);
+    public Integer getTargetType();
+	public void setRequestType(String rt);
+	public String getRequestType();
 }
