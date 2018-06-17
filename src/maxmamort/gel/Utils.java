@@ -18,4 +18,13 @@ public class Utils {
         }
         return obj.getJSONArray("key");
     }
+
+
+    public static void sleep(int time) {
+        try {
+            Thread.sleep(100);
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+    }
 }

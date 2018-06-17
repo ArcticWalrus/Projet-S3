@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class persistantLayer implements IpersistantLayer {
+public class persistantLayer {
 
     /**
      * @param inputName    Name of the input
@@ -165,12 +165,11 @@ public class persistantLayer implements IpersistantLayer {
      * @return True if everything worked, false if failed
      * @brief Update the value of an output
      */
-    public boolean updateOutputValue(int outputId, double value) {
+    public void updateOutputValue(int outputId, double value) {
         dbAccess db = new dbAccess();
         String query = "UPDATE public.intinput SET valvalue = '" + value + "' WHERE serintinput = '" + outputId + "'";
         db.updateQuery(query);
         db.closeConnection();
-        return db.isError();
     }
 
     /**
@@ -194,7 +193,7 @@ public class persistantLayer implements IpersistantLayer {
      * @param jsonUpdate Json containing the id of the outputgroupid and the newvalue
      * @return
      */
-    public boolean updateValueOutputGroup(JSONArray jsonUpdate) {
+    public void updateValueOutputGroup(JSONArray jsonUpdate) {
         dbAccess db = new dbAccess();
         JSONArray json = db.selectQuery("SELECT * FROM public.getidofinputinoutputgroup WHERE namconditiongroup = " + jsonUpdate.getJSONObject(0).getInt("outputgroupid"));
         System.out.println(json.toString());
@@ -204,7 +203,6 @@ public class persistantLayer implements IpersistantLayer {
             updateOutputValue(id, jsonUpdate.getJSONObject(0).getInt("newvalue"));
         }
         db.closeConnection();
-        return db.isError();
     }
 
     /**

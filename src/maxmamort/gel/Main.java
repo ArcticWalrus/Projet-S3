@@ -2,7 +2,9 @@ package maxmamort.gel;
 
 import maxmamort.gel.persistence.persistantLayer;
 import org.json.JSONArray;
+import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.Properties;
 
 public class Main {
@@ -18,6 +20,5 @@ public class Main {
         }
 
         LMThread lm = new LMThread(jsonFinal);
-
     }
 }
