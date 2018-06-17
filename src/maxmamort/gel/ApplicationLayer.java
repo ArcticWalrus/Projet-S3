@@ -1,7 +1,9 @@
 package maxmamort.gel;
+import Net.ysma.*;
 
 import maxmamort.gel.persistence.persistantLayer;
 import org.json.JSONArray;
+
 
 public class ApplicationLayer {
     persistantLayer pl;
@@ -48,12 +50,12 @@ public class ApplicationLayer {
         pl.createUser("denj1605");
         pl.createUser("demo1622");
 
-        pl.createDevice("THIS IS A MAC","bolm2210","name of device");
-        pl.createDevice("MAC","bolm2210","name of device 0");
-        pl.createDevice("THIS IS A MAC 2","bolm2210","name of device 2");
-        pl.createDevice("THIS IS A MAC 3","denj1605","name of device 3");
+        pl.createDevice("THIS IS A MAC", "bolm2210", "name of device");
+        pl.createDevice("MAC", "bolm2210", "name of device 0");
+        pl.createDevice("THIS IS A MAC 2", "bolm2210", "name of device 2");
+        pl.createDevice("THIS IS A MAC 3", "denj1605", "name of device 3");
 
-        pl.renameDevice("MAC","new name");
+        pl.renameDevice("MAC", "new name");
         pl.updateDeviceIP("MAC", "1.2.3.4");
 
         pl.createIO("name of IO 1", "MAC", 10, 1);
@@ -65,4 +67,17 @@ public class ApplicationLayer {
     public void Logic_Module_Parse(JSONArray _jsnArgstest) {
         _lmtLogic = new LMThread(_jsnArgstest);
     }
+
+    void to_persistance(SerialObj sro_temp) {
+        CommClient pers_client = new CommClient("127.0.0.1", 45010);
+    }
+
+    void to_logic(SerialObj sro_temp) {
+        CommClient lm_client = new CommClient("127.0.0.1", 45020);
+    }
+
+    void to_device(SerialObj sro_temp) {
+        CommClient device_client = new CommClient(sro_temp.getTargetIp(), sro_temp.getTargetPort());
+    }
+
 }

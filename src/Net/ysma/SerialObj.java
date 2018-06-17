@@ -13,7 +13,9 @@ public class SerialObj implements SerialObjInterface, Serializable
 	private static final long serialVersionUID = -8973178568329153795L;
 	
 	String _strIPsrc;
+	Integer _strPortsrc;
 	String _strIPtarget;
+	Integer _strPorttarget;
 	Date _dateTimeSent;
 	JSONArray _jsnData;
 	Integer _reqType;
@@ -32,6 +34,16 @@ public class SerialObj implements SerialObjInterface, Serializable
 	{
 		return _strIPsrc;
 	}
+
+	public void setSourcePort(Integer str)
+	{
+		_strPortsrc = str;
+	}
+
+	public Integer getSourcePort()
+	{
+		return _strPortsrc;
+	}
 	
 	public void setTargetIp(String str)
 	{
@@ -41,6 +53,16 @@ public class SerialObj implements SerialObjInterface, Serializable
 	public String getTargetIp()
 	{
 		return _strIPtarget;
+	}
+
+	public void setTargetPort(Integer str)
+	{
+		_strPorttarget = str;
+	}
+
+	public Integer getTargetPort()
+	{
+		return _strPorttarget;
 	}
 	
 	public void setDataFrameTime()
