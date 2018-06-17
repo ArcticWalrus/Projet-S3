@@ -23,7 +23,7 @@ public class ApplicationLayer {
 
     public void Populate() {
         int temp = pl.addInput("Test input", 22.5, INPUT);
-        temp_test = temp; //for creation of LM thread in main
+       // temp_test = temp; //for creation of LM thread in main
         int temp2 = pl.addInput("Input2", 21.2, INPUT);
         int temp3 = pl.addInput("output1", 1.3, OUTPUT);
         pl.createInputGroupCondition(new int[]{temp, temp2, temp3}, 1);

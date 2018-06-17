@@ -1,5 +1,6 @@
 import maxmamort.gel.persistence.*;
 import Net.ysma.*;
+import org.json.JSONObject;
 
 import static Net.ysma.SerialObjInterface.*;
 
@@ -43,8 +44,9 @@ public class Main_Persistance_Layer {
     static void to_persistance(SerialObj sro_temp) {
         String tempvalue = sro_temp.getRequestType();
         persistantLayer pl = new persistantLayer();
+        JSONObject jo = sro_temp.getDataFrame().getJSONObject(0);
         if ("addInput".equalsIgnoreCase(tempvalue)) {
-
+            pl.addInput(jo.getString("inputName"), jo.getDouble("defaultValue"), jo.getInt("sensorType"));
         } else if ("getInputIDForIO".equalsIgnoreCase(tempvalue)) {
 
         } else if ("getIOByDevice".equalsIgnoreCase(tempvalue)) {

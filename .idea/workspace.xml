@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="09fc0b72-d918-4e4c-854f-e40ab48df6f5" name="Default" comment="Refractoring the stupid way">
+    <list default="true" id="09fc0b72-d918-4e4c-854f-e40ab48df6f5" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main_Application_Layer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main_Application_Layer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main_Persistance_Layer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main_Persistance_Layer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Net/ysma/SerialObj.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Net/ysma/SerialObj.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Net/ysma/SerialObjInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Net/ysma/SerialObjInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/maxmamort/gel/ApplicationLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/maxmamort/gel/ApplicationLayer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,13 +28,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main_Persistance_Layer.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main_Persistance_Layer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main_Persistance_Layer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="77" column="71" lean-forward="true" selection-start-line="77" selection-start-column="71" selection-end-line="77" selection-end-column="71" />
+            <state relative-caret-position="330">
+              <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApplicationLayer.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/ApplicationLayer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="276">
+              <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#to_device#0;class#ApplicationLayer#0" />
               </folding>
             </state>
           </provider>
@@ -98,12 +109,12 @@
         <option value="$PROJECT_DIR$/src/maxmamort/gel/persistence/IdbAccess.java" />
         <option value="$PROJECT_DIR$/src/maxmamort/gel/persistence/persistantLayer.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
-        <option value="$PROJECT_DIR$/src/maxmamort/gel/ApplicationLayer.java" />
         <option value="$PROJECT_DIR$/src/maxmamort/gel/Main.java" />
         <option value="$PROJECT_DIR$/src/Main_Application_Layer.java" />
         <option value="$PROJECT_DIR$/src/Net/ysma/SerialObjInterface.java" />
         <option value="$PROJECT_DIR$/src/Net/ysma/SerialObj.java" />
         <option value="$PROJECT_DIR$/src/Main_Persistance_Layer.java" />
+        <option value="$PROJECT_DIR$/src/maxmamort/gel/ApplicationLayer.java" />
       </list>
     </option>
   </component>
@@ -293,7 +304,14 @@
       <option name="project" value="LOCAL" />
       <updated>1529265228029</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="20 else ifs for persistance layer">
+      <created>1529266546838</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1529266546838</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -383,7 +401,8 @@
     <MESSAGE value="Refactoring" />
     <MESSAGE value="fuck you" />
     <MESSAGE value="Refractoring the stupid way" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refractoring the stupid way" />
+    <MESSAGE value="20 else ifs for persistance layer" />
+    <option name="LAST_COMMIT_MESSAGE" value="20 else ifs for persistance layer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -811,20 +830,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/ApplicationLayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Populate#0;class#ApplicationLayer#0" />
-            <element signature="e#2618#2619#0" expanded="true" />
-            <element signature="e#2660#2661#0" expanded="true" />
-            <element signature="method#to_device#0;class#ApplicationLayer#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Net/ysma/SerialObjInterface.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -865,10 +870,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main_Persistance_Layer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="77" column="71" lean-forward="true" selection-start-line="77" selection-start-column="71" selection-end-line="77" selection-end-column="71" />
+        <state relative-caret-position="330">
+          <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/ApplicationLayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#to_device#0;class#ApplicationLayer#0" />
           </folding>
         </state>
       </provider>
