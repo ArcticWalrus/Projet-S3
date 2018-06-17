@@ -6,13 +6,13 @@ import java.util.Date;
 
 public interface SerialObjInterface
 {
-	public Integer APPSERVER = 0;
-	public Integer PERSISTANCE = 1;
-	public Integer LOGIC = 2;
-	public Integer DEVICE = 3;
-	public Integer UI = 4;
-	public Integer LOGICSETUP = 5;
-	public Integer ERRORPROCESS = 6;
+	Integer APPSERVER = 0;
+	Integer PERSISTANCE = 1;
+	Integer LOGIC = 2;
+	Integer DEVICE = 3;
+	Integer UI = 4;
+	Integer LOGICSETUP = 5;
+	Integer ERRORPROCESS = 6;
 	public void setSourceIp(String str);
 	public String getSourceIp();
 	public void setSourcePort(Integer str);
