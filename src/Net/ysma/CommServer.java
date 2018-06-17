@@ -1,8 +1,12 @@
 package Net.ysma;
 
+import maxmamort.gel.Utils;
+import org.json.JSONArray;
+
 import java.io.*;
 import java.net.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -15,21 +19,28 @@ public class CommServer extends Thread {
     public SerialObj _seoLastValid;
     private List<NewDataFrameListener> listeners = new ArrayList<NewDataFrameListener>();
 
+    private boolean _bServerActive = false;
 
-    boolean _bServerActive = false;
+    //Pour le permettre le feedback
+    private boolean _booReturnDone;
+    private JSONArray _jsaReturnValue;
 
     public CommServer() {
         this.COMM_PORT = 45000; // socket port for client comms
         this._seoPayload = new SerialObj();
         this._seoLastValid = new SerialObj();
-        _bServerActive = true;
+        this._jsaReturnValue = new JSONArray();
+        this._booReturnDone = false;
+        this._bServerActive = true;
     }
 
     public CommServer(int iPort) {
         COMM_PORT = iPort; // socket port for client comms
         this._seoPayload = new SerialObj();
         this._seoLastValid = new SerialObj();
-        _bServerActive = true;
+        this._jsaReturnValue = new JSONArray();
+        this._booReturnDone = false;
+        this._bServerActive = true;
     }
 
     private void init_ssoServerSocket() {
@@ -69,22 +80,34 @@ public class CommServer extends Thread {
                 ObjectInputStream oiStream = new ObjectInputStream(iStream);
                 this._seoPayload = (SerialObj) oiStream.readObject();    // convert serilized _seoPayload
                 System.out.println("Received valid serialObj ");
-                ooStream.close();
-                CommID++;
-                if (CommID == 65535)
-                    CommID = 1;
-
-                if (this._seoPayload._reqType != 0)    //Si l'objet est maintenant populé avec des nouvelles valeurs
+                if (this._seoPayload.getTargetType() != 10)    //Si l'objet est maintenant populé avec des nouvelles valeurs
                 {
                     System.out.println("Un contenu valide demande maintenant la notification des listeners");
                     //Mettre l'appel de création de thread approprié ICI
                     this._seoLastValid = this._seoPayload;
+                    //Destruction de l'objet car il a été redirigé dans le nouveau thread
+                    this._seoPayload = new SerialObj();
                     this.callListeners();
+                    if (this._seoLastValid.getIfFeedbackNeeded()) {
+                        Date datStartTime = new Date();
+                        while ((!_booReturnDone) || ((datStartTime.getTime() + 5000) >= (new Date().getTime()))) {
+                            Utils.sleep(10);
+                        }
+                        if (_booReturnDone) {
+                            _booReturnDone = false;
+                            ooStream = new ObjectOutputStream(oStream);
+                            ooStream.writeObject(_jsaReturnValue);
+                        } else {
+                            System.out.println("Aucune réponse n'a été reçue assez rapidement... Answer Timeout Exception");
+                        }
+                    }
                 } else {
                     System.out.println("Aucune valeur valide n'a été observée dans l'objet reçu");
                 }
-                //Destruction de l'objet car il a été redirigé dans le nouveau thread
-                this._seoPayload = new SerialObj();
+                ooStream.close();
+                CommID++;
+                if (CommID == 65535)
+                    CommID = 1;
                 Thread.sleep(100);
             } catch (ClassNotFoundException cne) {
                 System.out.println("Wanted class TcpPayload, but got class " + cne);
@@ -122,9 +145,18 @@ public class CommServer extends Thread {
             hl.receivedNewDataFrame();
     }
 
-    public SerialObj getNewPayload()
-    {
+    public SerialObj getNewPayload() {
         return this._seoLastValid;
+    }
+
+    private void setReturnReady() {
+        _booReturnDone = true;
+    }
+
+    public void setReturnArray(JSONArray arr)
+    {
+        _jsaReturnValue = arr;
+        this.setReturnReady();
     }
 
     public void commServerStop() {

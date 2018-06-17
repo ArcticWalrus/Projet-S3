@@ -11,17 +11,20 @@ public class SerialObj implements SerialObjInterface, Serializable {
      */
     private static final long serialVersionUID = -8973178568329153795L;
 
-    String _strIPsrc;
-    Integer _strPortsrc;
-    String _strIPtarget;
-    Integer _strPorttarget;
-    Date _dateTimeSent;
-    JSONArray _jsnData;
-    Integer _reqTargetType;
-    String _reqType;
+    private String _strIPsrc;
+    private Integer _strPortsrc;
+    private String _strIPtarget;
+    private Integer _strPorttarget;
+    private Date _dateTimeSent;
+    private JSONArray _jsnData;
+    private Integer _reqTargetType;
+    private String _reqType;
+    private boolean _booNeedFeedback;
 
     public SerialObj() {
-        this._reqTargetType = 0;
+        this._reqTargetType = 10;
+        _jsnData = new JSONArray();
+        _booNeedFeedback = false;
     }
 
     public void setSourceIp(String str) {
@@ -64,13 +67,8 @@ public class SerialObj implements SerialObjInterface, Serializable {
         return _dateTimeSent;
     }
 
-    public boolean setDataFrame(JSONArray arr) {
-        try {
-            _jsnData = new JSONArray(arr.toString());
-        } catch (Exception e) {
-            return false;
-        }
-        return true;
+    public void setDataFrame(JSONArray arr) {
+        _jsnData = arr;
     }
 
     public JSONArray getDataFrame() {
@@ -93,5 +91,14 @@ public class SerialObj implements SerialObjInterface, Serializable {
         return _reqType;
     }
 
+    public void setIfFeedbackNeeded(boolean boo)
+    {
+        _booNeedFeedback = boo;
+    }
+
+    public boolean getIfFeedbackNeeded()
+    {
+        return _booNeedFeedback;
+    }
 
 }

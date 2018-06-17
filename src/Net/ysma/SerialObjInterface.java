@@ -33,7 +33,7 @@ public interface SerialObjInterface {
 
     public Date getDataFrameTime();
 
-    public boolean setDataFrame(JSONArray arr);
+    public void setDataFrame(JSONArray arr);
 
     public JSONArray getDataFrame();
 
