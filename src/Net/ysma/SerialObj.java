@@ -95,7 +95,7 @@ public class SerialObj implements SerialObjInterface, Serializable
 	
 	public boolean setRequestType(Integer rt)
 	{
-		if((rt <= ERRORPROCESS) && (rt >= UNKNOWN))
+		if((rt <= ERRORPROCESS) && (rt >= APPSERVER))
 			_reqType = rt;
 		else
 			return false;
