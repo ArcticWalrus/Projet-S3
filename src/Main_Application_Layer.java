@@ -1,9 +1,17 @@
 import Net.ysma.*;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import static Net.ysma.SerialObjInterface.*;
 
 
 public class Main_Application_Layer {
+
+    private static final int OUTPUT = 1;
+    private static final int INPUT = 0;
+    private static final int GREATERTHAN = 0;
+    private static final int LESSTHAN = 1;
+    private static final int EQUALTO = 2;
 
     public static void main(String[] args) {
         mainServerAddon msaServerObserver = new mainServerAddon();
@@ -27,6 +35,13 @@ public class Main_Application_Layer {
             }
 
         }
+    }
+
+    static SerialObj populate()
+    {
+        SerialObj temp_obj = new SerialObj();
+        temp_obj.setDataFrame(new JSONArray().put(new JSONObject().put("inputName", "Test input").put("defaultValue", 22.5).put("sensorType", INPUT)));
+        return temp_obj;
     }
 
     static void aiguilleur(SerialObj temp) {
