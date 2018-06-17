@@ -16,7 +16,6 @@ public class Main {
             System.out.println(jsonFinal.getJSONObject(i).toString());
         }
 
-        //al.Logic_Module_Parse(jsonFinal);
-
+        LMThread lm = new LMThread(jsonFinal);
     }
 }
