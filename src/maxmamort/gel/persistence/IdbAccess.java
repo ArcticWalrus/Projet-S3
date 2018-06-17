@@ -15,6 +15,8 @@ public interface IdbAccess {
 
     Connection getConnection();
 
+    int updateGetIdQuery(String sql);
+
     boolean isError();
 
     boolean updateQuery(String sql);
