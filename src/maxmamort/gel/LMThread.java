@@ -44,11 +44,53 @@ public class LMThread implements Runnable {
         System.out.println("--------------------------------------");
         JSONArray commands = new JSONArray();
 
-        seperateIOC(Args);
-        matchIOC();
+        //seperateIOC(Args);
+        //matchIOC();
+        seperateConditions(Args);
         System.out.println("--------------------------------------");
     }
 
+    private void seperateConditions(JSONArray Args){
+        JSONObject _jsnNewCondition = new JSONObject();
+        JSONObject _jsnCurrCondEval = new JSONObject();
+        int _intCurrCondNum = 0;
+        int _intLastCondNum = -1;
+
+        ArrayList<Float> inputs = new ArrayList<>();
+
+        for(int i = 0; i < Args.length(); i++){
+            _jsnCurrCondEval = Args.getJSONObject(i);
+            _intCurrCondNum = _jsnCurrCondEval.getInt("namconditiongroup");
+
+
+            if((_intCurrCondNum != _intLastCondNum) && _intLastCondNum != -1){
+                _jsnNewCondition.put("input", inputs);
+                _jsnTasks.add(_jsnNewCondition);
+
+                _jsnNewCondition = new JSONObject();
+                inputs.clear();
+            }
+            _intLastCondNum = _intCurrCondNum;
+            _jsnNewCondition.put("operation", _jsnCurrCondEval.getInt("valoperation"));
+
+            //retrieve info
+            if(_jsnCurrCondEval.getInt("valtype") == 0){
+                inputs.add(_jsnCurrCondEval.getFloat("valvalue"));
+            }
+
+            else{
+                _jsnNewCondition.put("output", _jsnCurrCondEval.getInt("serintinput"));
+            }
+
+            if(i == Args.length() - 1){
+                _jsnNewCondition.put("input", inputs);
+                _jsnTasks.add(_jsnNewCondition);
+            }
+        }
+        System.out.println(_jsnTasks);
+    }
+
+    //DEPRECATED
     private void matchIOC() {
         /* get condition number for all outputs */
         for (int i = 0; i < _lstJSONOutput.size(); i++) {
@@ -95,6 +137,7 @@ public class LMThread implements Runnable {
         }
     }
 
+    //DEPRECATED
     private void seperateIOC(JSONArray Args) {
         System.out.println("seperating inputs/outputs/conds");
         for (int i = 0; i < Args.length(); i++) {
