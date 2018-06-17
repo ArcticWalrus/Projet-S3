@@ -6,10 +6,10 @@ import java.util.Date;
 
 public interface SerialObjInterface
 {
-	public Integer UNKNOWN = 0;
-	public Integer INPUTVALUE = 1;
-	public Integer OUTPUTCHANGE = 2;
-	public Integer DATAPROCESSING = 3;
+	public Integer APPSERVER = 0;
+	public Integer PERSISTANCE = 1;
+	public Integer LOGIC = 2;
+	public Integer DEVICE = 3;
 	public Integer UI = 4;
 	public Integer LOGICSETUP = 5;
 	public Integer ERRORPROCESS = 6;
