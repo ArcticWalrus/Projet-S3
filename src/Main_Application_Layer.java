@@ -31,19 +31,20 @@ public class Main_Application_Layer {
     }
 
     static void aiguilleur(SerialObj temp) {
-        if (temp.getRequestType() == APPSERVER) {
+        Integer tempint = temp.getTargetType();
+        if (tempint == APPSERVER) {
             System.out.println("Communication to APPSERVER");
-        } else if (temp.getRequestType() == PERSISTANCE) {
+        } else if (tempint == PERSISTANCE) {
             to_persistance(temp);
-        } else if (temp.getRequestType() == LOGIC) {
+        } else if (tempint== LOGIC) {
             to_logic(temp);
-        } else if (temp.getRequestType() == DEVICE) {
+        } else if (tempint == DEVICE) {
             to_device(temp);
-        } else if (temp.getRequestType() == UI) {
+        } else if (tempint == UI) {
             System.out.println("Communication to UI");
-        } else if (temp.getRequestType() == LOGICSETUP) {
+        } else if (tempint == LOGICSETUP) {
             to_logic(temp);
-        } else if (temp.getRequestType() == ERRORPROCESS) {
+        } else if (tempint == ERRORPROCESS) {
             to_persistance(temp);
         } else {
             System.out.println("1. Ya done fucked up");

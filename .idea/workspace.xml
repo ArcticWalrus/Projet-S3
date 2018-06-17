@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="09fc0b72-d918-4e4c-854f-e40ab48df6f5" name="Default" comment="Refactoring">
+    <list default="true" id="09fc0b72-d918-4e4c-854f-e40ab48df6f5" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main_Persistance_Layer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main_Persistance_Layer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Net/ysma/SerialObj.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Net/ysma/SerialObj.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Net/ysma/SerialObjInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Net/ysma/SerialObjInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/maxmamort/gel/ApplicationLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/maxmamort/gel/ApplicationLayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/maxmamort/gel/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/maxmamort/gel/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main_Application_Layer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main_Application_Layer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,11 +27,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main_Application_Layer.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main_Application_Layer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main_Application_Layer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="66" lean-forward="true" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="66" />
+            <state relative-caret-position="182">
+              <caret line="34" column="20" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -43,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main_Persistance_Layer.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main_Persistance_Layer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main_Persistance_Layer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="38" column="27" lean-forward="true" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
+            <state relative-caret-position="120">
+              <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="49" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -58,7 +54,7 @@
       <file leaf-file-name="SerialObjInterface.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Net/ysma/SerialObjInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
+            <state relative-caret-position="315">
               <caret line="23" column="35" lean-forward="true" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
             </state>
           </provider>
@@ -67,7 +63,7 @@
       <file leaf-file-name="SerialObj.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Net/ysma/SerialObj.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
+            <state relative-caret-position="825">
               <caret line="110" column="4" lean-forward="true" selection-start-line="110" selection-start-column="4" selection-end-line="110" selection-end-column="4" />
               <folding>
                 <element signature="method#setDataFrame#0;class#SerialObj#0" />
@@ -111,12 +107,12 @@
         <option value="$PROJECT_DIR$/src/maxmamort/gel/persistence/IdbAccess.java" />
         <option value="$PROJECT_DIR$/src/maxmamort/gel/persistence/persistantLayer.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
-        <option value="$PROJECT_DIR$/src/Main_Application_Layer.java" />
         <option value="$PROJECT_DIR$/src/maxmamort/gel/ApplicationLayer.java" />
         <option value="$PROJECT_DIR$/src/maxmamort/gel/Main.java" />
         <option value="$PROJECT_DIR$/src/Net/ysma/SerialObj.java" />
         <option value="$PROJECT_DIR$/src/Net/ysma/SerialObjInterface.java" />
         <option value="$PROJECT_DIR$/src/Main_Persistance_Layer.java" />
+        <option value="$PROJECT_DIR$/src/Main_Application_Layer.java" />
       </list>
     </option>
   </component>
@@ -285,7 +281,14 @@
       <option name="project" value="LOCAL" />
       <updated>1529262916315</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fuck you">
+      <created>1529265026233</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1529265026233</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -373,7 +376,8 @@
     <MESSAGE value="Starts" />
     <MESSAGE value="Main application layer listening" />
     <MESSAGE value="Refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring" />
+    <MESSAGE value="fuck you" />
+    <option name="LAST_COMMIT_MESSAGE" value="fuck you" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -791,16 +795,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main_Application_Layer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="66" lean-forward="true" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="66" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -834,14 +828,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Net/ysma/SerialObjInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
+        <state relative-caret-position="315">
           <caret line="23" column="35" lean-forward="true" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Net/ysma/SerialObj.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
+        <state relative-caret-position="825">
           <caret line="110" column="4" lean-forward="true" selection-start-line="110" selection-start-column="4" selection-end-line="110" selection-end-column="4" />
           <folding>
             <element signature="method#setDataFrame#0;class#SerialObj#0" />
@@ -855,8 +849,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main_Persistance_Layer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="38" column="27" lean-forward="true" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
+        <state relative-caret-position="120">
+          <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="49" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main_Application_Layer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="34" column="20" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
