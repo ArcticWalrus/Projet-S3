@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09fc0b72-d918-4e4c-854f-e40ab48df6f5" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/maxmamort/gel/persistence/IdbAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/maxmamort/gel/persistence/IdbAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/maxmamort/gel/ApplicationLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/maxmamort/gel/ApplicationLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/maxmamort/gel/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/maxmamort/gel/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/maxmamort/gel/persistence/persistantLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/maxmamort/gel/persistence/persistantLayer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -15,14 +17,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="persistantLayer.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="persistantLayer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/persistantLayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2160">
-              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="313">
+              <caret line="146" column="58" selection-start-line="146" selection-start-column="58" selection-end-line="146" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;method#addInput#0;class#persistantLayer#0" />
+                <element signature="method#addInput#0;class#persistantLayer#0" />
+                <element signature="method#createDevice#0;class#persistantLayer#0" />
+                <element signature="method#createUser#0;class#persistantLayer#0" />
+                <element signature="method#getDevicesByUser#0;class#persistantLayer#0" />
+                <element signature="method#renameDevice#0;class#persistantLayer#0" />
+                <element signature="method#updateDeviceIP#0;class#persistantLayer#0" />
                 <element signature="method#getSensorTypeFromConfigurationBit#0;class#persistantLayer#0" />
                 <element signature="docComment;method#updateOutputValue#0;class#persistantLayer#0" />
                 <element signature="method#updateOutputValue#0;class#persistantLayer#0" />
@@ -31,6 +39,7 @@
                 <element signature="docComment;method#updateValueOutputGroup#0;class#persistantLayer#0" />
                 <element signature="method#updateValueOutputGroup#0;class#persistantLayer#0" />
                 <element signature="docComment;method#getConditionsAndInputs#0;class#persistantLayer#0" />
+                <element signature="method#getConditionsAndInputs#0;class#persistantLayer#0" />
               </folding>
             </state>
           </provider>
@@ -39,8 +48,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+            <state relative-caret-position="289">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -48,11 +57,34 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="LMThread.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/LMThread.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="11" column="43" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#seperateIOC#0;class#LMThread#0" />
+                <element signature="method#processAllTasks#0;class#LMThread#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApplicationLayer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/ApplicationLayer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="918">
+              <caret line="57" selection-start-line="57" selection-end-line="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="dbAccess.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/dbAccess.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="77">
-              <caret line="242" column="11" selection-start-line="242" selection-start-column="11" selection-end-line="242" selection-end-column="43" />
+            <state relative-caret-position="1190">
+              <caret line="118" selection-start-line="118" selection-end-line="118" />
               <folding>
                 <element signature="docComment;method#dbAccess#0;class#dbAccess#0" />
                 <element signature="docComment;method#dbAccess#1;class#dbAccess#0" />
@@ -63,7 +95,6 @@
                 <element signature="method#closeConnection#0;class#dbAccess#0" />
                 <element signature="docComment;method#initConnection#0;class#dbAccess#0" />
                 <element signature="docComment;method#insertQuery#0;class#dbAccess#0" />
-                <element signature="method#insertQuery#0;class#dbAccess#0" />
                 <element signature="docComment;method#insertGetIdQuery#0;class#dbAccess#0" />
                 <element signature="docComment;method#selectQuery#0;class#dbAccess#0" />
                 <element signature="method#selectQuery#0;class#dbAccess#0" />
@@ -76,11 +107,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IdbAccess.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="IdbAccess.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/IdbAccess.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+            <state relative-caret-position="-66">
+              <caret line="13" column="27" lean-forward="true" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -97,6 +128,8 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>inputid</find>
+      <find>OF</find>
+      <find>user</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -108,27 +141,28 @@
         <option value="$PROJECT_DIR$/projetS3.iml" />
         <option value="$PROJECT_DIR$/src/maxmamort/gel/LMThread.java" />
         <option value="$PROJECT_DIR$/src/maxmamort/gel/persistence/IpersistantLayer.java" />
-        <option value="$PROJECT_DIR$/src/maxmamort/gel/ApplicationLayer.java" />
         <option value="$PROJECT_DIR$/src/maxmamort/gel/persistence/config.properties" />
         <option value="$PROJECT_DIR$/src/maxmamort/gel/persistence/dbConfig.java" />
-        <option value="$PROJECT_DIR$/src/maxmamort/gel/Main.java" />
         <option value="$PROJECT_DIR$/src/maxmamort/gel/persistence/dbAccess.java" />
-        <option value="$PROJECT_DIR$/src/maxmamort/gel/persistence/persistantLayer.java" />
         <option value="$PROJECT_DIR$/src/maxmamort/gel/persistence/IdbAccess.java" />
+        <option value="$PROJECT_DIR$/src/maxmamort/gel/Main.java" />
+        <option value="$PROJECT_DIR$/src/maxmamort/gel/ApplicationLayer.java" />
+        <option value="$PROJECT_DIR$/src/maxmamort/gel/persistence/persistantLayer.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-2" />
     <option name="y" value="20" />
     <option name="width" value="3194" />
-    <option name="height" value="1682" />
+    <option name="height" value="1276" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -158,9 +192,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -256,7 +289,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="10" width="1597" height="841" extended-state="0" />
+    <frame x="-6" y="-6" width="1613" height="873" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -264,20 +298,20 @@
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.3967151" side_tool="true" visible="true" weight="0.26530612" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.39899936" side_tool="true" visible="true" weight="0.42112124" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6032849" weight="0.26530612" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.6010006" visible="true" weight="0.42112124" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15413772" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15259537" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49905244" weight="0.63909775" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -291,10 +325,17 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="10" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/IdbAccess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/dbAccess.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="901">
@@ -309,7 +350,6 @@
             <element signature="method#closeConnection#0;class#dbAccess#0" />
             <element signature="docComment;method#initConnection#0;class#dbAccess#0" />
             <element signature="docComment;method#insertQuery#0;class#dbAccess#0" />
-            <element signature="method#insertQuery#0;class#dbAccess#0" />
             <element signature="docComment;method#insertGetIdQuery#0;class#dbAccess#0" />
             <element signature="docComment;method#selectQuery#0;class#dbAccess#0" />
             <element signature="method#selectQuery#0;class#dbAccess#0" />
@@ -346,11 +386,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" selection-start-line="16" selection-end-line="19" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#445#446#0" expanded="true" />
-            <element signature="e#487#488#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -411,7 +446,6 @@
             <element signature="method#closeConnection#0;class#dbAccess#0" />
             <element signature="docComment;method#initConnection#0;class#dbAccess#0" />
             <element signature="docComment;method#insertQuery#0;class#dbAccess#0" />
-            <element signature="method#insertQuery#0;class#dbAccess#0" />
             <element signature="docComment;method#insertGetIdQuery#0;class#dbAccess#0" />
             <element signature="docComment;method#selectQuery#0;class#dbAccess#0" />
             <element signature="method#selectQuery#0;class#dbAccess#0" />
@@ -501,7 +535,6 @@
             <element signature="method#closeConnection#0;class#dbAccess#0" />
             <element signature="docComment;method#initConnection#0;class#dbAccess#0" />
             <element signature="docComment;method#insertQuery#0;class#dbAccess#0" />
-            <element signature="method#insertQuery#0;class#dbAccess#0" />
             <element signature="docComment;method#insertGetIdQuery#0;class#dbAccess#0" />
             <element signature="docComment;method#selectQuery#0;class#dbAccess#0" />
             <element signature="method#selectQuery#0;class#dbAccess#0" />
@@ -598,7 +631,6 @@
             <element signature="method#closeConnection#0;class#dbAccess#0" />
             <element signature="docComment;method#initConnection#0;class#dbAccess#0" />
             <element signature="docComment;method#insertQuery#0;class#dbAccess#0" />
-            <element signature="method#insertQuery#0;class#dbAccess#0" />
             <element signature="docComment;method#insertGetIdQuery#0;class#dbAccess#0" />
             <element signature="docComment;method#selectQuery#0;class#dbAccess#0" />
             <element signature="method#selectQuery#0;class#dbAccess#0" />
@@ -674,18 +706,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/LMThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#seperateIOC#0;class#LMThread#0" />
-            <element signature="method#processAllTasks#0;class#LMThread#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/dbConfig.java" />
     <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/IpersistantLayer.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -695,9 +715,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/config.properties" />
-    <entry file="file://$PROJECT_DIR$/SQL/Views.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/SQL/TableCreation.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -705,39 +722,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/ApplicationLayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#445#446#0" expanded="true" />
-            <element signature="e#487#488#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/IdbAccess.java">
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/LMThread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+          <caret line="11" column="43" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#seperateIOC#0;class#LMThread#0" />
+            <element signature="method#processAllTasks#0;class#LMThread#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/dbAccess.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77">
-          <caret line="242" column="11" selection-start-line="242" selection-start-column="11" selection-end-line="242" selection-end-column="43" />
+        <state relative-caret-position="1190">
+          <caret line="118" selection-start-line="118" selection-end-line="118" />
           <folding>
             <element signature="docComment;method#dbAccess#0;class#dbAccess#0" />
             <element signature="docComment;method#dbAccess#1;class#dbAccess#0" />
@@ -748,7 +748,6 @@
             <element signature="method#closeConnection#0;class#dbAccess#0" />
             <element signature="docComment;method#initConnection#0;class#dbAccess#0" />
             <element signature="docComment;method#insertQuery#0;class#dbAccess#0" />
-            <element signature="method#insertQuery#0;class#dbAccess#0" />
             <element signature="docComment;method#insertGetIdQuery#0;class#dbAccess#0" />
             <element signature="docComment;method#selectQuery#0;class#dbAccess#0" />
             <element signature="method#selectQuery#0;class#dbAccess#0" />
@@ -760,13 +759,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/ApplicationLayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="57" selection-start-line="57" selection-end-line="57" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/persistantLayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2160">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="313">
+          <caret line="146" column="58" selection-start-line="146" selection-start-column="58" selection-end-line="146" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#addInput#0;class#persistantLayer#0" />
+            <element signature="method#addInput#0;class#persistantLayer#0" />
+            <element signature="method#createDevice#0;class#persistantLayer#0" />
+            <element signature="method#createUser#0;class#persistantLayer#0" />
+            <element signature="method#getDevicesByUser#0;class#persistantLayer#0" />
+            <element signature="method#renameDevice#0;class#persistantLayer#0" />
+            <element signature="method#updateDeviceIP#0;class#persistantLayer#0" />
             <element signature="method#getSensorTypeFromConfigurationBit#0;class#persistantLayer#0" />
             <element signature="docComment;method#updateOutputValue#0;class#persistantLayer#0" />
             <element signature="method#updateOutputValue#0;class#persistantLayer#0" />
@@ -775,7 +797,15 @@
             <element signature="docComment;method#updateValueOutputGroup#0;class#persistantLayer#0" />
             <element signature="method#updateValueOutputGroup#0;class#persistantLayer#0" />
             <element signature="docComment;method#getConditionsAndInputs#0;class#persistantLayer#0" />
+            <element signature="method#getConditionsAndInputs#0;class#persistantLayer#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/IdbAccess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-66">
+          <caret line="13" column="27" lean-forward="true" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
         </state>
       </provider>
     </entry>

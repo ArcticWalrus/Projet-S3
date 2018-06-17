@@ -46,6 +46,7 @@ public class persistantLayer implements IpersistantLayer {
     }
 
     public JSONArray getIOByDevice(int deviceID) {
+        //TODO Test method
         JSONArray json = new JSONArray();
         String sql = "SELECT * FROM public.io WHERE namio = " + deviceID + " ;";
         dbAccess db = new dbAccess();
@@ -54,18 +55,24 @@ public class persistantLayer implements IpersistantLayer {
         return json;
     }
 
+    //User must exist!
     public void createDevice(String MAC, String cip, String name) {
-        //TODO Test method
-        String sql = "INSERT INTO public.devices (serdevices, namdevice, valcip, valip, valmac) VALUES ( DEFAULT, " + name + ", " + cip + " , 0.0.0.0, " + MAC + " );";
+        String sql = "INSERT INTO public.devices (serdevices, namdevice, valcip, valip, valmac) VALUES ( DEFAULT, '" + name + "', '" + cip + "' , '0.0.0.0', '" + MAC + "' ) RETURNING serdevices;";
+        dbAccess db = new dbAccess();
+        int id = db.insertGetIdQuery(sql, "serdevices");
+        db.closeConnection();
+    }
+
+    public void createUser(String cip) {
+        String sql = "INSERT INTO public.users ( serusers, valcip ) VALUES ( DEFAULT , '" + cip + "');";
         dbAccess db = new dbAccess();
         db.insertQuery(sql);
         db.closeConnection();
     }
 
     public JSONArray getDevicesByUser(String cip) {
-        //TODO test method
         JSONArray json = new JSONArray();
-        String sql = "SELECT * FROM public.devices WHERE valcip = " + cip + ";";
+        String sql = "SELECT * FROM public.devices WHERE valcip = '" + cip + "';";
         dbAccess db = new dbAccess();
         json = db.selectQuery(sql);
         db.closeConnection();
@@ -88,8 +95,7 @@ public class persistantLayer implements IpersistantLayer {
     }
 
     public void renameDevice(String MAC, String name) {
-        //TODO test method
-        String sql = "UPDATE public.devices SET namdevice = " + name + " WHERE valmac = " + MAC + " ;";
+        String sql = "UPDATE public.devices SET namdevice = '" + name + "' WHERE valmac = '" + MAC + "' ;";
         dbAccess db = new dbAccess();
         db.updateQuery(sql);
         db.closeConnection();
@@ -123,22 +129,22 @@ public class persistantLayer implements IpersistantLayer {
     }
 
     public void updateDeviceIP(String mac, String ip) {
-        //TODO test this
         String sql = "UPDATE public.devices SET valip='" + ip + "' WHERE valmac = '" + mac + "';";
         dbAccess db = new dbAccess();
         db.updateQuery(sql);
         db.closeConnection();
     }
 
-    public int createIO(String IoName, int DeviceId, int physicalPinMapping, int configurationBit) {
+    public int createIO(String IoName, String DeviceId, int physicalPinMapping, int configurationBit) {
         //TODO ADD namio
         //TODO test method
         int sensorType = getSensorTypeFromConfigurationBit(configurationBit);
         int inputId = addInput(IoName, 0, sensorType);
         String sql = "INSERT INTO public.io (serio, namio, configurationbits, pinid, valinputid) " +
-                "VALUES (DEFAULT, " + DeviceId + ", " + configurationBit + ", " + physicalPinMapping + ", " + inputId + ") RETURNING serio;";
+                "VALUES (DEFAULT, '" + DeviceId + "', " + configurationBit + ", " + physicalPinMapping + ", " + inputId + ") RETURNING serio;";
         dbAccess db = new dbAccess();
         int value = db.insertGetIdQuery(sql, "serio");
+        System.out.println("Sensor is added as : " + value);
         db.closeConnection();
         return value;
     }
@@ -190,10 +196,11 @@ public class persistantLayer implements IpersistantLayer {
      */
     public boolean updateValueOutputGroup(JSONArray jsonUpdate) {
         dbAccess db = new dbAccess();
-        JSONArray json = db.selectQuery("SELECT * FROM public.inputgroup WHERE namconditiongroup = " + jsonUpdate.getJSONObject(0).getInt("outputgroupid"));
+        JSONArray json = db.selectQuery("SELECT * FROM public.getidofinputinoutputgroup WHERE namconditiongroup = " + jsonUpdate.getJSONObject(0).getInt("outputgroupid"));
+        System.out.println(json.toString());
         for (int i = 0; i < json.length(); i++) {
             JSONObject obj = json.getJSONObject(i);
-            int id = obj.getInt("inputid");
+            int id = obj.getInt("serintinput");
             updateOutputValue(id, jsonUpdate.getJSONObject(0).getInt("newvalue"));
         }
         db.closeConnection();
@@ -218,6 +225,8 @@ public class persistantLayer implements IpersistantLayer {
             }
         }
         sql += ";";
-        return db.selectQuery(sql);
+        json = db.selectQuery(sql);
+        db.closeConnection();
+        return json;
     }
 }
