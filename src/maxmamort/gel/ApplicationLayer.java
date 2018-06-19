@@ -51,6 +51,7 @@ public class ApplicationLayer {
         pl.createUser("denj1605");
         pl.createUser("demo1622");
 
+        System.out.println("\n\n Creating Devices");
         pl.createDevice("THIS IS A MAC", "bolm2210", "name of device");
         pl.createDevice("MAC", "bolm2210", "name of device 0");
         pl.createDevice("THIS IS A MAC 2", "bolm2210", "name of device 2");
@@ -61,6 +62,7 @@ public class ApplicationLayer {
 
         pl.createIO("name of IO 1", "MAC", 10, 1);
 
+        System.out.println("\n\n");
         //Used to debug devices
         //System.out.println(pl.getDevicesByUser("bolm2210").toString());
     }

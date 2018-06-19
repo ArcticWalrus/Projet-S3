@@ -46,7 +46,7 @@ public class persistantLayer {
 
     //User must exist!
     public void createDevice(String MAC, String cip, String name) {
-        String sql = "INSERT INTO public.devices (serdevices, namdevice, valcip, valip, valmac) VALUES ( DEFAULT, '" + name + "', '" + cip + "' , '0.0.0.0', '" + MAC + "' ) RETURNING serdevices;";
+        String sql = "INSERT INTO public.devices (serdevices, namdevice, valcip, valip, valmac) VALUES ( DEFAULT, '" + name + "', '" + cip + "' , '0.0.0.0', '" + MAC + "' );";
         insertUtil(sql);
     }
 

@@ -114,7 +114,7 @@ public class dbAccess implements IdbAccess {
         } catch (SQLException e) {
             if (boo_logError) {
                 errorManager ema = new errorManager();
-                ema.logError(e);
+                ema.logError(str, e);
             }
             _boolIsError = true;
             return false;
@@ -144,7 +144,7 @@ public class dbAccess implements IdbAccess {
         } catch (SQLException e) {
             if (boo_logError) {
                 errorManager ema = new errorManager();
-                ema.logError(e);
+                ema.logError(str, e);
             }
             _boolIsError = true;
             return returnValue;
@@ -171,7 +171,7 @@ public class dbAccess implements IdbAccess {
         } catch (Exception e) {
             if (boo_logError) {
                 errorManager ema = new errorManager();
-                ema.logError(e);
+                ema.logError(str, e);
             }
             _boolIsError = true;
             return null;
@@ -194,14 +194,14 @@ public class dbAccess implements IdbAccess {
         } catch (SQLException ex) {
             if (boo_logError) {
                 errorManager ema = new errorManager();
-                ema.logError(ex);
+                ema.logError(ps.toString(), ex);
             }
             _boolIsError = true;
             return false;
         } catch (Exception ex) {
             if (boo_logError) {
                 errorManager ema = new errorManager();
-                ema.logError(ex);
+                ema.logError(ps.toString(), ex);
             }
             _boolIsError = true;
             return false;
@@ -224,7 +224,7 @@ public class dbAccess implements IdbAccess {
             System.out.println(ex.getMessage());
             if (boo_logError) {
                 errorManager ema = new errorManager();
-                ema.logError(ex);
+                ema.logError(sql, ex);
             }
             _boolIsError = true;
             return false;
@@ -232,7 +232,7 @@ public class dbAccess implements IdbAccess {
             System.out.println(ex.getMessage());
             if (boo_logError) {
                 errorManager ema = new errorManager();
-                ema.logError(ex);
+                ema.logError(sql, ex);
             }
             _boolIsError = true;
             return false;
@@ -240,7 +240,7 @@ public class dbAccess implements IdbAccess {
         return true;
     }
 
-    public int updateGetIdQuery(String sql){
+    public int updateGetIdQuery(String sql) {
         _boolIsError = false;
         Statement stmt = null;
         ResultSet rs = null;
@@ -256,13 +256,14 @@ public class dbAccess implements IdbAccess {
         } catch (SQLException e) {
             if (boo_logError) {
                 errorManager ema = new errorManager();
-                ema.logError(e);
+                ema.logError(sql, e);
             }
             _boolIsError = true;
             return returnValue;
         }
         return returnValue;
     }
+
     /**
      * @param str The SQL delete statement to be executed
      * @return true if succeeded, false if failed
@@ -280,7 +281,7 @@ public class dbAccess implements IdbAccess {
         } catch (SQLException e) {
             if (boo_logError) {
                 errorManager ema = new errorManager();
-                ema.logError(e);
+                ema.logError(str, e);
             }
             _boolIsError = true;
             return false;
