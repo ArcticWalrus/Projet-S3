@@ -14,22 +14,7 @@ import static Net.ysma.SerialObjInterface.ERRORPROCESS;
 public class Main {
     public static void main(String[] args) {
 
-/*while(1 == 1){
-    Utils.sleep(600);
-    System.out.println("test 1");
-
-}*/
-        System.out.println("writer thread");
-        CommClient cclWriter = new CommClient();
-        cclWriter.setRequestType(ERRORPROCESS);
-        cclWriter.setSourceIp("La mère à Josh");
-        cclWriter.setTargetIp("La mère à Roger");
-        cclWriter.setDataFrame(new JSONArray().put(new JSONObject().put("toto", "tata")));
-        cclWriter.setDataFrameTime();
-        cclWriter.start();
-
-
-       /* ApplicationLayer al = new ApplicationLayer();
+        ApplicationLayer al = new ApplicationLayer();
         al.Create_Persistance_Layer();
         al.Populate();
 
@@ -39,6 +24,18 @@ public class Main {
             System.out.println(jsonFinal.getJSONObject(i).toString());
         }
 
-        LMThread lm = new LMThread(jsonFinal);*/
+        LMThread lm = new LMThread(jsonFinal);
+               /*
+        System.out.println("writer thread");
+        CommClient cclWriter = new CommClient();
+        cclWriter.setRequestType(ERRORPROCESS);
+        cclWriter.setSourceIp("La mère à Josh");
+        cclWriter.setTargetIp("La mère à Roger");
+        cclWriter.setDataFrame(new JSONArray().put(new JSONObject().put("toto", "tata")));
+        cclWriter.setDataFrameTime();
+        cclWriter.start();
+*/
+
+
     }
 }
