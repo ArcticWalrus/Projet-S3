@@ -51,7 +51,7 @@ public class persistantLayer {
     }
 
     public void createUser(String cip) {
-        String sql = "INSERT INTO public.users ( serusers, valcip ) VALUES ( DEFAULT , '" + cip + "');";
+        String sql = "INSERT INTO public.users ( serusers, valcip ) VALUES ( DEFAULT , '" + cip + "') ON CONFLICT (valcip) DO NOTHING;";
         insertUtil(sql);
     }
 
@@ -156,7 +156,7 @@ public class persistantLayer {
         for (int i = 1; i < inputIds.length; i++) {
             db.insertQuery("INSERT INTO public.inputgroup(serinputgroup, namconditiongroup , valinputid, valordre, valoperation) VALUES (DEFAULT, " + returnValue + ", " + inputIds[i] + ", " + i + " ," + operation + ");");
         }
-        db.insertQuery(sql);
+        //db.insertQuery(sql);
         db.closeConnection();
         return returnValue;
     }

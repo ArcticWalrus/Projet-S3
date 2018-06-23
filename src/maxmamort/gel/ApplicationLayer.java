@@ -62,7 +62,6 @@ public class ApplicationLayer {
 
         pl.createIO("name of IO 1", "MAC", 10, 1);
 
-        System.out.println("\n\n");
         //Used to debug devices
         //System.out.println(pl.getDevicesByUser("bolm2210").toString());
     }

@@ -24,7 +24,7 @@ public class Main {
           //  System.out.println(jsonFinal.getJSONObject(i).toString());
         //}
 
-        //LMThread lm = new LMThread(jsonFinal);
+        LMThread lm = new LMThread(jsonFinal);
                /*
         System.out.println("writer thread");
         CommClient cclWriter = new CommClient();

@@ -30,7 +30,7 @@ public class errorManager implements IerrorManager {
         String _str = ex.getStackTrace().toString();
         _str = ex.fillInStackTrace().toString();
         String _errorCode = ex.getMessage();
-        sendError(_errorCode, sql + "   " +_str, "bolm2210");
+        sendError(_errorCode, sql.replace("'","^") + "   " +_str.replace("'","^"), "bolm2210");
     }
     public void logError(Exception ex, String _userID) {
         String _str = ex.getStackTrace().toString();
@@ -60,6 +60,7 @@ public class errorManager implements IerrorManager {
         String data = "'" + errorCode + "','" + dateFormat.format(date) + "','" + message + "','" + user + "'";
         if (!dba.insertQuery("INSERT INTO public.log (serSerial, valErrorCode, datDate, details, ValCIP) VALUES( DEFAULT," + data + " )")) {
             System.out.println("Failed db query");
+            System.out.println("\t" + dba.getErrorMessage());
             try {
                 Files.write(Paths.get(logPath),( "\r\n\r\n" + data).getBytes(), StandardOpenOption.APPEND);
             } catch (Exception e) {
