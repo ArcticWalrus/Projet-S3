@@ -38,9 +38,9 @@ public class persistantLayer {
         return selectUtil(sql).getJSONObject(0).getInt("valinputid");
     }
 
-    public JSONArray getIOByDevice(int deviceID) {
+    public JSONArray getIOByDevice(String deviceID) {
         //TODO Test method
-        String sql = "SELECT * FROM public.io WHERE namio = " + deviceID + " ;";
+        String sql = "SELECT * FROM public.io WHERE namio = '" + deviceID + "' ;";
         return selectUtil(sql);
     }
 
@@ -71,11 +71,7 @@ public class persistantLayer {
                 sql += " OR ";
             }
         }
-
-        dbAccess db = new dbAccess();
-        json = db.selectQuery(sql);
-        db.closeConnection();
-        return json;
+        return selectUtil(sql);
     }
 
     public void renameDevice(String MAC, String name) {
@@ -92,6 +88,7 @@ public class persistantLayer {
         //TODO test method
         int sensorType = getSensorTypeFromConfigurationBit(ConfigurationBit);
         String sql = "UPDATE public.io SET configurationbits = " + ConfigurationBit + " WHERE serio = " + IOID + " RETURNING valinputid;";
+
         dbAccess db = new dbAccess();
         int id = db.updateGetIdQuery(sql);
         db.updateQuery(sql);
@@ -103,13 +100,11 @@ public class persistantLayer {
 
     public void updatePhysicalMapping(int IOID, int physicalPin) {
         //TODO test method
-        String sql = "UPDATE public.io SET pinid = " + physicalPin + " WHERE serio = " + IOID + ";";
-        updateUtil(sql);
+        updateUtil("UPDATE public.io SET pinid = " + physicalPin + " WHERE serio = " + IOID + ";");
     }
 
     public void updateDeviceIP(String mac, String ip) {
-        String sql = "UPDATE public.devices SET valip='" + ip + "' WHERE valmac = '" + mac + "';";
-        updateUtil(sql);
+        updateUtil("UPDATE public.devices SET valip='" + ip + "' WHERE valmac = '" + mac + "';");
     }
 
     public int createIO(String IoName, String DeviceId, int physicalPinMapping, int configurationBit) {
@@ -150,14 +145,11 @@ public class persistantLayer {
      */
     public int createInputGroupCondition(int[] inputIds, int operation) {
         int returnValue = -1;
-        dbAccess db = new dbAccess();
         String sql = "INSERT INTO public.inputgroup(serinputgroup, namconditiongroup , valinputid, valordre, valoperation) VALUES (DEFAULT, DEFAULT, " + inputIds[0] + ", 0," + operation + ") RETURNING namconditiongroup;";
-        returnValue = db.insertGetIdQuery(sql, "namconditiongroup");
+        returnValue = insertGetIdUtil(sql, "namconditiongroup");
         for (int i = 1; i < inputIds.length; i++) {
-            db.insertQuery("INSERT INTO public.inputgroup(serinputgroup, namconditiongroup , valinputid, valordre, valoperation) VALUES (DEFAULT, " + returnValue + ", " + inputIds[i] + ", " + i + " ," + operation + ");");
+            insertUtil("INSERT INTO public.inputgroup(serinputgroup, namconditiongroup , valinputid, valordre, valoperation) VALUES (DEFAULT, " + returnValue + ", " + inputIds[i] + ", " + i + " ," + operation + ");");
         }
-        //db.insertQuery(sql);
-        db.closeConnection();
         return returnValue;
     }
 
@@ -179,10 +171,9 @@ public class persistantLayer {
      * @brief Get the conditions and what is needed to manage them from an InputID
      */
     public JSONArray getConditionsAndInputs(int inputId) {
-        dbAccess db = new dbAccess();
         JSONArray json = null;//result JSON
         String sql = "SELECT namconditiongroup FROM public.inputgroup WHERE valinputid = " + inputId;
-        json = db.selectQuery(sql);
+        json = selectUtil(sql);
         sql = "SELECT * FROM public.inputoutputconditions WHERE ";
         for (int i = 0; i < json.length(); i++) {
             sql += " namconditiongroup = " + Integer.toString(json.getJSONObject(i).getInt("namconditiongroup"));
@@ -191,8 +182,7 @@ public class persistantLayer {
             }
         }
         sql += ";";
-        json = db.selectQuery(sql);
-        db.closeConnection();
+        json = selectUtil(sql);
         return json;
     }
 

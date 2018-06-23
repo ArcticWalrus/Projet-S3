@@ -60,10 +60,15 @@ public class ApplicationLayer {
         pl.renameDevice("MAC", "new name");
         pl.updateDeviceIP("MAC", "1.2.3.4");
 
-        pl.createIO("name of IO 1", "MAC", 10, 1);
 
-        //Used to debug devices
-        //System.out.println(pl.getDevicesByUser("bolm2210").toString());
+        // Not working cause of DB uniquenesss constraint
+        pl.createIO("name of IO 1", "MAC", 10, 1);
+        pl.createIO("name of IO 2", "MAC", 11, 0);
+        pl.createIO("name of IO 3", "MAC", 12, 1);
+
+        JSONArray deviceID = pl.getIOByDevice("MAC");
+        System.out.println("IO for device MAC: " + deviceID.toString());
+
     }
 
     public void Create_Persistance_Layer() {

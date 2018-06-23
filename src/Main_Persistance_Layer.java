@@ -48,7 +48,7 @@ public class Main_Persistance_Layer {
         } else if ("getInputIDForIO".equalsIgnoreCase(tempValue)) {
             json = pl.getIOForUser(jo.getString("cip"));
         } else if ("getIOByDevice".equalsIgnoreCase(tempValue)) {
-            json = pl.getIOByDevice(jo.getInt("deviceid"));
+            json = pl.getIOByDevice(jo.getString("deviceid"));
         } else if ("createDevice".equalsIgnoreCase(tempValue)) {
             pl.createDevice(jo.getString("MAC"), jo.getString("cip"), jo.getString("name"));
         } else if ("createUser".equalsIgnoreCase(tempValue)) {
