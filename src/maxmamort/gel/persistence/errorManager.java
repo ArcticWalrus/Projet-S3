@@ -1,8 +1,8 @@
 /**
- * @File:       errorManager.java
- * @Author:     Maxim Bolduc
- * @Date:       2018-05-31
- * @Brief:      Gère la gestion et l'archivage des erreurs du programme
+ * @File: errorManager.java
+ * @Author: Maxim Bolduc
+ * @Date: 2018-05-31
+ * @Brief: Gère la gestion et l'archivage des erreurs du programme
  */
 
 package maxmamort.gel.persistence;
@@ -30,8 +30,9 @@ public class errorManager implements IerrorManager {
         String _str = ex.getStackTrace().toString();
         _str = ex.fillInStackTrace().toString();
         String _errorCode = ex.getMessage();
-        sendError(_errorCode, sql.replace("'","^") + "   " +_str.replace("'","^"), "bolm2210");
+        sendError(_errorCode, sql.replace("'", "^") + "   " + _str.replace("'", "^"), "bolm2210");
     }
+
     public void logError(Exception ex, String _userID) {
         String _str = ex.getStackTrace().toString();
         String _errorCode = ex.toString();
@@ -62,7 +63,7 @@ public class errorManager implements IerrorManager {
             System.out.println("Failed db query");
             System.out.println("\t" + dba.getErrorMessage());
             try {
-                Files.write(Paths.get(logPath),( "\r\n\r\n" + data).getBytes(), StandardOpenOption.APPEND);
+                Files.write(Paths.get(logPath), ("\r\n\r\n" + data).getBytes(), StandardOpenOption.APPEND);
             } catch (Exception e) {
                 System.out.println("Failed file writting");
             }
