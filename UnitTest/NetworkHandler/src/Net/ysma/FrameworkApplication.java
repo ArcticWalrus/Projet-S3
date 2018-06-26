@@ -23,6 +23,7 @@ public class FrameworkApplication
         cclWriter.setTargetIp("La mère à Max");
         cclWriter.setRequestType(APPSERVER);
         cclWriter.setDataFrameTime();
+        cclWriter.setIfFeedbackNeeded(false);
         cclWriter.start();
         //end of code
     }
@@ -34,6 +35,7 @@ public class FrameworkApplication
             SerialObj serTemp = _wraObserver.getSerialObject();
             if (serTemp != null)
             {
+            	System.out.println("FrameworkApp 1 new object received");
             	InfoProcess ifpTemp = new InfoProcess(serTemp);
             	if (serTemp.getIfFeedbackNeeded()) {
 					SerialObj serOutbound = new SerialObj();

@@ -159,4 +159,9 @@ public class CommClient extends Thread
     {
         _seoToSend.setTargetType(rt);
     }
+
+    public void setIfFeedbackNeeded(boolean boo)
+	{
+		_seoToSend.setIfFeedbackNeeded(boo);
+	}
 }
