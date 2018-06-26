@@ -12,8 +12,8 @@ public class CommClient extends Thread {
 
     private Socket _socSocket;
     private int _intPayload;
-    private SerialObj _seoToSend;
-    private SerialObj _seoToReceive;
+    private Net.ysma.SerialObj _seoToSend;
+    private Net.ysma.SerialObj _seoToReceive;
     private boolean _booDataReceived;
 
     /**
@@ -23,7 +23,7 @@ public class CommClient extends Thread {
     public CommClient() {
         this.SERVER_HOSTNAME = "127.0.0.1";
         this.COMM_PORT = 45000;  // socket port for client comms
-        this._seoToSend = new SerialObj();
+        this._seoToSend = new Net.ysma.SerialObj();
     }
 
     /**
@@ -34,7 +34,7 @@ public class CommClient extends Thread {
     public CommClient(String strHostName) {
         this.SERVER_HOSTNAME = strHostName;
         this.COMM_PORT = 45000;  // socket port for client comms
-        this._seoToSend = new SerialObj();
+        this._seoToSend = new Net.ysma.SerialObj();
     }
 
     /**
@@ -46,7 +46,7 @@ public class CommClient extends Thread {
     public CommClient(String strHostName, int iPort) {
         this.SERVER_HOSTNAME = strHostName;
         this.COMM_PORT = iPort;  // socket port for client comms
-        this._seoToSend = new SerialObj();
+        this._seoToSend = new Net.ysma.SerialObj();
     }
 
     /**
@@ -70,7 +70,7 @@ public class CommClient extends Thread {
             if (_seoToSend.getIfFeedbackNeeded()) {
                 iStream = this._socSocket.getInputStream();
                 oiStream = new ObjectInputStream(iStream);
-                this._seoToReceive = (SerialObj) oiStream.readObject();
+                this._seoToReceive = (Net.ysma.SerialObj) oiStream.readObject();
                 _booDataReceived = true;
                 while (_booDataReceived) {
                     //TODO put sleep a Max
@@ -87,7 +87,7 @@ public class CommClient extends Thread {
         System.out.println("STOPPING Sender Thread...");
     }
 
-    public SerialObj getInputBuffer() {
+    public Net.ysma.SerialObj getInputBuffer() {
         return this._seoToReceive;
     }
 
@@ -150,7 +150,7 @@ public class CommClient extends Thread {
         _seoToSend.setIfFeedbackNeeded(boo);
     }
 
-    public void setSerialObject(SerialObj obj) {
+    public void setSerialObject(Net.ysma.SerialObj obj) {
         _seoToSend = obj;
     }
 }

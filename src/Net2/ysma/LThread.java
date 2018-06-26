@@ -10,15 +10,15 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
-import static Net2.ysma.SerialObjInterface.ERRORPROCESS;
-import static Net2.ysma.SerialObjInterface.UNKNOWN;
+import static Net.ysma.SerialObjInterface.ERRORPROCESS;
+import static Net.ysma.SerialObjInterface.UNKNOWN;
 
 public class LThread extends Thread {
     private Integer _intArrayIndex;
     private Socket _socClientLink;
     private boolean _booReadyToAnswer = false;
-    private SerialObj _seoObjInbound;
-    private SerialObj _seoObjOutbound;
+    private Net.ysma.SerialObj _seoObjInbound;
+    private Net.ysma.SerialObj _seoObjOutbound;
     private List<CustomClassListener> listeners = new ArrayList<>();
 
     public LThread(Integer iThreadIndex, Socket sock) {
@@ -33,7 +33,7 @@ public class LThread extends Thread {
             ooStream.writeObject(0);    //TODO get a valid int that makes sense
             InputStream iStream = _socClientLink.getInputStream();
             ObjectInputStream oiStream = new ObjectInputStream(iStream);
-            this._seoObjInbound = (SerialObj) oiStream.readObject();    // convert serilized _seoPayload
+            this._seoObjInbound = (Net.ysma.SerialObj) oiStream.readObject();    // convert serilized _seoPayload
             System.out.println("Received valid serialObj");
             if ((this._seoObjInbound.getTargetType() >= UNKNOWN) && (this._seoObjInbound.getTargetType() <= ERRORPROCESS))    //Si l'objet est maintenant populé avec des nouvelles valeurs et des champs valides
             {
@@ -70,11 +70,11 @@ public class LThread extends Thread {
             hl.receivedNewDataFrame(_intArrayIndex);
     }
 
-    public SerialObj getNewPayload() {
+    public Net.ysma.SerialObj getNewPayload() {
         return this._seoObjInbound;
     }
 
-    public void setOutboundPayload(SerialObj ser) {
+    public void setOutboundPayload(Net.ysma.SerialObj ser) {
         this._seoObjOutbound = ser;
     }
 

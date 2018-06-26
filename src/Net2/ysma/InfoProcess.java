@@ -6,20 +6,20 @@ import maxmamort.gel.persistence.persistantLayer;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import static Net2.ysma.SerialObjInterface.*;
+import static Net.ysma.SerialObjInterface.*;
 
 public class InfoProcess {
-    private SerialObj _seoObjSerie;
+    private Net.ysma.SerialObj _seoObjSerie;
 
-    public InfoProcess(SerialObj obj) {
+    public InfoProcess(Net.ysma.SerialObj obj) {
         _seoObjSerie = obj;
     }
 
-    public SerialObj Aiguilleur(SerialObj temp)
+    public Net.ysma.SerialObj Aiguilleur(Net.ysma.SerialObj temp)
     {
         System.out.println("Aiguilleur de persistance");
 
-        SerialObj seoOutbound = new SerialObj();
+        Net.ysma.SerialObj seoOutbound = new Net.ysma.SerialObj();
 
         Integer tempInt = temp.getTargetType();
         if (tempInt == PERSISTANCE) {
@@ -33,7 +33,7 @@ public class InfoProcess {
         return seoOutbound;
     }
 
-   private JSONArray to_persistance(SerialObj sro_temp) {
+   private JSONArray to_persistance(Net.ysma.SerialObj sro_temp) {
 
         JSONArray json = new JSONArray();
         String tempValue = sro_temp.getRequestType();
@@ -83,7 +83,7 @@ public class InfoProcess {
         return json;
     }
 
-    private void to_error_logger(SerialObj sro_temp) {
+    private void to_error_logger(Net.ysma.SerialObj sro_temp) {
         errorManager er = new errorManager();
         er.logError("target:" + sro_temp.getTargetIp() + "   source:" + sro_temp.getSourceIp() + "   " + sro_temp.getDataFrame().toString(), "stjm2505");
     }

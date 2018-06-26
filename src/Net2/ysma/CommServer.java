@@ -89,7 +89,7 @@ public class CommServer extends Thread {
         }
     }
 
-    public SerialObj getPayload(Integer iIndex)
+    public Net.ysma.SerialObj getPayload(Integer iIndex)
     {
         return ServerThreads.get(iIndex).getNewPayload();
     }
@@ -109,7 +109,7 @@ public class CommServer extends Thread {
         _bServerActive = false;
     }
 
-	public void setOutboundSerialObj(SerialObj ser, Integer iIndex)
+	public void setOutboundSerialObj(Net.ysma.SerialObj ser, Integer iIndex)
 	{
 		ServerThreads.get(iIndex).setOutboundPayload(ser);
 		ServerThreads.get(iIndex).setOutboundFlagToSend();

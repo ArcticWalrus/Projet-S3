@@ -28,12 +28,15 @@ public class FrameworkApplication
 		//populate();
         //Code to implement where a Listener is required #2
         while (_booAppOn) {
-            SerialObj serTemp = _wraObserver.getSerialObject();
+            System.out.println("get object");
+            Net.ysma.SerialObj serTemp = _wraObserver.getSerialObject();
+            System.out.println("get object done");
+
             if (serTemp != null) {
                 System.out.println("FrameworkApp 1 new object received");
                 InfoProcess ifpTemp = new InfoProcess(serTemp);
                 if (serTemp.getIfFeedbackNeeded()) {
-                    SerialObj serOutbound = new SerialObj();
+                    Net.ysma.SerialObj serOutbound = new Net.ysma.SerialObj();
                     serOutbound = ifpTemp.Aiguilleur(serTemp);
                     System.out.println("Aiguilleur a retourner sa valeur");
                     //Doit relayer l'information au LThread
@@ -57,7 +60,7 @@ public class FrameworkApplication
     }
 
     private void populate() {
-        SerialObj temp_obj = new SerialObj();
+        Net.ysma.SerialObj temp_obj = new Net.ysma.SerialObj();
         temp_obj.setDataFrame(new JSONArray().put(new JSONObject().put("inputName", "Test input").put("defaultValue", 22.5).put("sensorType", INPUT)));
         temp_obj.setTargetType(PERSISTANCE);
         temp_obj.setRequestType("addInput");
