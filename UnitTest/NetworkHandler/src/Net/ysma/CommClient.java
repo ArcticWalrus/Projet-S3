@@ -13,6 +13,8 @@ public class CommClient extends Thread
     private Socket _socSocket;
     private int _intPayload;
     private SerialObj _seoToSend;
+    private SerialObj _seoToReceive;
+    private boolean _booDataReceived;
 
     /**
      *Constructeur par défault qui pointe le target hostname "localhost"
@@ -68,6 +70,17 @@ public class CommClient extends Thread
             OutputStream oStream = this._socSocket.getOutputStream();
             ObjectOutputStream ooStream = new ObjectOutputStream(oStream);
             ooStream.writeObject(_seoToSend);
+            if(_seoToSend.getIfFeedbackNeeded())
+            {
+                iStream = this._socSocket.getInputStream();
+                oiStream = new ObjectInputStream(iStream);
+                this._seoToReceive = (SerialObj) oiStream.readObject();
+				_booDataReceived = true;
+				while (_booDataReceived)
+				{
+					//TODO put sleep a Max
+				}
+            }
         }
         catch (UnknownHostException uhe)
         {
@@ -85,8 +98,22 @@ public class CommClient extends Thread
         System.out.println("STOPPING Sender Thread...");
     }
 
-    //Méthodes d'accès pour populer l'objet série ci-dessous
+    public SerialObj getInputBuffer()
+	{
+		return this._seoToReceive;
+	}
 
+	public boolean getIfDataReceived()
+	{
+		return this._booDataReceived;
+	}
+
+	public void setReceivedDataRead()
+	{
+		_booDataReceived = false;
+	}
+
+    //Méthodes d'accès pour populer l'objet série ci-dessous
     /**
      * Permet d'écrire l'adresse d'origine dans le produit de communication
      * @param str
@@ -118,9 +145,9 @@ public class CommClient extends Thread
      * @param arr Reçoit le contenu sous forme de JSONArray pour en permettre la transmission
      * @return Une booléenne pour confirmer la réussite de l'opération
      */
-    public boolean setDataFrame(JSONArray arr)
+    public void setDataFrame(JSONArray arr)
     {
-        return _seoToSend.setDataFrame(arr);
+        _seoToSend.setDataFrame(arr);
     }
 
     /**
@@ -128,8 +155,8 @@ public class CommClient extends Thread
      * @param rt Doit être un Integer qui est dans le range proposé dans l'interface de l'objet série
      * @return Booléenne qui confirme la réussite de de l'enregistrement du type
      */
-    public boolean setRequestType(Integer rt)
+    public void setRequestType(Integer rt)
     {
-        return _seoToSend.setRequestType(rt);
+        _seoToSend.setTargetType(rt);
     }
 }

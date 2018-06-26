@@ -11,24 +11,18 @@ public class CommServer extends Thread {
 
     private ServerSocket _ssoServerSocket;
     private InetSocketAddress _isaInboundAddr;
-    private SerialObj _seoPayload;
-    public SerialObj _seoLastValid;
-    private List<NewDataFrameListener> listeners = new ArrayList<NewDataFrameListener>();
-
+    private List<CustomClassListener> listeners = new ArrayList<>();
+    private List<LThread> ServerThreads = new ArrayList<>();
 
     boolean _bServerActive = false;
 
     public CommServer() {
         this.COMM_PORT = 45000; // socket port for client comms
-        this._seoPayload = new SerialObj();
-        this._seoLastValid = new SerialObj();
         _bServerActive = true;
     }
 
     public CommServer(int iPort) {
         COMM_PORT = iPort; // socket port for client comms
-        this._seoPayload = new SerialObj();
-        this._seoLastValid = new SerialObj();
         _bServerActive = true;
     }
 
@@ -62,32 +56,15 @@ public class CommServer extends Thread {
             try {
                 // listen for and accept a client connection to _ssoServerSocket
                 Socket sock = this._ssoServerSocket.accept();
-                OutputStream oStream = sock.getOutputStream();
-                ObjectOutputStream ooStream = new ObjectOutputStream(oStream);
-                ooStream.writeObject(CommID);
-                InputStream iStream = sock.getInputStream();
-                ObjectInputStream oiStream = new ObjectInputStream(iStream);
-                this._seoPayload = (SerialObj) oiStream.readObject();    // convert serilized _seoPayload
-                System.out.println("Received valid serialObj ");
-                ooStream.close();
+                LThread lTemp = new LThread(ServerThreads.size(), sock);
+				callListeners(lTemp);
+                ServerThreads.add(lTemp);
+                ServerThreads.get(ServerThreads.size()-1).start();
                 CommID++;
                 if (CommID == 65535)
                     CommID = 1;
 
-                if (this._seoPayload._reqType != 0)    //Si l'objet est maintenant populé avec des nouvelles valeurs
-                {
-                    System.out.println("Un contenu valide demande maintenant la notification des listeners");
-                    //Mettre l'appel de création de thread approprié ICI
-                    this._seoLastValid = this._seoPayload;
-                    this.callListeners();
-                } else {
-                    System.out.println("Aucune valeur valide n'a été observée dans l'objet reçu");
-                }
-                //Destruction de l'objet car il a été redirigé dans le nouveau thread
-                this._seoPayload = new SerialObj();
                 Thread.sleep(100);
-            } catch (ClassNotFoundException cne) {
-                System.out.println("Wanted class TcpPayload, but got class " + cne);
             } catch (SecurityException se) {
                 System.err.println("Unable to get host address due to security.");
                 System.err.println(se.toString());
@@ -111,23 +88,30 @@ public class CommServer extends Thread {
         }
     }
 
-    public void addListener(NewDataFrameListener toAdd) {
+    public SerialObj getPayload(Integer iIndex)
+    {
+        return ServerThreads.get(iIndex).getNewPayload();
+    }
+
+    public void addListener(CustomClassListener toAdd) {
         listeners.add(toAdd);
     }
 
-    private void callListeners() {
-        System.out.println("New valid data received!");
+    public void callListeners(LThread lm) {
+        System.out.println("New LThread created!");
         // Notify everybody that may be interested.
-        for (NewDataFrameListener hl : listeners)
-            hl.receivedNewDataFrame();
-    }
-
-    public SerialObj getNewPayload()
-    {
-        return this._seoLastValid;
+        for (CustomClassListener hl : listeners)
+            hl.receivedNewThread(lm);
     }
 
     public void commServerStop() {
         _bServerActive = false;
     }
+
+	public void setOutboundSerialObj(SerialObj ser, Integer iIndex)
+	{
+		ServerThreads.get(iIndex).setOutboundPayload(ser);
+		ServerThreads.get(iIndex).setOutboundFlagToSend();
+		ServerThreads.remove(iIndex);
+	}
 }
