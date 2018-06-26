@@ -89,6 +89,7 @@ public class persistantLayer {
         int sensorType = getSensorTypeFromConfigurationBit(ConfigurationBit);
         String sql = "UPDATE public.io SET configurationbits = " + ConfigurationBit + " WHERE serio = " + IOID + " RETURNING valinputid;";
 
+        //TODO make updateUtilGetId
         dbAccess db = new dbAccess();
         int id = db.updateGetIdQuery(sql);
         db.updateQuery(sql);
@@ -114,6 +115,7 @@ public class persistantLayer {
         int inputId = addInput(IoName, 0, sensorType);
         String sql = "INSERT INTO public.io (serio, namio, configurationbits, pinid, valinputid) " +
                 "VALUES (DEFAULT, '" + DeviceId + "', " + configurationBit + ", " + physicalPinMapping + ", " + inputId + ") RETURNING serio;";
+        System.out.println(sql);
         return insertGetIdUtil(sql, "serio");
     }
 

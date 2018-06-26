@@ -1,6 +1,6 @@
-package Net.ysma;
+package Net2.ysma;
 
-import java.io.*;
+import java.io.IOException;
 import java.net.*;
 import java.util.ArrayList;
 import java.util.List;

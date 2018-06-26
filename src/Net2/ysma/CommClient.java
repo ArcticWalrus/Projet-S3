@@ -1,9 +1,10 @@
-package Net.ysma;
+package Net2.ysma;
 
 import org.json.JSONArray;
 
 import java.io.*;
-import java.net.*;
+import java.net.Socket;
+import java.net.UnknownHostException;
 
 public class CommClient extends Thread {
     private String SERVER_HOSTNAME;

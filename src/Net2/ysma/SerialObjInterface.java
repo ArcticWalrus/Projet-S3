@@ -1,4 +1,4 @@
-package Net.ysma;
+package Net2.ysma;
 
 import org.json.JSONArray;
 
