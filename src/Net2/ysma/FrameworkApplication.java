@@ -6,10 +6,10 @@ import org.json.JSONObject;
 
 import java.util.List;
 
-import static Net.ysma.SerialObjInterface.APPSERVER;
-import static Net.ysma.SerialObjInterface.PERSISTANCE;
+import static Net.ysma.SerialObjInterface.*;
 
-public class FrameworkApplication {
+public class FrameworkApplication
+{
     public List<InfoProcess> _lisThread;
     public WriterAddon _wraObserver;
     private boolean _booAppOn = true;
@@ -17,20 +17,15 @@ public class FrameworkApplication {
     private static final int OUTPUT = 1;
     private static final int INPUT = 0;
 
-    public FrameworkApplication() {
-        //Code to implement where a Listener is required #1
+    public FrameworkApplication()
+	{
         //Le constructeur WriterAddon(int iport) peut être utilisé pour être sur autre port que 45000
         _wraObserver = new WriterAddon(45010);
-        //end of code #1
-
     }
 
-    public void startApp() {
-        System.out.println("Populating test db");
-        populate();
-        System.out.println("Done populating");
-
-
+    public void startApp()
+	{
+		//populate();
         //Code to implement where a Listener is required #2
         while (_booAppOn) {
             SerialObj serTemp = _wraObserver.getSerialObject();
@@ -40,29 +35,24 @@ public class FrameworkApplication {
                 if (serTemp.getIfFeedbackNeeded()) {
                     SerialObj serOutbound = new SerialObj();
                     serOutbound = ifpTemp.Aiguilleur(serTemp);
+                    System.out.println("Aiguilleur a retourner sa valeur");
                     //Doit relayer l'information au LThread
                     _wraObserver.setAnswer(serOutbound, _wraObserver.getIndexOfObject(serTemp));
+                    System.out.println("LThread a recu sa reponse");
                 } else {
                     ifpTemp.Aiguilleur(serTemp);
                 }
-
-                //Add code to do with new serial object (Start thread or other)
-
             }
-            //TODO mettre sleep a max
-            try {
-                Thread.sleep(100);
-            } catch (Exception e) {
-                System.out.println(e.toString());
-            }
+            Utils.sleep(5);
         }
         _wraObserver.stopServer();
 
         //end of code #2
-        System.out.println("L'application ferme...");
+        System.out.println("L'application de persistence ferme...");
     }
 
-    public void stopApp() {
+    public void stopApp()
+	{
         _booAppOn = false;
     }
 

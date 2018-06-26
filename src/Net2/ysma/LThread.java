@@ -1,5 +1,7 @@
 package Net2.ysma;
 
+import maxmamort.gel.Utils;
+
 import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -40,10 +42,11 @@ public class LThread extends Thread {
                 this.callListeners();
                 if (this._seoObjInbound.getIfFeedbackNeeded()) {
                     while (_booReadyToAnswer != true) {
-                        //TODO add sleep here
+                        Utils.sleep(5);
                     }
                     ooStream = new ObjectOutputStream(oStream);
-                    ooStream.writeObject(_seoObjOutbound);    //TODO get a valid int that makes sense
+                    ooStream.writeObject(_seoObjOutbound);
+                    System.out.println("LThread a repondu");
                 }
             } else {
                 System.out.println("Aucune valeur valide n'a été observée dans l'objet reçu");

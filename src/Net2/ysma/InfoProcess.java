@@ -15,8 +15,9 @@ public class InfoProcess {
         _seoObjSerie = obj;
     }
 
-    SerialObj Aiguilleur(SerialObj temp) {
-        System.out.println("Aiguilleur de prersistance");
+    public SerialObj Aiguilleur(SerialObj temp)
+    {
+        System.out.println("Aiguilleur de persistance");
 
         SerialObj seoOutbound = new SerialObj();
 

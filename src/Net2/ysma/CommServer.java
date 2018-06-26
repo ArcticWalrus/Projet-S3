@@ -1,5 +1,7 @@
 package Net2.ysma;
 
+import maxmamort.gel.Utils;
+
 import java.io.IOException;
 import java.net.*;
 import java.util.ArrayList;
@@ -64,7 +66,7 @@ public class CommServer extends Thread {
                 if (CommID == 65535)
                     CommID = 1;
 
-                Thread.sleep(100);
+                Utils.sleep(5);
             } catch (SecurityException se) {
                 System.err.println("Unable to get host address due to security.");
                 System.err.println(se.toString());
@@ -75,8 +77,7 @@ public class CommServer extends Thread {
                 System.err.println("Unable to read data from an open socket.");
                 System.err.println(ioe.toString());
                 System.exit(1);
-            } catch (InterruptedException ie) {
-            } // Thread sleep interrupted
+            }
         }
         System.out.println("STOPPING Listener Thread...");
         try {
