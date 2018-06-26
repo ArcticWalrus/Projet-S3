@@ -90,17 +90,21 @@ public class FrameworkApplication {
         temp_obj = sendPersistanceSetupObj(temp_obj, true, "addInput");
         int temp = temp_obj.getDataFrame().getJSONObject(0).getInt("serintinput");
 
-        System.out.println(temp_obj.getDataFrame().toString());
+        temp_obj.setDataFrame(new JSONArray().put(new JSONObject().put("inputName", "Inpu 2").put("defaultValue", 21.5).put("sensorType", INPUT)));
+        temp_obj = sendPersistanceSetupObj(temp_obj, true, "addInput");
+        int temp2 = temp_obj.getDataFrame().getJSONObject(0).getInt("serintinput");
+
+        temp_obj.setDataFrame(new JSONArray().put(new JSONObject().put("inputName", "Input 3").put("defaultValue", 19.5).put("sensorType", INPUT)));
+        temp_obj = sendPersistanceSetupObj(temp_obj, true, "addInput");
+        int temp3 = temp_obj.getDataFrame().getJSONObject(0).getInt("serintinput");
+
+        //temp_obj =
+        //sendPersistance(temp_obj,false, "createInputGroupCondition");
 
 
 
 
         /*
-          int temp = pl.addInput("Test input", 22.5, INPUT);
-        temp_test = temp; //for creation of LM thread in main
-        int temp2 = pl.addInput("Input2", 21.2, INPUT);
-        int temp3 = pl.addInput("output1", 1.3, OUTPUT);
-        pl.createInputGroupCondition(new int[]{temp, temp2, temp3}, 1);
 
         //JOSH VALUES FOR LMTHREAD TESTS
         //greaterThan test 1. Should pass

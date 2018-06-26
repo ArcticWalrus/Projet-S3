@@ -8,8 +8,7 @@ import java.util.List;
 
 import static Net.ysma.SerialObjInterface.*;
 
-public class FrameworkApplication
-{
+public class FrameworkApplication {
     public List<InfoProcess> _lisThread;
     public WriterAddon _wraObserver;
     private boolean _booAppOn = true;
@@ -17,15 +16,13 @@ public class FrameworkApplication
     private static final int OUTPUT = 1;
     private static final int INPUT = 0;
 
-    public FrameworkApplication()
-	{
+    public FrameworkApplication() {
         //Le constructeur WriterAddon(int iport) peut être utilisé pour être sur autre port que 45000
         _wraObserver = new WriterAddon(45010);
     }
 
-    public void startApp()
-	{
-		//populate();
+    public void startApp() {
+        //populate();
         //Code to implement where a Listener is required #2
         while (_booAppOn) {
             System.out.println("get object");
@@ -54,29 +51,22 @@ public class FrameworkApplication
         System.out.println("L'application de persistence ferme...");
     }
 
-    public void stopApp()
-	{
+    public void stopApp() {
         _booAppOn = false;
     }
 
-    private void populate() {
-        Net.ysma.SerialObj temp_obj = new Net.ysma.SerialObj();
-        temp_obj.setDataFrame(new JSONArray().put(new JSONObject().put("inputName", "Test input").put("defaultValue", 22.5).put("sensorType", INPUT)));
-        temp_obj.setTargetType(PERSISTANCE);
-        temp_obj.setRequestType("addInput");
+    static Net.ysma.SerialObj sendGetPersistanceBlocking(Net.ysma.SerialObj obj, String reqType) {
+        obj.setTargetType(PERSISTANCE);
+        obj.setRequestType(reqType);
+        obj.setIfFeedbackNeeded(true);
 
-        //TODO refractor
         CommClient cc = new CommClient("127.0.0.1", 45010);
-        cc.setSerialObject(temp_obj);
-        cc.setIfFeedbackNeeded(true);
+        cc.setSerialObject(obj);
         cc.start();
         while (!cc.getIfDataReceived()) {
             Utils.sleep(10);
         }
-        temp_obj = cc.getInputBuffer();
         cc.setReceivedDataRead();
-
-        System.out.println(temp_obj.getDataFrame().toString());
-        System.out.println("Done populating");
+        return cc.getInputBuffer();
     }
 }

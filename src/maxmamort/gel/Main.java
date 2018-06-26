@@ -25,17 +25,5 @@ public class Main {
         //}
 
         LMThread lm = new LMThread(jsonFinal);
-               /*
-        System.out.println("writer thread");
-        CommClient cclWriter = new CommClient();
-        cclWriter.setRequestType(ERRORPROCESS);
-        cclWriter.setSourceIp("La mère à Josh");
-        cclWriter.setTargetIp("La mère à Roger");
-        cclWriter.setDataFrame(new JSONArray().put(new JSONObject().put("toto", "tata")));
-        cclWriter.setDataFrameTime();
-        cclWriter.start();
-*/
-
-
     }
 }

@@ -15,8 +15,7 @@ public class InfoProcess {
         _seoObjSerie = obj;
     }
 
-    public Net.ysma.SerialObj Aiguilleur(Net.ysma.SerialObj temp)
-    {
+    public Net.ysma.SerialObj Aiguilleur(Net.ysma.SerialObj temp) {
         System.out.println("Aiguilleur de persistance");
 
         Net.ysma.SerialObj seoOutbound = new Net.ysma.SerialObj();
@@ -33,7 +32,7 @@ public class InfoProcess {
         return seoOutbound;
     }
 
-   private JSONArray to_persistance(Net.ysma.SerialObj sro_temp) {
+    private JSONArray to_persistance(Net.ysma.SerialObj sro_temp) {
 
         JSONArray json = new JSONArray();
         String tempValue = sro_temp.getRequestType();
