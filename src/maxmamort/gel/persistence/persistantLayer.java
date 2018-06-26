@@ -28,61 +28,42 @@ public class persistantLayer {
      * @brief Add input to database
      */
     public int addInput(String inputName, double defaultValue, int sensorType) {
-        int returnValue = -1;
         String sql = "INSERT INTO public.intinput ( serintinput, namname, valvalue, valtype )  VALUES(DEFAULT, '" + inputName + "' , '" + defaultValue + "','" + sensorType + "') RETURNING serintinput;";
-        dbAccess db = new dbAccess();
-        returnValue = db.insertGetIdQuery(sql, "serintinput");
-        db.closeConnection();
-        return returnValue;
+        return insertGetIdUtil(sql, "serintinput");
     }
 
     public int getInputIDForIO(int IOID) {
         //TODO Test method
         String sql = "SELECT valinputid FROM public.io WHERE serio = " + IOID + ";";
-        dbAccess db = new dbAccess();
-        int value = db.selectQuery(sql).getJSONObject(0).getInt("valinputid");
-        db.closeConnection();
-        return value;
+        return selectUtil(sql).getJSONObject(0).getInt("valinputid");
     }
 
-    public JSONArray getIOByDevice(int deviceID) {
+    public JSONArray getIOByDevice(String deviceID) {
         //TODO Test method
-        JSONArray json = new JSONArray();
-        String sql = "SELECT * FROM public.io WHERE namio = " + deviceID + " ;";
-        dbAccess db = new dbAccess();
-        json = db.selectQuery(sql);
-        db.closeConnection();
-        return json;
+        String sql = "SELECT * FROM public.io WHERE namio = '" + deviceID + "' ;";
+        return selectUtil(sql);
     }
 
     //User must exist!
     public void createDevice(String MAC, String cip, String name) {
-        String sql = "INSERT INTO public.devices (serdevices, namdevice, valcip, valip, valmac) VALUES ( DEFAULT, '" + name + "', '" + cip + "' , '0.0.0.0', '" + MAC + "' ) RETURNING serdevices;";
-        dbAccess db = new dbAccess();
-        int id = db.insertGetIdQuery(sql, "serdevices");
-        db.closeConnection();
+        String sql = "INSERT INTO public.devices (serdevices, namdevice, valcip, valip, valmac) VALUES ( DEFAULT, '" + name + "', '" + cip + "' , '0.0.0.0', '" + MAC + "' );";
+        insertUtil(sql);
     }
 
     public void createUser(String cip) {
-        String sql = "INSERT INTO public.users ( serusers, valcip ) VALUES ( DEFAULT , '" + cip + "');";
-        dbAccess db = new dbAccess();
-        db.insertQuery(sql);
-        db.closeConnection();
+        String sql = "INSERT INTO public.users ( serusers, valcip ) VALUES ( DEFAULT , '" + cip + "') ON CONFLICT (valcip) DO NOTHING;";
+        insertUtil(sql);
     }
 
+
     public JSONArray getDevicesByUser(String cip) {
-        JSONArray json = new JSONArray();
         String sql = "SELECT * FROM public.devices WHERE valcip = '" + cip + "';";
-        dbAccess db = new dbAccess();
-        json = db.selectQuery(sql);
-        db.closeConnection();
-        return json;
+        return selectUtil(sql);
     }
 
     public JSONArray getIOForUser(String cip) {
-        //TODO test method
+        //TODO complete and test method
         JSONArray json = new JSONArray();
-        dbAccess db = new dbAccess();
         json = getDevicesByUser(cip);
         String sql = "SELECT * FROM public.io WHERE ";
         for (int i = 0; i < json.length(); i++) {
@@ -90,49 +71,40 @@ public class persistantLayer {
                 sql += " OR ";
             }
         }
-        db.closeConnection();
-        return json;
+        return selectUtil(sql);
     }
 
     public void renameDevice(String MAC, String name) {
         String sql = "UPDATE public.devices SET namdevice = '" + name + "' WHERE valmac = '" + MAC + "' ;";
-        dbAccess db = new dbAccess();
-        db.updateQuery(sql);
-        db.closeConnection();
+        updateUtil(sql);
     }
 
     public void renameIO(int IOID, String name) {
-        //TODO test method
         String sql = "UPDATE public.io SET namio = " + name + " WHERE serio = " + IOID + ";";
-        dbAccess db = new dbAccess();
-        db.updateQuery(sql);
-        db.closeConnection();
+        updateUtil(sql);
     }
 
     public void updateConfigurationBit(int IOID, int ConfigurationBit) {
         //TODO test method
         int sensorType = getSensorTypeFromConfigurationBit(ConfigurationBit);
         String sql = "UPDATE public.io SET configurationbits = " + ConfigurationBit + " WHERE serio = " + IOID + " RETURNING valinputid;";
+
         dbAccess db = new dbAccess();
         int id = db.updateGetIdQuery(sql);
-        sql = "UPDATE public.intinput SET valtype = " + sensorType + " WHERE serio = " + id + ";";
         db.updateQuery(sql);
         db.closeConnection();
+
+        sql = "UPDATE public.intinput SET valtype = " + sensorType + " WHERE serio = " + id + ";";
+        updateUtil(sql);
     }
 
     public void updatePhysicalMapping(int IOID, int physicalPin) {
         //TODO test method
-        String sql = "UPDATE public.io SET pinid = " + physicalPin + " WHERE serio = " + IOID + ";";
-        dbAccess db = new dbAccess();
-        db.updateQuery(sql);
-        db.closeConnection();
+        updateUtil("UPDATE public.io SET pinid = " + physicalPin + " WHERE serio = " + IOID + ";");
     }
 
     public void updateDeviceIP(String mac, String ip) {
-        String sql = "UPDATE public.devices SET valip='" + ip + "' WHERE valmac = '" + mac + "';";
-        dbAccess db = new dbAccess();
-        db.updateQuery(sql);
-        db.closeConnection();
+        updateUtil("UPDATE public.devices SET valip='" + ip + "' WHERE valmac = '" + mac + "';");
     }
 
     public int createIO(String IoName, String DeviceId, int physicalPinMapping, int configurationBit) {
@@ -142,11 +114,7 @@ public class persistantLayer {
         int inputId = addInput(IoName, 0, sensorType);
         String sql = "INSERT INTO public.io (serio, namio, configurationbits, pinid, valinputid) " +
                 "VALUES (DEFAULT, '" + DeviceId + "', " + configurationBit + ", " + physicalPinMapping + ", " + inputId + ") RETURNING serio;";
-        dbAccess db = new dbAccess();
-        int value = db.insertGetIdQuery(sql, "serio");
-        System.out.println("Sensor is added as : " + value);
-        db.closeConnection();
-        return value;
+        return insertGetIdUtil(sql, "serio");
     }
 
     //Method is there in case some more fancy configuration are added
@@ -166,10 +134,8 @@ public class persistantLayer {
      * @brief Update the value of an output
      */
     public void updateOutputValue(int outputId, double value) {
-        dbAccess db = new dbAccess();
         String query = "UPDATE public.intinput SET valvalue = '" + value + "' WHERE serintinput = '" + outputId + "'";
-        db.updateQuery(query);
-        db.closeConnection();
+        updateUtil(query);
     }
 
     /**
@@ -179,13 +145,11 @@ public class persistantLayer {
      */
     public int createInputGroupCondition(int[] inputIds, int operation) {
         int returnValue = -1;
-        dbAccess db = new dbAccess();
         String sql = "INSERT INTO public.inputgroup(serinputgroup, namconditiongroup , valinputid, valordre, valoperation) VALUES (DEFAULT, DEFAULT, " + inputIds[0] + ", 0," + operation + ") RETURNING namconditiongroup;";
-        returnValue = db.insertGetIdQuery(sql, "namconditiongroup");
+        returnValue = insertGetIdUtil(sql, "namconditiongroup");
         for (int i = 1; i < inputIds.length; i++) {
-            db.insertQuery("INSERT INTO public.inputgroup(serinputgroup, namconditiongroup , valinputid, valordre, valoperation) VALUES (DEFAULT, " + returnValue + ", " + inputIds[i] + ", " + i + " ," + operation + ");");
+            insertUtil("INSERT INTO public.inputgroup(serinputgroup, namconditiongroup , valinputid, valordre, valoperation) VALUES (DEFAULT, " + returnValue + ", " + inputIds[i] + ", " + i + " ," + operation + ");");
         }
-        db.insertQuery(sql);
         return returnValue;
     }
 
@@ -194,15 +158,11 @@ public class persistantLayer {
      * @return
      */
     public void updateValueOutputGroup(JSONArray jsonUpdate) {
-        dbAccess db = new dbAccess();
-        JSONArray json = db.selectQuery("SELECT * FROM public.getidofinputinoutputgroup WHERE namconditiongroup = " + jsonUpdate.getJSONObject(0).getInt("outputgroupid"));
-        System.out.println(json.toString());
-        for (int i = 0; i < json.length(); i++) {
-            JSONObject obj = json.getJSONObject(i);
-            int id = obj.getInt("serintinput");
-            updateOutputValue(id, jsonUpdate.getJSONObject(0).getInt("newvalue"));
-        }
-        db.closeConnection();
+        int conditionGroupId = jsonUpdate.getJSONObject(0).getInt("outputgroupid");
+        double newValue = jsonUpdate.getJSONObject(0).getDouble("newvalue");
+        String sql = "UPDATE public.intinput SET valvalue = '" + newValue + "' WHERE serintinput IN \n" +
+                "\t(SELECT serintinput FROM public.getidofinputinoutputgroup WHERE namconditiongroup = " + conditionGroupId + ");";
+        updateUtil(sql);
     }
 
     /**
@@ -211,10 +171,9 @@ public class persistantLayer {
      * @brief Get the conditions and what is needed to manage them from an InputID
      */
     public JSONArray getConditionsAndInputs(int inputId) {
-        dbAccess db = new dbAccess();
         JSONArray json = null;//result JSON
         String sql = "SELECT namconditiongroup FROM public.inputgroup WHERE valinputid = " + inputId;
-        json = db.selectQuery(sql);
+        json = selectUtil(sql);
         sql = "SELECT * FROM public.inputoutputconditions WHERE ";
         for (int i = 0; i < json.length(); i++) {
             sql += " namconditiongroup = " + Integer.toString(json.getJSONObject(i).getInt("namconditiongroup"));
@@ -223,6 +182,32 @@ public class persistantLayer {
             }
         }
         sql += ";";
+        json = selectUtil(sql);
+        return json;
+    }
+
+    private void updateUtil(String sql) {
+        dbAccess db = new dbAccess();
+        db.updateQuery(sql);
+        db.closeConnection();
+    }
+
+    private int insertGetIdUtil(String sql, String field) {
+        dbAccess db = new dbAccess();
+        int value = db.insertGetIdQuery(sql, field);
+        db.closeConnection();
+        return value;
+    }
+
+    private void insertUtil(String sql) {
+        dbAccess db = new dbAccess();
+        db.insertQuery(sql);
+        db.closeConnection();
+    }
+
+    private JSONArray selectUtil(String sql) {
+        JSONArray json = new JSONArray();
+        dbAccess db = new dbAccess();
         json = db.selectQuery(sql);
         db.closeConnection();
         return json;

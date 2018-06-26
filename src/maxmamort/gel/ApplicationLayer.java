@@ -23,7 +23,7 @@ public class ApplicationLayer {
 
     public void Populate() {
         int temp = pl.addInput("Test input", 22.5, INPUT);
-       // temp_test = temp; //for creation of LM thread in main
+        temp_test = temp; //for creation of LM thread in main
         int temp2 = pl.addInput("Input2", 21.2, INPUT);
         int temp3 = pl.addInput("output1", 1.3, OUTPUT);
         pl.createInputGroupCondition(new int[]{temp, temp2, temp3}, 1);
@@ -51,6 +51,7 @@ public class ApplicationLayer {
         pl.createUser("denj1605");
         pl.createUser("demo1622");
 
+        System.out.println("\n\n Creating Devices");
         pl.createDevice("THIS IS A MAC", "bolm2210", "name of device");
         pl.createDevice("MAC", "bolm2210", "name of device 0");
         pl.createDevice("THIS IS A MAC 2", "bolm2210", "name of device 2");
@@ -59,10 +60,15 @@ public class ApplicationLayer {
         pl.renameDevice("MAC", "new name");
         pl.updateDeviceIP("MAC", "1.2.3.4");
 
-        pl.createIO("name of IO 1", "MAC", 10, 1);
 
-        //Used to debug devices
-        //System.out.println(pl.getDevicesByUser("bolm2210").toString());
+        // Not working cause of DB uniquenesss constraint
+        pl.createIO("name of IO 1", "MAC", 10, 1);
+        pl.createIO("name of IO 2", "MAC", 11, 0);
+        pl.createIO("name of IO 3", "MAC", 12, 1);
+
+        JSONArray deviceID = pl.getIOByDevice("MAC");
+        System.out.println("IO for device MAC: " + deviceID.toString());
+
     }
 
     public void Create_Persistance_Layer() {

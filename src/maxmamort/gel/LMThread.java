@@ -72,6 +72,7 @@ public class LMThread implements Runnable {
             }
             _intLastCondNum = _intCurrCondNum;
             _jsnNewCondition.put("operation", _jsnCurrCondEval.getInt("valoperation"));
+            _jsnNewCondition.put("namconditiongroup", _intCurrCondNum);
 
             //retrieve info
             if(_jsnCurrCondEval.getInt("valtype") == 0){
@@ -162,7 +163,7 @@ public class LMThread implements Runnable {
 
     private void processTask(JSONObject _jsnTask) {
         int _intTaskID = _jsnTask.getInt("operation");
-        int outputID = _jsnTask.getInt("output");
+        int outputID = _jsnTask.getInt("namconditiongroup");
         switch (_intTaskID) {
             case 0:
                 System.out.println("task ID is 0. Executing task greaterThan");

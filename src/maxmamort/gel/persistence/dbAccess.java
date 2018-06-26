@@ -21,6 +21,8 @@ public class dbAccess implements IdbAccess {
     private boolean boo_logError;
     private boolean _boolIsError = false;//Bonne variable
     private Connection conn = null;
+    private String errorMessage = "";
+
 
     /**
      * @brief default constructor, logging disabled
@@ -37,6 +39,23 @@ public class dbAccess implements IdbAccess {
     public dbAccess(boolean _boo_logError) {
         boo_logError = _boo_logError;
         initConnection();
+    }
+
+    private void setSQLError(SQLException e, String sql) {
+        if (boo_logError) {
+            errorManager ema = new errorManager();
+            ema.logError(sql, e);
+        }
+        errorMessage = e.fillInStackTrace() + "      " + e.getErrorCode() + "     " + e.getMessage() + "               " + e.getSQLState() + "\n\t\t" + sql;
+        _boolIsError = true;
+    }
+
+    private void setError(Exception ex) {
+        errorMessage = ex.fillInStackTrace() + "      " + ex.getMessage();
+    }
+
+    public String getErrorMessage() {
+        return errorMessage;
     }
 
     /**
@@ -62,11 +81,7 @@ public class dbAccess implements IdbAccess {
         try {
             conn.close();
         } catch (SQLException e) {
-            if (boo_logError) {
-                errorManager ema = new errorManager();
-                ema.logError(e);
-            }
-            _boolIsError = true;
+            setSQLError(e, "");
         }
     }
 
@@ -79,7 +94,6 @@ public class dbAccess implements IdbAccess {
             conn = DriverManager.getConnection(dbLocation, user, password);
             conn.setAutoCommit(false);
         } catch (ClassNotFoundException ex) {
-            //System.out.println("Where is your PostgreSQL JDBC Driver? " + "Include in your library path!");
             ex.printStackTrace();
             if (boo_logError) {
                 errorManager ema = new errorManager();
@@ -87,13 +101,7 @@ public class dbAccess implements IdbAccess {
             }
             _boolIsError = true;
         } catch (SQLException ex) {
-            //System.out.println("Could not access dB. Check path, user and password");
-            ex.printStackTrace();
-            if (boo_logError) {
-                errorManager ema = new errorManager();
-                ema.logError(ex);
-            }
-            _boolIsError = true;
+            setSQLError(ex, "");
         }
     }
 
@@ -112,11 +120,7 @@ public class dbAccess implements IdbAccess {
             stmt.close();
             conn.commit();
         } catch (SQLException e) {
-            if (boo_logError) {
-                errorManager ema = new errorManager();
-                ema.logError(e);
-            }
-            _boolIsError = true;
+            setSQLError(e, str);
             return false;
         }
         return true;
@@ -142,11 +146,7 @@ public class dbAccess implements IdbAccess {
             rs.close();
             stmt.close();
         } catch (SQLException e) {
-            if (boo_logError) {
-                errorManager ema = new errorManager();
-                ema.logError(e);
-            }
-            _boolIsError = true;
+            setSQLError(e, str);
             return returnValue;
         }
         return returnValue;
@@ -168,15 +168,13 @@ public class dbAccess implements IdbAccess {
             returnValue = Convertor.convertToJSON(rs);
             rs.close();
             stmt.close();
+            return returnValue;
+        } catch (SQLException e) {
+            setSQLError(e, str);
         } catch (Exception e) {
-            if (boo_logError) {
-                errorManager ema = new errorManager();
-                ema.logError(e);
-            }
-            _boolIsError = true;
-            return null;
+            setError(e);
         }
-        return returnValue;
+        return null;
     }
 
     /**
@@ -191,22 +189,13 @@ public class dbAccess implements IdbAccess {
             ps.executeUpdate();
             ps.close();
             conn.commit();
+            return true;
         } catch (SQLException ex) {
-            if (boo_logError) {
-                errorManager ema = new errorManager();
-                ema.logError(ex);
-            }
-            _boolIsError = true;
-            return false;
+            setSQLError(ex, ps.toString());
         } catch (Exception ex) {
-            if (boo_logError) {
-                errorManager ema = new errorManager();
-                ema.logError(ex);
-            }
-            _boolIsError = true;
-            return false;
+            setError(ex);
         }
-        return true;
+        return false;
     }
 
     /**
@@ -220,27 +209,16 @@ public class dbAccess implements IdbAccess {
             // call executeUpdate to execute our sql update statement
             conn.createStatement().executeUpdate(sql);
             conn.commit();
+            return true;
         } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-            if (boo_logError) {
-                errorManager ema = new errorManager();
-                ema.logError(ex);
-            }
-            _boolIsError = true;
-            return false;
+            setSQLError(ex, sql);
         } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-            if (boo_logError) {
-                errorManager ema = new errorManager();
-                ema.logError(ex);
-            }
-            _boolIsError = true;
-            return false;
+            setError(ex);
         }
-        return true;
+        return false;
     }
 
-    public int updateGetIdQuery(String sql){
+    public int updateGetIdQuery(String sql) {
         _boolIsError = false;
         Statement stmt = null;
         ResultSet rs = null;
@@ -254,15 +232,11 @@ public class dbAccess implements IdbAccess {
             rs.close();
             stmt.close();
         } catch (SQLException e) {
-            if (boo_logError) {
-                errorManager ema = new errorManager();
-                ema.logError(e);
-            }
-            _boolIsError = true;
-            return returnValue;
+            setSQLError(e, sql);
         }
         return returnValue;
     }
+
     /**
      * @param str The SQL delete statement to be executed
      * @return true if succeeded, false if failed
@@ -277,14 +251,10 @@ public class dbAccess implements IdbAccess {
             stmt.executeUpdate(str);
             stmt.close();
             conn.commit();
+            return true;
         } catch (SQLException e) {
-            if (boo_logError) {
-                errorManager ema = new errorManager();
-                ema.logError(e);
-            }
-            _boolIsError = true;
-            return false;
+            setSQLError(e, str);
         }
-        return true;
+        return false;
     }
 }
