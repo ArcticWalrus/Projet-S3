@@ -46,7 +46,7 @@ public class WriterAddon implements CustomClassListener<LThread> {
 
     public Integer getIndexOfObject(Net.ysma.SerialObj serTemp) {
         System.out.println("data: " + serTemp.getDataFrame().toString());
-        int i = 0, indexOf = 0;
+        Integer i = 0, indexOf = 0;
         for (structObjThread serObj : _lstObjThread) {
             if (serObj._serObj.equals(serTemp)) {
                 indexOf = i;
@@ -54,7 +54,8 @@ public class WriterAddon implements CustomClassListener<LThread> {
             }
             i++;
         }
-        return _lstObjThread.get(_lstObjThread.indexOf(indexOf))._intIndex;
+        System.out.println(i.toString());
+        return _lstObjThread.get(indexOf)._intIndex;
     }
 
     public void setAnswer(Net.ysma.SerialObj serOb, Integer index) {

@@ -22,7 +22,7 @@ public class InfoProcess {
         Net.ysma.SerialObj seoOutbound = new Net.ysma.SerialObj();
 
         Integer tempInt = temp.getTargetType();
-        if (tempInt == PERSISTANCE) {
+        if (tempInt.equals(PERSISTANCE)) {
             seoOutbound.setDataFrame(to_persistance(temp));
         } else if (tempInt.equals(ERRORPROCESS)) {
             to_error_logger(temp);
