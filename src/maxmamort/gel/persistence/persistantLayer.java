@@ -37,9 +37,8 @@ public class persistantLayer {
         return selectUtil(sql).getJSONObject(0).getInt("valinputid");
     }
 
-    public JSONArray getIOByDevice(String deviceID) {
-        //TODO Test method
-        String sql = "SELECT * FROM public.io WHERE namio = '" + deviceID + "' ;";
+    public JSONArray getIOByDevice(String mac) {
+        String sql = "SELECT pinid, valvalue, valtype FROM public.io AS curr_io INNER JOIN public.intinput AS curr_input ON curr_input.serintinput = curr_io.valinputid WHERE namiogroup = '" + mac + "';";
         return selectUtil(sql);
     }
 
@@ -61,16 +60,7 @@ public class persistantLayer {
     }
 
     public JSONArray getIOForUser(String cip) {
-        //TODO complete and test method
-        JSONArray json = new JSONArray();
-        json = getDevicesByUser(cip);
-        String sql = "SELECT * FROM public.io WHERE ";
-        for (int i = 0; i < json.length(); i++) {
-            if (i == json.length() - 1) {
-                sql += " OR ";
-            }
-        }
-        return selectUtil(sql);
+        return selectUtil("SELECT * FROM public.userio WHERE valcip = '" + cip + "';");
     }
 
     public void renameDevice(String MAC, String name) {
@@ -83,8 +73,8 @@ public class persistantLayer {
         updateUtil(sql);
     }
 
+    //TODO test method
     public void updateConfigurationBit(int IOID, int ConfigurationBit) {
-        //TODO test method
         int sensorType = getSensorTypeFromConfigurationBit(ConfigurationBit);
         String sql = "UPDATE public.io SET configurationbits = " + ConfigurationBit + " WHERE serio = " + IOID + " RETURNING valinputid;";
 
@@ -99,7 +89,6 @@ public class persistantLayer {
     }
 
     public void updatePhysicalMapping(int IOID, int physicalPin) {
-        //TODO test method
         updateUtil("UPDATE public.io SET pinid = " + physicalPin + " WHERE serio = " + IOID + ";");
     }
 
@@ -108,13 +97,10 @@ public class persistantLayer {
     }
 
     public int createIO(String IoName, String DeviceId, int physicalPinMapping, int configurationBit) {
-        //TODO ADD namio
-        //TODO test method
         int sensorType = getSensorTypeFromConfigurationBit(configurationBit);
         int inputId = addInput(IoName, 0, sensorType);
-        String sql = "INSERT INTO public.io (serio, namio, configurationbits, pinid, valinputid) " +
-                "VALUES (DEFAULT, '" + DeviceId + "', " + configurationBit + ", " + physicalPinMapping + ", " + inputId + ") RETURNING serio;";
-        System.out.println(sql);
+        String sql = "INSERT INTO public.io (serio, namio, configurationbits, pinid, valinputid, namiogroup) " +
+                "VALUES (DEFAULT, '" + IoName + "', " + configurationBit + ", " + physicalPinMapping + ", " + inputId + ",'" + DeviceId + "') RETURNING serio;";
         return insertGetIdUtil(sql, "serio");
     }
 
@@ -137,6 +123,11 @@ public class persistantLayer {
     public void updateOutputValue(int outputId, double value) {
         String query = "UPDATE public.intinput SET valvalue = '" + value + "' WHERE serintinput = '" + outputId + "'";
         updateUtil(query);
+    }
+
+    public void updateIoValue(String mac, int physicalPin, double newValue) {
+        String sql = "INSERT INTO updateintinputmacpin VALUES ('" + mac + "' ," + physicalPin + ", '" + newValue + "');";
+        updateUtil(sql);
     }
 
     /**
@@ -163,6 +154,7 @@ public class persistantLayer {
         double newValue = jsonUpdate.getJSONObject(0).getDouble("newvalue");
         String sql = "UPDATE public.intinput SET valvalue = '" + newValue + "' WHERE serintinput IN \n" +
                 "\t(SELECT serintinput FROM public.getidofinputinoutputgroup WHERE namconditiongroup = " + conditionGroupId + ");";
+       //System.out.println(sql);
         updateUtil(sql);
     }
 

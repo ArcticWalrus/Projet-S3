@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09fc0b72-d918-4e4c-854f-e40ab48df6f5" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/maxmamort/gel/ApplicationLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/maxmamort/gel/ApplicationLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/maxmamort/gel/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/maxmamort/gel/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/maxmamort/gel/persistence/IdbAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/maxmamort/gel/persistence/IdbAccess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/maxmamort/gel/persistence/persistantLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/maxmamort/gel/persistence/persistantLayer.java" afterDir="false" />
     </list>
@@ -16,18 +17,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LThread.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Net2/ysma/LThread.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1037">
-              <caret line="76" column="53" selection-start-line="76" selection-start-column="53" selection-end-line="76" selection-end-column="53" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="InfoProcess.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Net2/ysma/InfoProcess.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -67,16 +56,39 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="persistantLayer.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="persistantLayer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/persistantLayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1105">
-              <caret line="78" column="5" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
+            <state relative-caret-position="77">
+              <caret line="35" column="84" lean-forward="true" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="84" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#addInput#0;class#persistantLayer#0" />
+                <element signature="method#createDevice#0;class#persistantLayer#0" />
+                <element signature="method#getSensorTypeFromConfigurationBit#0;class#persistantLayer#0" />
                 <element signature="docComment;method#updateOutputValue#0;class#persistantLayer#0" />
+                <element signature="method#updateOutputValue#0;class#persistantLayer#0" />
                 <element signature="docComment;method#createInputGroupCondition#0;class#persistantLayer#0" />
+                <element signature="method#createInputGroupCondition#0;class#persistantLayer#0" />
                 <element signature="docComment;method#updateValueOutputGroup#0;class#persistantLayer#0" />
+                <element signature="docComment;method#getConditionsAndInputs#0;class#persistantLayer#0" />
+                <element signature="method#getConditionsAndInputs#0;class#persistantLayer#0" />
+                <element signature="method#updateUtil#0;class#persistantLayer#0" />
+                <element signature="method#insertGetIdUtil#0;class#persistantLayer#0" />
+                <element signature="method#insertUtil#0;class#persistantLayer#0" />
+                <element signature="method#selectUtil#0;class#persistantLayer#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="22" column="46" lean-forward="true" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -91,11 +103,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IdbAccess.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="IdbAccess.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/IdbAccess.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+            <state relative-caret-position="70">
+              <caret line="11" column="72" selection-start-line="11" selection-start-column="72" selection-end-line="11" selection-end-column="72" />
             </state>
           </provider>
         </entry>
@@ -103,8 +115,8 @@
       <file leaf-file-name="ApplicationLayer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/ApplicationLayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1122">
-              <caret line="69" column="72" selection-start-line="24" selection-start-column="6" selection-end-line="69" selection-end-column="72" />
+            <state relative-caret-position="289">
+              <caret line="71" column="53" lean-forward="true" selection-start-line="71" selection-start-column="53" selection-end-line="71" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#to_device#0;class#ApplicationLayer#0" />
@@ -113,14 +125,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CommClient.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Net2/ysma/CommClient.java">
+      <file leaf-file-name="LMThread.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/LMThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="121">
+              <caret line="197" column="64" lean-forward="true" selection-start-line="197" selection-start-column="64" selection-end-line="197" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -142,6 +151,12 @@
       <find>_jsnData</find>
       <find>system.out</find>
       <find>Net.ysma</find>
+      <find>insert i</find>
+      <find>createio</find>
+      <find>getiobydev</find>
+      <find>updat</find>
+      <find>updateio</find>
+      <find>sele</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -158,7 +173,6 @@
         <option value="$PROJECT_DIR$/src/maxmamort/gel/persistence/dbAccess.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/Net/ysma/SerialObjInterface.java" />
-        <option value="$PROJECT_DIR$/src/maxmamort/gel/ApplicationLayer.java" />
         <option value="$PROJECT_DIR$/src/Net/ysma/CommServer.java" />
         <option value="$PROJECT_DIR$/src/Net/ysma/SerialObj.java" />
         <option value="$PROJECT_DIR$/src/Net/ysma/LThread.java" />
@@ -175,10 +189,11 @@
         <option value="$PROJECT_DIR$/src/Net2/ysma/WriterAddon.java" />
         <option value="$PROJECT_DIR$/src/Net2/ysma/InfoProcess.java" />
         <option value="$PROJECT_DIR$/src/Net2/ysma/FrameworkApplication.java" />
-        <option value="$PROJECT_DIR$/src/maxmamort/gel/Main.java" />
         <option value="$PROJECT_DIR$/src/Net/ysma/FrameworkApplication.java" />
-        <option value="$PROJECT_DIR$/src/maxmamort/gel/persistence/persistantLayer.java" />
         <option value="$PROJECT_DIR$/src/maxmamort/gel/persistence/IdbAccess.java" />
+        <option value="$PROJECT_DIR$/src/maxmamort/gel/Main.java" />
+        <option value="$PROJECT_DIR$/src/maxmamort/gel/ApplicationLayer.java" />
+        <option value="$PROJECT_DIR$/src/maxmamort/gel/persistence/persistantLayer.java" />
       </list>
     </option>
   </component>
@@ -393,20 +408,22 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1613" height="873" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49718574" weight="0.32464147" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.4027517" side_tool="true" visible="true" weight="0.42112124" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.4040025" side_tool="true" visible="true" weight="0.42112124" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.59724826" weight="0.42112124" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.5959975" visible="true" weight="0.42112124" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21450907" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21450907" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
@@ -419,7 +436,6 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49781114" weight="0.32464147" />
     </layout>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -638,13 +654,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/LMThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="6" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Net/ysma/LThread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -709,33 +718,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Net2/ysma/CommClient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/ApplicationLayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="69" column="72" selection-start-line="24" selection-start-column="6" selection-end-line="69" selection-end-column="72" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#to_device#0;class#ApplicationLayer#0" />
           </folding>
         </state>
       </provider>
@@ -771,19 +759,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/persistantLayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1105">
-          <caret line="78" column="5" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#updateOutputValue#0;class#persistantLayer#0" />
-            <element signature="docComment;method#createInputGroupCondition#0;class#persistantLayer#0" />
-            <element signature="docComment;method#updateValueOutputGroup#0;class#persistantLayer#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/dbAccess.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
@@ -793,8 +768,60 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/IdbAccess.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+        <state relative-caret-position="70">
+          <caret line="11" column="72" selection-start-line="11" selection-start-column="72" selection-end-line="11" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="22" column="46" lean-forward="true" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/LMThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="197" column="64" lean-forward="true" selection-start-line="197" selection-start-column="64" selection-end-line="197" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/ApplicationLayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="71" column="53" lean-forward="true" selection-start-line="71" selection-start-column="53" selection-end-line="71" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#to_device#0;class#ApplicationLayer#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/persistantLayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77">
+          <caret line="35" column="84" lean-forward="true" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="84" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#addInput#0;class#persistantLayer#0" />
+            <element signature="method#createDevice#0;class#persistantLayer#0" />
+            <element signature="method#getSensorTypeFromConfigurationBit#0;class#persistantLayer#0" />
+            <element signature="docComment;method#updateOutputValue#0;class#persistantLayer#0" />
+            <element signature="method#updateOutputValue#0;class#persistantLayer#0" />
+            <element signature="docComment;method#createInputGroupCondition#0;class#persistantLayer#0" />
+            <element signature="method#createInputGroupCondition#0;class#persistantLayer#0" />
+            <element signature="docComment;method#updateValueOutputGroup#0;class#persistantLayer#0" />
+            <element signature="docComment;method#getConditionsAndInputs#0;class#persistantLayer#0" />
+            <element signature="method#getConditionsAndInputs#0;class#persistantLayer#0" />
+            <element signature="method#updateUtil#0;class#persistantLayer#0" />
+            <element signature="method#insertGetIdUtil#0;class#persistantLayer#0" />
+            <element signature="method#insertUtil#0;class#persistantLayer#0" />
+            <element signature="method#selectUtil#0;class#persistantLayer#0" />
+          </folding>
         </state>
       </provider>
     </entry>

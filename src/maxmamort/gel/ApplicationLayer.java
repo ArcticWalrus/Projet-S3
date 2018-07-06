@@ -66,9 +66,13 @@ public class ApplicationLayer {
         pl.createIO("name of IO 2", "MAC", 11, 0);
         pl.createIO("name of IO 3", "MAC", 12, 1);
 
+
+        pl.updateIoValue("MAC", 10, 66.66);
+
         JSONArray deviceID = pl.getIOByDevice("MAC");
         System.out.println("IO for device MAC: " + deviceID.toString());
 
+        System.out.println(pl.getIOForUser("bolm2210").toString());
     }
 
     public void Create_Persistance_Layer() {
