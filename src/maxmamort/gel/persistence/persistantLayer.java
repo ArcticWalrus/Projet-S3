@@ -168,6 +168,11 @@ public class persistantLayer {
         updateUtil(sql);
     }
 
+    public JSONArray getConditionsAndInputsFromIO(String mac, int physicalpin) {
+        int inputId = getIntInputFromIO(mac, physicalpin);
+        return getConditionsAndInputs(inputId);
+    }
+
     /**
      * @param inputId The Id of the updated input. Will be used to get the right conditions
      * @return The JSONArray representing the conditions and what is needed to handle them
@@ -188,6 +193,7 @@ public class persistantLayer {
         json = selectUtil(sql);
         return json;
     }
+
 
     private void updateUtil(String sql) {
         dbAccess db = new dbAccess();
