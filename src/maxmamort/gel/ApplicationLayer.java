@@ -21,6 +21,25 @@ public class ApplicationLayer {
 
     }
 
+    public void seedPhysicalTest() {
+        //Seeding joshua's pi
+        pl.createUser("denj1605");
+        pl.createDevice("b8:27:eb:ee:e5:13", "denj1605", "Joshua s pi");
+        pl.updateDeviceIP("b8:27:eb:ee:e5:13", "8.8.8.8");
+        pl.createIO("input 1", "b8:27:eb:ee:e5:13", 3, 1);
+        pl.createIO("output 1", "b8:27:eb:ee:e5:13", 2, 0);
+        pl.createIO("input 2", "b8:27:eb:ee:e5:13", 4, 1);
+        //Set default value
+        pl.updateIoValue("b8:27:eb:ee:e5:13", 2, 0.0);
+        pl.updateIoValue("b8:27:eb:ee:e5:13", 3, 0.0);
+        pl.updateIoValue("b8:27:eb:ee:e5:13", 4, 0.0);
+        //create test condition
+        int input1Id = pl.getIntInputFromIO("b8:27:eb:ee:e5:13", 2);
+        int input2Id = pl.getIntInputFromIO("b8:27:eb:ee:e5:13", 2);
+        int output1Id = pl.getIntInputFromIO("b8:27:eb:ee:e5:13", 2);
+        pl.createInputGroupCondition(new int[]{input1Id, input2Id, output1Id}, 0);
+    }
+
     public void Populate() {
         int temp = pl.addInput("Test input", 22.5, INPUT);
         temp_test = temp; //for creation of LM thread in main
@@ -73,6 +92,8 @@ public class ApplicationLayer {
         System.out.println("IO for device MAC: " + deviceID.toString());
 
         System.out.println(pl.getIOForUser("bolm2210").toString());
+
+
     }
 
     public void Create_Persistance_Layer() {

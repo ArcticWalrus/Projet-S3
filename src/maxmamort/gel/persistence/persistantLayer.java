@@ -45,6 +45,7 @@ public class persistantLayer {
     //User must exist!
     public void createDevice(String MAC, String cip, String name) {
         String sql = "INSERT INTO public.devices (serdevices, namdevice, valcip, valip, valmac) VALUES ( DEFAULT, '" + name + "', '" + cip + "' , '0.0.0.0', '" + MAC + "' );";
+        //System.out.println(sql);
         insertUtil(sql);
     }
 
@@ -96,12 +97,21 @@ public class persistantLayer {
         updateUtil("UPDATE public.devices SET valip='" + ip + "' WHERE valmac = '" + mac + "';");
     }
 
+    public int getIntInputFromIO(String mac, int physicalPin) {
+        return selectUtil("SELECT valinputid FROM public.io WHERE namiogroup = '" + mac + "' AND pinid = " + physicalPin + ";").getJSONObject(0).getInt("valinputid");
+    }
+
     public int createIO(String IoName, String DeviceId, int physicalPinMapping, int configurationBit) {
         int sensorType = getSensorTypeFromConfigurationBit(configurationBit);
         int inputId = addInput(IoName, 0, sensorType);
         String sql = "INSERT INTO public.io (serio, namio, configurationbits, pinid, valinputid, namiogroup) " +
                 "VALUES (DEFAULT, '" + IoName + "', " + configurationBit + ", " + physicalPinMapping + ", " + inputId + ",'" + DeviceId + "') RETURNING serio;";
-        return insertGetIdUtil(sql, "serio");
+        int id = insertGetIdUtil(sql, "serio");
+        if (id == -1) {//revert back changes
+            sql = "DELETE FROM public.intinput WHERE serintinput = " + inputId + ";";
+            deleteUtil(sql);
+        }
+        return id;
     }
 
     //Method is there in case some more fancy configuration are added
@@ -154,7 +164,7 @@ public class persistantLayer {
         double newValue = jsonUpdate.getJSONObject(0).getDouble("newvalue");
         String sql = "UPDATE public.intinput SET valvalue = '" + newValue + "' WHERE serintinput IN \n" +
                 "\t(SELECT serintinput FROM public.getidofinputinoutputgroup WHERE namconditiongroup = " + conditionGroupId + ");";
-       //System.out.println(sql);
+        //System.out.println(sql);
         updateUtil(sql);
     }
 
@@ -204,5 +214,11 @@ public class persistantLayer {
         json = db.selectQuery(sql);
         db.closeConnection();
         return json;
+    }
+
+    private void deleteUtil(String sql) {
+        dbAccess db = new dbAccess();
+        db.deleteQuery(sql);
+        db.closeConnection();
     }
 }
