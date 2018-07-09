@@ -74,16 +74,10 @@ public class persistantLayer {
         updateUtil(sql);
     }
 
-    //TODO test method
     public void updateConfigurationBit(int IOID, int ConfigurationBit) {
         int sensorType = getSensorTypeFromConfigurationBit(ConfigurationBit);
         String sql = "UPDATE public.io SET configurationbits = " + ConfigurationBit + " WHERE serio = " + IOID + " RETURNING valinputid;";
-
-        //TODO make updateUtilGetId
-        dbAccess db = new dbAccess();
-        int id = db.updateGetIdQuery(sql);
-        db.updateQuery(sql);
-        db.closeConnection();
+        int id = updateUtilGetId(sql);
 
         sql = "UPDATE public.intinput SET valtype = " + sensorType + " WHERE serio = " + id + ";";
         updateUtil(sql);
@@ -194,6 +188,13 @@ public class persistantLayer {
         return json;
     }
 
+    public int updateUtilGetId(String sql) {
+        dbAccess db = new dbAccess();
+        int id = db.updateGetIdQuery(sql);
+        db.updateQuery(sql);
+        db.closeConnection();
+        return id;
+    }
 
     private void updateUtil(String sql) {
         dbAccess db = new dbAccess();
