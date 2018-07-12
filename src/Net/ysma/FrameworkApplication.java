@@ -32,7 +32,10 @@ public class FrameworkApplication {
     public FrameworkApplication(int type) {
         //Code to implement where a Listener is required #1
         //Le constructeur WriterAddon(int iport) peut être utilisé pour être sur autre port que 45000
-        _wraObserver = new WriterAddon(45000);
+        if(type == 1)
+            _wraObserver = new WriterAddon(45000);
+        else if(type == 2)
+            _wraObserver = new WriterAddon(45010);
         _intExeType = type;
         //end of code #1
 
