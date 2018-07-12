@@ -20,23 +20,22 @@ public class errorManager implements IerrorManager {
      * @brief Log and exception
      */
     public void logError(Exception ex) {
-        String _str = ex.getStackTrace().toString();
-        _str = ex.fillInStackTrace().toString();
-        String _errorCode = ex.getMessage();
+        String _str = ex.fillInStackTrace().toString().replace("'", "^");
+        String _errorCode = ex.getMessage().replace("'", "^");
         sendError(_errorCode, _str, "NULL0000");
     }
 
     public void logError(String sql, Exception ex) {
         String _str = ex.getStackTrace().toString();
-        _str = ex.fillInStackTrace().toString();
-        String _errorCode = ex.getMessage();
-        sendError(_errorCode, sql.replace("'", "^") + "   " + _str.replace("'", "^"), "bolm2210");
+        _str = ex.fillInStackTrace().toString().replace("'", "^");
+        String _errorCode = ex.getMessage().replace("'", "^");
+        sendError(_errorCode, sql.replace("'", "^") + "   " + _str, "bolm2210");
     }
 
     public void logError(Exception ex, String _userID) {
-        String _str = ex.getStackTrace().toString();
-        String _errorCode = ex.toString();
-        sendError(_errorCode, _str, _userID);
+        String _str = ex.getStackTrace().toString().replace("'", "^");
+        String _errorCode = ex.toString().replace("'", "^");
+        sendError(_errorCode, _str, _userID.replace("'", "^"));
     }
 
     /**
@@ -45,7 +44,7 @@ public class errorManager implements IerrorManager {
      * @brief log an error
      */
     public void logError(String error, String _userID) {
-        sendError("Custom", error, _userID);
+        sendError("Custom", error.replace("'", "^"), _userID.replace("'", "^"));
     }
 
     /**

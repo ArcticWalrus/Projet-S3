@@ -16,11 +16,12 @@ public class Main {
 
         ApplicationLayer al = new ApplicationLayer();
         al.Create_Persistance_Layer();
-        //al.Populate();
+        al.Populate();
 
         al.seedPhysicalTest();
-        //JSONArray jsonFinal = al.pl.getConditionsAndInputs(al.temp_test);
 
-        //LMThread lm = new LMThread(jsonFinal);
+        JSONArray jsonFinal = al.pl.getConditionsAndInputs(al.temp_test);
+
+        LMThread lm = new LMThread(jsonFinal);
     }
 }
