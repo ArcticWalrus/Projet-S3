@@ -9,8 +9,6 @@
 
 package maxmamort.gel.persistence;
 
-//import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
-
 import maxmamort.gel.Utils;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -39,15 +37,15 @@ public class persistantLayer {
         return selectUtil(sql).getJSONObject(0).getInt("valinputid");
     }
 
-    public JSONArray getIOByDevice(String deviceID) {
-        //TODO Test method
-        String sql = "SELECT * FROM public.io WHERE namio = '" + deviceID + "' ;";
+    public JSONArray getIOByDevice(String mac) {
+        String sql = "SELECT pinid, valvalue, valtype FROM public.io AS curr_io INNER JOIN public.intinput AS curr_input ON curr_input.serintinput = curr_io.valinputid WHERE namiogroup = '" + mac + "';";
         return selectUtil(sql);
     }
 
     //User must exist!
     public void createDevice(String MAC, String cip, String name) {
         String sql = "INSERT INTO public.devices (serdevices, namdevice, valcip, valip, valmac) VALUES ( DEFAULT, '" + name + "', '" + cip + "' , '0.0.0.0', '" + MAC + "' );";
+        //System.out.println(sql);
         insertUtil(sql);
     }
 
@@ -63,16 +61,7 @@ public class persistantLayer {
     }
 
     public JSONArray getIOForUser(String cip) {
-        //TODO complete and test method
-        JSONArray json = new JSONArray();
-        json = getDevicesByUser(cip);
-        String sql = "SELECT * FROM public.io WHERE ";
-        for (int i = 0; i < json.length(); i++) {
-            if (i == json.length() - 1) {
-                sql += " OR ";
-            }
-        }
-        return selectUtil(sql);
+        return selectUtil("SELECT * FROM public.userio WHERE valcip = '" + cip + "';");
     }
 
     public void renameDevice(String MAC, String name) {
@@ -86,22 +75,15 @@ public class persistantLayer {
     }
 
     public void updateConfigurationBit(int IOID, int ConfigurationBit) {
-        //TODO test method
         int sensorType = getSensorTypeFromConfigurationBit(ConfigurationBit);
         String sql = "UPDATE public.io SET configurationbits = " + ConfigurationBit + " WHERE serio = " + IOID + " RETURNING valinputid;";
-
-        //TODO make updateUtilGetId
-        dbAccess db = new dbAccess();
-        int id = db.updateGetIdQuery(sql);
-        db.updateQuery(sql);
-        db.closeConnection();
+        int id = updateUtilGetId(sql);
 
         sql = "UPDATE public.intinput SET valtype = " + sensorType + " WHERE serio = " + id + ";";
         updateUtil(sql);
     }
 
     public void updatePhysicalMapping(int IOID, int physicalPin) {
-        //TODO test method
         updateUtil("UPDATE public.io SET pinid = " + physicalPin + " WHERE serio = " + IOID + ";");
     }
 
@@ -109,15 +91,21 @@ public class persistantLayer {
         updateUtil("UPDATE public.devices SET valip='" + ip + "' WHERE valmac = '" + mac + "';");
     }
 
+    public int getIntInputFromIO(String mac, int physicalPin) {
+        return selectUtil("SELECT valinputid FROM public.io WHERE namiogroup = '" + mac + "' AND pinid = " + physicalPin + ";").getJSONObject(0).getInt("valinputid");
+    }
+
     public int createIO(String IoName, String DeviceId, int physicalPinMapping, int configurationBit) {
-        //TODO ADD namio
-        //TODO test method
         int sensorType = getSensorTypeFromConfigurationBit(configurationBit);
         int inputId = addInput(IoName, 0, sensorType);
-        String sql = "INSERT INTO public.io (serio, namio, configurationbits, pinid, valinputid) " +
-                "VALUES (DEFAULT, '" + DeviceId + "', " + configurationBit + ", " + physicalPinMapping + ", " + inputId + ") RETURNING serio;";
-        System.out.println(sql);
-        return insertGetIdUtil(sql, "serio");
+        String sql = "INSERT INTO public.io (serio, namio, configurationbits, pinid, valinputid, namiogroup) " +
+                "VALUES (DEFAULT, '" + IoName + "', " + configurationBit + ", " + physicalPinMapping + ", " + inputId + ",'" + DeviceId + "') RETURNING serio;";
+        int id = insertGetIdUtil(sql, "serio");
+        if (id == -1) {//revert back changes
+            sql = "DELETE FROM public.intinput WHERE serintinput = " + inputId + ";";
+            deleteUtil(sql);
+        }
+        return id;
     }
 
     //Method is there in case some more fancy configuration are added
@@ -139,6 +127,11 @@ public class persistantLayer {
     public void updateOutputValue(int outputId, double value) {
         String query = "UPDATE public.intinput SET valvalue = '" + value + "' WHERE serintinput = '" + outputId + "'";
         updateUtil(query);
+    }
+
+    public void updateIoValue(String mac, int physicalPin, double newValue) {
+        String sql = "INSERT INTO updateintinputmacpin VALUES ('" + mac + "' ," + physicalPin + ", '" + newValue + "');";
+        updateUtil(sql);
     }
 
     /**
@@ -165,7 +158,13 @@ public class persistantLayer {
         double newValue = jsonUpdate.getJSONObject(0).getDouble("newvalue");
         String sql = "UPDATE public.intinput SET valvalue = '" + newValue + "' WHERE serintinput IN \n" +
                 "\t(SELECT serintinput FROM public.getidofinputinoutputgroup WHERE namconditiongroup = " + conditionGroupId + ");";
+        //System.out.println(sql);
         updateUtil(sql);
+    }
+
+    public JSONArray getConditionsAndInputsFromIO(String mac, int physicalpin) {
+        int inputId = getIntInputFromIO(mac, physicalpin);
+        return getConditionsAndInputs(inputId);
     }
 
     /**
@@ -187,6 +186,14 @@ public class persistantLayer {
         sql += ";";
         json = selectUtil(sql);
         return json;
+    }
+
+    public int updateUtilGetId(String sql) {
+        dbAccess db = new dbAccess();
+        int id = db.updateGetIdQuery(sql);
+        db.updateQuery(sql);
+        db.closeConnection();
+        return id;
     }
 
     private void updateUtil(String sql) {
@@ -214,5 +221,11 @@ public class persistantLayer {
         json = db.selectQuery(sql);
         db.closeConnection();
         return json;
+    }
+
+    private void deleteUtil(String sql) {
+        dbAccess db = new dbAccess();
+        db.deleteQuery(sql);
+        db.closeConnection();
     }
 }
