@@ -12,14 +12,28 @@ public class FrameworkApplication {
     public List<InfoProcess> _lisThread;
     public WriterAddon _wraObserver;
     private boolean _booAppOn = true;
+    private int _intExeType = 0;
 
     private static final int OUTPUT = 1;
     private static final int INPUT = 0;
+
+	private static final int MAINAPP = 1;
+	private static final int PERSISTENCE = 2;
 
     public FrameworkApplication() {
         //Code to implement where a Listener is required #1
         //Le constructeur WriterAddon(int iport) peut être utilisé pour être sur autre port que 45000
         _wraObserver = new WriterAddon(45000);
+        //end of code #1
+
+    }
+
+
+    public FrameworkApplication(int type) {
+        //Code to implement where a Listener is required #1
+        //Le constructeur WriterAddon(int iport) peut être utilisé pour être sur autre port que 45000
+        _wraObserver = new WriterAddon(45000);
+        _intExeType = type;
         //end of code #1
 
     }
@@ -35,8 +49,17 @@ public class FrameworkApplication {
             SerialObj serTemp = _wraObserver.getSerialObject();
             if (serTemp != null) {
                 System.out.println("FrameworkApp 1 new object received");
-                InfoProcess ifpTemp = new InfoProcess(serTemp);
-                if (serTemp.getIfFeedbackNeeded()) {
+                InfoProcess ifpTemp;
+                if(_intExeType == MAINAPP)
+					ifpTemp = new AppProcessing(serTemp);
+                else if(_intExeType == PERSISTENCE)
+					ifpTemp = new PersistenceProcessing(serTemp);
+                else
+				{
+					System.out.println("Bad Framework builder used!! Need parameters...");
+					break;
+				}
+				if (serTemp.getIfFeedbackNeeded()) {
                     SerialObj serOutbound = new SerialObj();
                     serOutbound = ifpTemp.Aiguilleur(serTemp);
                     //Doit relayer l'information au LThread
@@ -44,16 +67,8 @@ public class FrameworkApplication {
                 } else {
                     ifpTemp.Aiguilleur(serTemp);
                 }
-
-                //Add code to do with new serial object (Start thread or other)
-
             }
-            //TODO mettre sleep a max
-            try {
-                Thread.sleep(100);
-            } catch (Exception e) {
-                System.out.println(e.toString());
-            }
+            Utils.sleep(5);
         }
         _wraObserver.stopServer();
 
@@ -68,8 +83,9 @@ public class FrameworkApplication {
     private SerialObj sendPersistance(SerialObj obj, boolean blocking) {
         CommClient cc = new CommClient("127.0.0.1", 45010);
         cc.setSerialObject(obj);
+		cc.setIfFeedbackNeeded(blocking);
         cc.start();
-        cc.setIfFeedbackNeeded(blocking);
+
         while (!cc.getIfDataReceived()) {
             Utils.sleep(10);
         }

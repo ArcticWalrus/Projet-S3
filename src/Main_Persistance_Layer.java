@@ -1,4 +1,4 @@
-import Net2.ysma.FrameworkApplication;
+import Net.ysma.*;
 
 public class Main_Persistance_Layer
 {
@@ -6,7 +6,7 @@ public class Main_Persistance_Layer
 
     public static void main(String[] args)
     {
-        _fapMainApp = new FrameworkApplication();
+        _fapMainApp = new FrameworkApplication(2);
         _fapMainApp.startApp();
         System.out.println("fin du programme");
     }

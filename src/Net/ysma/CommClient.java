@@ -1,5 +1,6 @@
 package Net.ysma;
 
+import maxmamort.gel.Utils;
 import org.json.JSONArray;
 
 import java.io.*;
@@ -72,7 +73,7 @@ public class CommClient extends Thread {
                 this._seoToReceive = (SerialObj) oiStream.readObject();
                 _booDataReceived = true;
                 while (_booDataReceived) {
-                    //TODO put sleep a Max
+                    Utils.sleep(2);
                 }
             }
         } catch (UnknownHostException uhe) {
