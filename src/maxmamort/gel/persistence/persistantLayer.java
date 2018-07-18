@@ -188,6 +188,11 @@ public class persistantLayer {
         return json;
     }
 
+    public void clearDB(){
+        String sql = "TRUNCATE public.log; TRUNCATE public.io CASCADE; TRUNCATE public.devices CASCADE; TRUNCATE public.inputgroup CASCADE; TRUNCATE public.intinput CASCADE; TRUNCATE public.users CASCADE;";
+        insertUtil(sql);
+    }
+
     public int updateUtilGetId(String sql) {
         dbAccess db = new dbAccess();
         int id = db.updateGetIdQuery(sql);
