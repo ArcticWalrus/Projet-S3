@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="09fc0b72-d918-4e4c-854f-e40ab48df6f5" name="Default" comment="" />
+    <list default="true" id="09fc0b72-d918-4e4c-854f-e40ab48df6f5" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/tomcat_server/webapplication_project/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tomcat_server/webapplication_project/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tomcat_server/webapplication_project/.idea/libraries/Gradle__com_fasterxml_jackson_core_jackson_annotations_2_8_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tomcat_server/webapplication_project/.idea/libraries/Gradle__com_fasterxml_jackson_core_jackson_core_2_8_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tomcat_server/webapplication_project/.idea/libraries/Gradle__com_fasterxml_jackson_core_jackson_databind_2_8_8_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tomcat_server/webapplication_project/.idea/libraries/Gradle__javax_servlet_javax_servlet_api_3_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tomcat_server/webapplication_project/.idea/libraries/Gradle__org_jasig_cas_client_cas_client_core_3_5_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tomcat_server/webapplication_project/.idea/libraries/Gradle__org_slf4j_slf4j_api_1_7_25.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tomcat_server/webapplication_project/.idea/libraries/Gradle__org_slf4j_slf4j_simple_1_7_25.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tomcat_server/webapplication_project/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tomcat_server/webapplication_project/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tomcat_server/webapplication_project/.idea/modules/webapplication_project_main.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tomcat_server/webapplication_project/.idea/modules/webapplication_project_test.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tomcat_server/webapplication_project/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tomcat_server/webapplication_project/webapplication_project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/html/device.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/html/device.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/html/input.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/html/input.html" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,7 +35,7 @@
         <entry file="file://$PROJECT_DIR$/src/Main_Application_Layer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
-              <caret line="7" column="50" lean-forward="true" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
+              <caret line="7" column="50" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -24,8 +43,8 @@
       <file leaf-file-name="FrameworkApplication.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Net/ysma/FrameworkApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="54" column="55" selection-start-line="54" selection-start-column="55" selection-end-line="54" selection-end-column="55" />
+            <state relative-caret-position="221">
+              <caret line="91" selection-start-line="91" selection-end-line="91" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -95,11 +114,14 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-2" />
     <option name="y" value="20" />
     <option name="width" value="3194" />
     <option name="height" value="1276" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -128,7 +150,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/servlet-api.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/tomcat_server/webapplication_project" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -286,7 +308,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -362,13 +384,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/IerrorManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/IpersistantLayer.java" />
     <entry file="file://$PROJECT_DIR$/src/maxmamort/gel/persistence/persistantLayer.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -613,17 +628,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$PROJECT_DIR$/src/servlet-api.jar!/javax/servlet/http/HttpServlet.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main_Application_Layer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="7" column="50" lean-forward="true" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
+          <caret line="7" column="50" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Net/ysma/FrameworkApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="54" column="55" selection-start-line="54" selection-start-column="55" selection-end-line="54" selection-end-column="55" />
+        <state relative-caret-position="221">
+          <caret line="91" selection-start-line="91" selection-end-line="91" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
