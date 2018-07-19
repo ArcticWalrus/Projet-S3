@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="CAS on tomcat/webapplication_project/src/main/java"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="UnitTest/NetworkHandler/src"/>
+	<classpathentry kind="lib" path="out/production/projetS3/postgresql-42.2.2.jar"/>
+	<classpathentry kind="lib" path="out/production/projetS3/servlet-api.jar"/>
+	<classpathentry kind="lib" path="UnitTest/NetworkHandler/java-json.jar"/>
+	<classpathentry kind="output" path="UnitTest/NetworkHandler/out/production/NetworkHandler"/>
+</classpath>
