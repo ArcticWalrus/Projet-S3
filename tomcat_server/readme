@@ -1,0 +1,8 @@
+steps:
+	1) import existsing sources		
+		a)select gradle when prompted
+	2)Edit configurations
+		a)Add new local tomcat server
+		b)Configure new tomcat application server using apache-tomcat-9.0.7 folder
+	3) run!
+
