@@ -130,9 +130,9 @@ public class FrameworkApplication {
     }
 
     public void startApp() {
-        System.out.println("Populating test db");
-        populate();
-        System.out.println("Done populating");
+        //System.out.println("Populating test db");
+        //populate();
+        //System.out.println("Done populating");
 
 
         //Code to implement where a Listener is required #2
