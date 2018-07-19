@@ -2,24 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09fc0b72-d918-4e4c-854f-e40ab48df6f5" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/tomcat_server/webapplication_project/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tomcat_server/webapplication_project/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tomcat_server/webapplication_project/.idea/libraries/Gradle__com_fasterxml_jackson_core_jackson_annotations_2_8_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tomcat_server/webapplication_project/.idea/libraries/Gradle__com_fasterxml_jackson_core_jackson_core_2_8_8.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tomcat_server/webapplication_project/.idea/libraries/Gradle__com_fasterxml_jackson_core_jackson_databind_2_8_8_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tomcat_server/webapplication_project/.idea/libraries/Gradle__javax_servlet_javax_servlet_api_3_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tomcat_server/webapplication_project/.idea/libraries/Gradle__org_jasig_cas_client_cas_client_core_3_5_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tomcat_server/webapplication_project/.idea/libraries/Gradle__org_slf4j_slf4j_api_1_7_25.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tomcat_server/webapplication_project/.idea/libraries/Gradle__org_slf4j_slf4j_simple_1_7_25.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tomcat_server/webapplication_project/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tomcat_server/webapplication_project/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tomcat_server/webapplication_project/.idea/modules/webapplication_project_main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tomcat_server/webapplication_project/.idea/modules/webapplication_project_test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tomcat_server/webapplication_project/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tomcat_server/webapplication_project/webapplication_project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/html/device.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/html/device.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/html/input.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/html/input.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tomcat_server/webapplication_project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/tomcat_server/webapplication_project/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
