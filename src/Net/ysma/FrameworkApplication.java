@@ -35,6 +35,9 @@ public class FrameworkApplication {
         //Le constructeur WriterAddon(int iport) peut être utilisé pour être sur autre port que 45000
         _wraObserver = new WriterAddon(45000);
         //end of code #1
+		_input = new input();
+		_device = new device(); 
+		_user = new user(); 
 
     }
 	
@@ -43,14 +46,17 @@ public class FrameworkApplication {
 	String inputname, defaultvalue, sensortype;
 	
 		protected void doPost(HttpServletRequest request,
-				HttpServletResponse response) throws ServletException, IOException {
+			HttpServletResponse response) throws ServletException, IOException {
 			// read form html fields
 			inputname = request.getParameter("inputname");
 			defaultvalue = request.getParameter("defaultvalue");
 			sensortype = request.getParameter("sensortype");
 			System.out.println("Input name: " + inputname);
 			System.out.println("Default value: " + defaultvalue);
-			System.out.println("Sensor type: " + sensortype);     
+			System.out.println("Sensor type: " + sensortype);  
+
+			persistanctLayer p1 = new persistanctLayer();
+			p1.addInput(inputname, Double.parseDouble(defaultvalue), Integer.parseInt(sensortype));
 		}
 			
 		public values[] returninput(){
@@ -76,7 +82,10 @@ public class FrameworkApplication {
 			devicename = request.getParameter("devicename");
 			System.out.println("MAC address : " + macadd);
 			System.out.println("CIP : " + cip);
-			System.out.println("Device name : " + devicename);     
+			System.out.println("Device name : " + devicename); 
+
+			persistanctLayer p2 = new persistanctLayer();
+			p2.createDevice(macadd, cip, devicename) 
 		}
 			
 		public values[] returndevice(){
@@ -98,12 +107,12 @@ public class FrameworkApplication {
 			//read form html fields
 			cip = request.getParameter("cip");
 			System.out.println("CIP : " + cip);   
+			
+			persistanctLayer p3 = new persistanctLayer();
+			p3.createUser(cip);
 		}
 			
-		public String returndevice(){
-			return cip;
-		}
-	
+		public String returndevice(){return cip;}
 	}
 
 
