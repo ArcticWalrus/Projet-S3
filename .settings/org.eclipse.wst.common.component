@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="projetS3">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/CAS on tomcat/webapplication_project/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/UnitTest/NetworkHandler/src"/>
+        <property name="context-root" value="projetS3"/>
+        <property name="java-output-path" value="/projetS3/UnitTest/NetworkHandler/out/production/NetworkHandler"/>
+    </wb-module>
+</project-modules>
