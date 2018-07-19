@@ -8,7 +8,7 @@ function _createdevice()
 	alert("New device created");
 }
 
-function _fetchdata(this.value)
+function _fetchdata(value1)
 {
-    alert("hello");
+    alert(value1);
 }
