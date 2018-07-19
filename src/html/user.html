@@ -10,32 +10,38 @@
   <script src="projet.js"> </script>
 </head>
 <body>
-<p> User entry form </p>
+
+    <li><a href=../projet.html> Home </a></li>
+    <li><a href="user.html">Manage users</a></li>
+    <li><a href="device.html">Manage devices</a></li>
+    <li><a href="input.html">Manage inputs and outputs</a></li>
+    <li><a href="conditions.html">Manage conditions</a></li>
+
+<h1> User entry form </h1>
 <form name="userForm" method="post" action="user">
     CIP: <input type="text" name="cip"/> <br/>
     <input type="submit" value="Enter user" />
 </form>
 
 <p></p>
-<p>Liste des utilisateurs</p>
-<!--[{"cip":"bolm2210"},{"cip":"denj1605"},{"cip":"demo1622"}]-->
-<table>
-    <tr>
-        <th>Numero</th>
-        <th>CIP</th>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>bolm2210</td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>denj1605</td>
-    </tr>
-    <tr>
-        <td>3</td>
-        <td>demo1622</td>
-    </tr>
-</table>
+<p></p>
+<h1>User</h1>
+<table id="userTable" style="border: 1px solid black"></table>
+
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+<!--Build cip table-->
+    var userString = '[{"cip":"bolm2210"},{"cip":"denj1605"},{"cip":"demo1622"}]';
+    var json = JSON.parse(userString);
+    var table = document.getElementById("userTable");
+    buildCIPTable(table, json);
+
+    function buildCIPTable(table,json){
+        $(table).append('<tr><th>cip</th></tr>');
+        for(var i = 0; i<json.length;i++){
+            $(table).append('<tr><td>' + json[i].cip + '</td></tr>');
+        }
+    }
+</script>
 </html>

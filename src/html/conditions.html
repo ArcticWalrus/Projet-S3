@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Conditions</title>
+    <meta name="description" content="Site de base projet S3">
+    <script src="projet.js"> </script>
+</head>
+
+<body>
+<li><a href=../projet.html> Home </a></li>
+<li><a href="user.html">Manage users</a></li>
+<li><a href="device.html">Manage devices</a></li>
+<li><a href="input.html">Manage inputs and outputs</a></li>
+<li><a href="conditions.html">Manage conditions</a></li>
+
+<h1> Conditions entry form </h1>
+<form name="conditionform" method="post" action="condition">
+    Mac address: <input type="text" name="Mac address"/> <br/>
+    Pin 1: <input type="text" name=" pin1"/> <br/>
+    Pin 2: <input type="text" name="pin2"/> <br/>
+    Pin 3: <input type="text" name="pin3"/> <br/>
+    Operation: <input type="text" name="operation"/> <br/>
+    <input type="submit" value="Enter conditions" />
+</form>
+
+<h1>Conditions</h1>
+<table id="ConditionTable" style="border: 1px solid black"></table>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+    var ConditionString = '[{"serio":142,"serinputgroup":425,"valoperation":0,"valordre":1,"namiogroup":"b8:27:eb:ee:e5:13","namconditiongroup":142,"namio":"input 1","pinid":3,"configurationbits":"0","valinputid":436},{"serio":143,"serinputgroup":426,"valoperation":0,"valordre":2,"namiogroup":"b8:27:eb:ee:e5:13","namconditiongroup":142,"namio":"output 1","pinid":2,"configurationbits":"1","valinputid":437},{"serio":144,"serinputgroup":424,"valoperation":0,"valordre":0,"namiogroup":"b8:27:eb:ee:e5:13","namconditiongroup":142,"namio":"input 2","pinid":4,"configurationbits":"0","valinputid":438}]';
+    json = JSON.parse(ConditionString);
+    table = document.getElementById("ConditionTable");
+    buildCondition(table,json);
+
+    function buildCondition(table,json){
+        $(table).append('<tr><th>MAC</th><th>pin ID</th><th>Condition ID</th><th>Opération</th></tr>');
+        for(var i = 0; i<json.length;i++){
+            $(table).append('<tr><td>' + json[i].namiogroup + '</td><td>' + json[i].pinid + '</td><td>' + json[i].namconditiongroup + '</td><td>' + json[i].valoperation + '</td></tr>');
+        }
+    }
+</script>
+</html>
+
+
