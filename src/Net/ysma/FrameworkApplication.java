@@ -85,7 +85,7 @@ public class FrameworkApplication {
 			System.out.println("Device name : " + devicename); 
 
 			persistanctLayer p2 = new persistanctLayer();
-			p2.createDevice(macadd, cip, devicename) 
+			p2.createDevice(macadd, cip, devicename);
 		}
 			
 		public values[] returndevice(){

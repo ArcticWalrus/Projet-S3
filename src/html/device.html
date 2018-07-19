@@ -1,0 +1,75 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Manage devices</title>
+  <meta name="description" content="Site de base projet S3">
+  <script src="projet.js"> </script>
+</head>
+
+<body>
+<p> Device entry form </p>
+<form name="deviceForm" method="post" action="device">
+    MAC address: <input type="text" name="macaddress"/> <br/>
+    User CIP: <input type="text" name="cip"/> <br/>
+	Device name: <input type="text" name="devicename"/> <br/>
+    <input type="submit" value="Confirm device" />
+</form>
+
+ <!-- Old version
+ <table style="width:25%; border: 1px solid black">
+	<caption>Create device</caption>
+  <tr>
+    <th>Field</th>
+    <th>Enter data</th> 
+  </tr>
+  <tr>
+    <td>MAC address</td>
+     <td> <input type="text" name="macaddress"> </td> 
+  </tr>
+  <tr>
+    <td>User cip</td>
+     <td> <input type="text" name="cip"> </td> 
+  </tr>
+   <tr>
+    <td>Device name</td>
+    <td> <input type="text" name="devicename"> </td> 
+  </tr>
+</table>
+ <button type="button" onclick="_createdevice()">Create device!</button>
+ 
+ 
+  <table style="width:50%; border: 1px solid black">
+	<caption>Create device</caption>
+  <tr>
+	<th>Number</th>
+    <th>MAC address</th>
+    <th>User cip</th> 
+	<th>Device name</th> 
+  </tr>
+  <tr>
+	<td>1</td>
+    <td> (fetched MAC address) </td> 
+	<td> (fetched cip) </td> 
+	<td> (fetched Device name)</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td> (fetched MAC address) </td> 
+	<td> (fetched cip) </td> 
+	<td> (fetched Device name)</td>
+  </tr>
+   <tr>
+    <td>3</td>
+    <td> (fetched MAC address) </td> 
+	<td> (fetched cip) </td> 
+	<td> (fetched Device name)</td>
+  </tr>
+</table>
+	<button type="button" onclick="_fetchdevice()">View devices!</button>
+-->
+</body>
+</html>
