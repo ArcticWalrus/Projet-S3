@@ -1,0 +1,41 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Manage users</title>
+  <meta name="description" content="Site de base projet S3">
+  <script src="projet.js"> </script>
+</head>
+<body>
+<p> User entry form </p>
+<form name="userForm" method="post" action="user">
+    CIP: <input type="text" name="cip"/> <br/>
+    <input type="submit" value="Enter user" />
+</form>
+
+<p></p>
+<p>Liste des utilisateurs</p>
+<!--[{"cip":"bolm2210"},{"cip":"denj1605"},{"cip":"demo1622"}]-->
+<table>
+    <tr>
+        <th>Numero</th>
+        <th>CIP</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>bolm2210</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>denj1605</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>demo1622</td>
+    </tr>
+</table>
+</body>
+</html>
