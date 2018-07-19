@@ -31,6 +31,11 @@ public class persistantLayer {
         return insertGetIdUtil(sql, "serintinput");
     }
 
+    public JSONArray getConditions(){
+        String sql = "SELECT * FROM public.inputgroup JOIN public.io ON inputgroup.valinputid = io.valinputid;";
+        return selectUtil(sql);
+    }
+
     public JSONArray getIo() {
         String sql = "SELECT valcip AS CIP, namdevice AS DeviceName, valmac AS MAC, namio AS IoName, pinid, configurationbits AS Config, valvalue AS value FROM public.io JOIN public.devices ON devices.valmac = io.namiogroup JOIN public.intinput ON intinput.serintinput = io.valinputid;";
         return selectUtil(sql);
@@ -55,6 +60,13 @@ public class persistantLayer {
     public JSONArray getIOByDevice(String mac) {
         String sql = "SELECT pinid, valvalue, valtype FROM public.io AS curr_io INNER JOIN public.intinput AS curr_input ON curr_input.serintinput = curr_io.valinputid WHERE namiogroup = '" + mac + "';";
         return selectUtil(sql);
+    }
+
+    public void createCondition(String MAC, int pin1, int pin2, int pin3, int operation) {
+        int inputId1 = getIntInputFromIO(MAC, pin1);
+        int inputId2 = getIntInputFromIO(MAC, pin2);
+        int inputId3 = getIntInputFromIO(MAC, pin3);
+        createInputGroupCondition(new int[]{inputId1, inputId2, inputId3}, operation);
     }
 
     //User must exist!
