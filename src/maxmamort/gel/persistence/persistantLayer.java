@@ -31,6 +31,21 @@ public class persistantLayer {
         return insertGetIdUtil(sql, "serintinput");
     }
 
+    public JSONArray getIo() {
+        String sql = "SELECT valcip AS CIP, namdevice AS DeviceName, valmac AS MAC, namio AS IoName, pinid, configurationbits AS Config, valvalue AS value FROM public.io JOIN public.devices ON devices.valmac = io.namiogroup JOIN public.intinput ON intinput.serintinput = io.valinputid;";
+        return selectUtil(sql);
+    }
+
+    public JSONArray getDevices() {
+        String sql = "SELECT valcip, namdevice, valip, valmac FROM public.devices;";
+        return selectUtil(sql);
+    }
+
+    public JSONArray getUsers(){
+        String sql = "SELECT valcip AS cip FROM public.users;";
+        return selectUtil(sql);
+    }
+
     public int getInputIDForIO(int IOID) {
         //TODO Test method
         String sql = "SELECT valinputid FROM public.io WHERE serio = " + IOID + ";";
