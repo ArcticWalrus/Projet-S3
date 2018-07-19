@@ -11,7 +11,21 @@
 </head>
 
 <body>
- 
+<p> Projet S3 </p>
+	<li><strong>Home</strong></li>
+    <li><a href="input.html">Manage inputs</a></li>
+    <li><a href="device.html">Manage devices</a></li>
+    <li><a href="user.html">Manage users</a></li>
+
+<p> Device entry form </p>
+<form name="deviceForm" method="post" action="device">
+    MAC address: <input type="text" name="macaddress"/> <br/>
+    User CIP: <input type="text" name="cip"/> <br/>
+	Device name: <input type="text" name="devicename"/> <br/>
+    <input type="submit" value="Confirm device" />
+</form>
+
+ <!-- Old version
  <table style="width:25%; border: 1px solid black">
 	<caption>Create device</caption>
   <tr>
@@ -62,5 +76,6 @@
   </tr>
 </table>
 	<button type="button" onclick="_fetchdevice()">View devices!</button>
+-->
 </body>
 </html>

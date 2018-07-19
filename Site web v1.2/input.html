@@ -11,6 +11,21 @@
 </head>
 
 <body>
+
+<p> Projet S3 </p>
+	<li><strong>Home</strong></li>
+    <li><a href="input.html">Manage inputs</a></li>
+    <li><a href="device.html">Manage devices</a></li>
+    <li><a href="user.html">Manage users</a></li>
+
+<p> Input entry form </p>
+<form name="inputForm" method="post" action="input">
+    Input name: <input type="text" name="inputname"/> <br/>
+    Default Value: <input type="text" name="defaultvalue"/> <br/>
+	Sensor Type: <input type="text" name="sensortype"/> <br/>
+    <input type="submit" value="Confirm input" />
+</form>
+<!-- Old version
 <table style="width:20%; border: 1px solid black">
 	<caption>Add input</caption>
   <tr>
@@ -33,6 +48,8 @@
 </table>
 
 <input type="button" onclick="_addinput()" value="Add input!">
+-->
+
  
 </body>
 </html>

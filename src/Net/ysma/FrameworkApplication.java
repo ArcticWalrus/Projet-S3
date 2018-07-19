@@ -6,6 +6,16 @@ import org.json.JSONObject;
 
 import java.util.List;
 
+//For ajax and receiving data
+import java.io.IOException;
+import java.io.PrintWriter;
+ 
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import static Net.ysma.SerialObjInterface.*;
 
 public class FrameworkApplication {
@@ -27,6 +37,74 @@ public class FrameworkApplication {
         //end of code #1
 
     }
+	
+	@WebServlet("/input")
+	public class input extends HttpServlet {
+	String inputname, defaultvalue, sensortype;
+	
+		protected void doPost(HttpServletRequest request,
+				HttpServletResponse response) throws ServletException, IOException {
+			// read form html fields
+			inputname = request.getParameter("inputname");
+			defaultvalue = request.getParameter("defaultvalue");
+			sensortype = request.getParameter("sensortype");
+			System.out.println("Input name: " + inputname);
+			System.out.println("Default value: " + defaultvalue);
+			System.out.println("Sensor type: " + sensortype);     
+		}
+			
+		public values[] returninput(){
+			values[] returnvalues = new String[3];
+			returnvalues[0] = inputname;
+			returnvalues[1] = defaultvalue;
+			returnvalues[2] = sensortype;
+			
+		return returnvalues;
+		}
+	
+	}
+	
+	@WebServlet("/device")
+	public class device extends HttpServlet {
+	String macadd, cip, devicename;
+	
+		protected void doPost(HttpServletRequest request,
+				HttpServletResponse response) throws ServletException, IOException {
+			//read form html fields
+			macadd = request.getParameter("macaddress");
+			cip = request.getParameter("cip");
+			devicename = request.getParameter("devicename");
+			System.out.println("MAC address : " + macadd);
+			System.out.println("CIP : " + cip);
+			System.out.println("Device name : " + devicename);     
+		}
+			
+		public values[] returndevice(){
+			values[] returnvalues = new String[3];
+			returnvalues[0] = macadd;
+			returnvalues[1] = cip;
+			returnvalues[2] = devicename;
+			
+		return returnvalues;
+		}
+	
+	}
+	
+	@WebServlet("/user")
+	public class user extends HttpServlet {
+	String cip;
+		protected void doPost(HttpServletRequest request,
+				HttpServletResponse response) throws ServletException, IOException {
+			//read form html fields
+			cip = request.getParameter("cip");
+			System.out.println("CIP : " + cip);   
+		}
+			
+		public String returndevice(){
+			return cip;
+		}
+	
+	}
 
 
     public FrameworkApplication(int type) {
