@@ -5,7 +5,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.List;
-
+import maxmamort.gel.persistence.*;
 //For ajax and receiving data
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -35,9 +35,9 @@ public class FrameworkApplication {
         //Le constructeur WriterAddon(int iport) peut être utilisé pour être sur autre port que 45000
         _wraObserver = new WriterAddon(45000);
         //end of code #1
-		_input = new input();
-		_device = new device(); 
-		_user = new user(); 
+		input _input = new input();
+		device _device = new device();
+		user _user = new user();
 
     }
 	
@@ -55,18 +55,19 @@ public class FrameworkApplication {
 			System.out.println("Default value: " + defaultvalue);
 			System.out.println("Sensor type: " + sensortype);  
 
-			persistanctLayer p1 = new persistanctLayer();
+			persistantLayer p1 = new persistantLayer();
 			p1.addInput(inputname, Double.parseDouble(defaultvalue), Integer.parseInt(sensortype));
 		}
-			
-		public values[] returninput(){
-			values[] returnvalues = new String[3];
-			returnvalues[0] = inputname;
-			returnvalues[1] = defaultvalue;
-			returnvalues[2] = sensortype;
-			
-		return returnvalues;
-		}
+
+//		public values[] returninput(){
+//			values[] returnvalues = new String[3];
+//			returnvalues[0] = inputname;
+//			returnvalues[1] = defaultvalue;
+//			returnvalues[2] = sensortype;
+//
+//		return returnvalues;
+//		}
+
 	
 	}
 	
@@ -84,18 +85,18 @@ public class FrameworkApplication {
 			System.out.println("CIP : " + cip);
 			System.out.println("Device name : " + devicename); 
 
-			persistanctLayer p2 = new persistanctLayer();
+			persistantLayer p2 = new persistantLayer();
 			p2.createDevice(macadd, cip, devicename);
 		}
-			
-		public values[] returndevice(){
-			values[] returnvalues = new String[3];
-			returnvalues[0] = macadd;
-			returnvalues[1] = cip;
-			returnvalues[2] = devicename;
-			
-		return returnvalues;
-		}
+
+//		public values[] returndevice(){
+//			values[] returnvalues = new String[3];
+//			returnvalues[0] = macadd;
+//			returnvalues[1] = cip;
+//			returnvalues[2] = devicename;
+//
+//		return returnvalues;
+//		}
 	
 	}
 	
@@ -108,7 +109,7 @@ public class FrameworkApplication {
 			cip = request.getParameter("cip");
 			System.out.println("CIP : " + cip);   
 			
-			persistanctLayer p3 = new persistanctLayer();
+			persistantLayer p3 = new persistantLayer();
 			p3.createUser(cip);
 		}
 			
