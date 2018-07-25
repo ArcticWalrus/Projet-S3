@@ -5,12 +5,18 @@
 <head>
   <meta charset="utf-8">
 
-  <title>Manage inputs</title>
+  <title>Manage inputs and ouputs</title>
   <meta name="description" content="Site de base projet S3">
   <script src="projet.js"> </script>
 </head>
 
 <body>
+
+<li><a href=../projet.html> Home </a></li>
+<li><a href="user.html">Manage users</a></li>
+<li><a href="device.html">Manage devices</a></li>
+<li><a href="input.html">Manage inputs and outputs</a></li>
+<li><a href="conditions.html">Manage conditions</a></li>
 
 <p> Input entry form </p>
 <form name="inputForm" method="post" action="input">
@@ -20,7 +26,22 @@
     <input type="submit" value="Confirm input" />
 </form>
 
-<p>List of inputs</p>
+<h1>IO</h1>
+<table id="IOTable" style="border: 1px solid black"></table>
  
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+    var IOString = '[{"devicename":"new name","cip":"bolm2210","pinid":10,"ioname":"name of IO 1","config":"1","value":66.66,"mac":"MAC"},{"devicename":"new name","cip":"bolm2210","pinid":11,"ioname":"name of IO 2","config":"0","value":0,"mac":"MAC"},{"devicename":"new name","cip":"bolm2210","pinid":12,"ioname":"name of IO 3","config":"1","value":0,"mac":"MAC"},{"devicename":"Joshua s pi","cip":"denj1605","pinid":3,"ioname":"input 1","config":"0","value":0,"mac":"b8:27:eb:ee:e5:13"},{"devicename":"Joshua s pi","cip":"denj1605","pinid":2,"ioname":"output 1","config":"1","value":1,"mac":"b8:27:eb:ee:e5:13"},{"devicename":"Joshua s pi","cip":"denj1605","pinid":4,"ioname":"input 2","config":"0","value":1,"mac":"b8:27:eb:ee:e5:13"}]';
+    json = JSON.parse(IOString);
+    table = document.getElementById("IOTable");
+    buildIO(table,json);
+
+    function buildIO(table, json){
+        $(table).append('<tr><th>cip</th><th>Device Name</th><th>IO Name</th><th>pin ID</th><th>Config</th><th>value</th></tr>');
+        for(var i = 0; i<json.length;i++){
+            $(table).append('<tr><td>' + json[i].cip + '</td><td>' + json[i].devicename + '</td><td>' + json[i].ioname + '</td><td>' + json[i].pinid + '</td><td>'+ json[i].config + '</td><td>' + json[i].value + '</td></tr>');
+        }
+    }
+</script>
 </html>

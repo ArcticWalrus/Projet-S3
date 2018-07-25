@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+//TODO refractor persistant in more specific models
 public class persistantLayer {
 
     /**
@@ -31,7 +32,22 @@ public class persistantLayer {
         return insertGetIdUtil(sql, "serintinput");
     }
 
-    public JSONArray getConditions(){
+    public void deleteDevice(String mac) {
+        String sql = "DELETE FROM public.devices WHERE valmac='" + mac + "';";
+        deleteUtil(sql);
+    }
+
+    public void deleteUser(String cip) {
+        String sql = "DELETE FROM public.users WHERE valcip='" + cip + "';";
+        deleteUtil(sql);
+    }
+
+    public void deleteIO(String mac, int pinId) {
+        String sql = "DELETE FROM public.io WHERE namiogroup = '" + mac + "' AND pinid=" + pinId + ";";
+        deleteUtil(sql);
+    }
+
+    public JSONArray getConditions() {
         String sql = "SELECT * FROM public.inputgroup JOIN public.io ON inputgroup.valinputid = io.valinputid;";
         return selectUtil(sql);
     }
@@ -46,7 +62,7 @@ public class persistantLayer {
         return selectUtil(sql);
     }
 
-    public JSONArray getUsers(){
+    public JSONArray getUsers() {
         String sql = "SELECT valcip AS cip FROM public.users;";
         return selectUtil(sql);
     }
@@ -215,7 +231,7 @@ public class persistantLayer {
         return json;
     }
 
-    public void clearDB(){
+    public void clearDB() {
         String sql = "TRUNCATE public.log; TRUNCATE public.io CASCADE; TRUNCATE public.devices CASCADE; TRUNCATE public.inputgroup CASCADE; TRUNCATE public.intinput CASCADE; TRUNCATE public.users CASCADE;";
         insertUtil(sql);
     }

@@ -11,6 +11,13 @@
 </head>
 
 <body>
+
+<li><a href=../projet.html> Home </a></li>
+<li><a href="user.html">Manage users</a></li>
+<li><a href="device.html">Manage devices</a></li>
+<li><a href="input.html">Manage inputs and outputs</a></li>
+<li><a href="conditions.html">Manage conditions</a></li>
+
 <p> Device entry form </p>
 <form name="deviceForm" method="post" action="device">
     MAC address: <input type="text" name="macaddress"/> <br/>
@@ -19,7 +26,22 @@
     <input type="submit" value="Confirm device" />
 </form>
 
-<p>List of devices</p>
+<h1>Devices</h1>
+<table id="DeviceTable" style="border: 1px solid black"></table>
 
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+    var deviceString = '[{"valip":"0.0.0.0","valmac":"THIS IS A MAC","valcip":"bolm2210","namdevice":"name of device"},{"valip":"0.0.0.0","valmac":"THIS IS A MAC 2","valcip":"bolm2210","namdevice":"name of device 2"},{"valip":"0.0.0.0","valmac":"THIS IS A MAC 3","valcip":"denj1605","namdevice":"name of device 3"},{"valip":"1.2.3.4","valmac":"MAC","valcip":"bolm2210","namdevice":"new name"},{"valip":"8.8.8.8","valmac":"b8:27:eb:ee:e5:13","valcip":"denj1605","namdevice":"Joshua s pi"}]';
+    json = JSON.parse(deviceString);
+    table = document.getElementById("DeviceTable");
+    buildDeviceTable(table,json);
+
+    function buildDeviceTable(table,json){
+        $(table).append('<tr><th>cip</th><th>Device Name</th><th>IP</th><th>MAC</th></tr>');
+        for(var i = 0; i<json.length;i++){
+            $(table).append('<tr><td>' + json[i].valcip + '</td><td>' + json[i].namdevice + '</td><td>' + json[i].valip + '</td><td>' + json[i].valmac + '</td></tr>');
+        }
+    }
+</script>
 </html>

@@ -21,7 +21,9 @@ public class Main_Persistance_Layer
 
         //Extraction for html tables
         persistantLayer pl = new persistantLayer();
-        JSONArray json = pl.getIo();
+        JSONArray json = pl.getConditions();
         System.out.println(json.toString());
+
+
     }
 }

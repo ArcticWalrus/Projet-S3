@@ -39,9 +39,9 @@ public class PersistenceProcessing extends InfoProcess {
 		JSONObject jo = sro_temp.getDataFrame().getJSONObject(0);
 		if ("addInput".equalsIgnoreCase(tempValue)) {
 			json.put(new JSONObject().put("serintinput", pl.addInput(jo.getString("inputName"), jo.getDouble("defaultValue"), jo.getInt("sensorType"))));
-		} else if ("getInputIDForIO".equalsIgnoreCase(tempValue)) {
-			json = pl.getIOForUser(jo.getString("cip"));
-		} else if ("getIOByDevice".equalsIgnoreCase(tempValue)) {
+		} /*else if ("getInputIDForIO".equalsIgnoreCase(tempValue)) {
+			json = pl.getInputIDForIO(jo.getString("cip"));
+		}*/ else if ("getIOByDevice".equalsIgnoreCase(tempValue)) {
 			json = pl.getIOByDevice(jo.getString("deviceid"));
 		} else if ("createDevice".equalsIgnoreCase(tempValue)) {
 			pl.createDevice(jo.getString("MAC"), jo.getString("cip"), jo.getString("name"));
@@ -51,6 +51,19 @@ public class PersistenceProcessing extends InfoProcess {
 			json = pl.getDevicesByUser(jo.getString("cip"));
 		} else if ("getIOForUser".equalsIgnoreCase(tempValue)) {
 			json = pl.getIOForUser(jo.getString("cip"));
+		} else if ("getIo".equalsIgnoreCase(tempValue)) {
+			pl.getIo();
+		} else if ("getDevices".equalsIgnoreCase(tempValue)) {
+			pl.getDevices();
+		} else if ("getUsers".equalsIgnoreCase(tempValue)) {
+			pl.getUsers();
+		} else if ("cleardb".equalsIgnoreCase(tempValue)) {
+			pl.cleardb();
+		} else if ("createCondition".equalsIgnoreCase(tempValue)) {
+			int operation = jo.getInt("operation");
+            String mac = jo.getString("mac");
+
+            pl.createCondition(mac, jo.getInt("pin1"), jo.getInt("pin2"), jo.getInt("pin3"), operation);
 		} else if ("renameDevice".equalsIgnoreCase(tempValue)) {
 			pl.renameDevice(jo.getString("MAC"), jo.getString("name"));
 		} else if ("renameIO".equalsIgnoreCase(tempValue)) {
