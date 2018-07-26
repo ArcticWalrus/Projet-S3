@@ -19,7 +19,9 @@ public class DeviceController {
     }
 
     @RequestMapping("/device/create")
-    public String createDevice(@RequestParam(value = "cip", defaultValue = "0") String cip, @RequestParam(value = "mac", defaultValue = "0") String mac, @RequestParam(value = "name", defaultValue = "0") String name) {
+    public String createDevice(@RequestParam(value = "cip", defaultValue = "0") String cip,
+                               @RequestParam(value = "mac", defaultValue = "0") String mac,
+                               @RequestParam(value = "name", defaultValue = "0") String name) {
         if (cip.equalsIgnoreCase("0") || mac.equalsIgnoreCase("0") || name.equalsIgnoreCase("0"))
             return listDevice();
 

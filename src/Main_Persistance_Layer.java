@@ -24,6 +24,10 @@ public class Main_Persistance_Layer
         JSONArray json = pl.getConditions();
         System.out.println(json.toString());
 
+        pl.createCondition("123", 1, 1, 2, 1);
+        JSONArray json1 = pl.getConditions();
+        System.out.println(json1.toString());
+
 
     }
 }

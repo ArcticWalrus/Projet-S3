@@ -161,10 +161,52 @@
         <div class="row">
             <div class="col-lg-8 mx-auto">
                 <h2>Condition</h2>
-                <p class="lead">Add Condition: TODO</p>
+                <!--Insert condition-->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Device MAC</span>
+                    </div>
+                    <input type="text" id="createMAC" class="form-control" aria-label="Default"
+                           aria-describedby="inputGroup-sizing-default">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Pin 1</span>
+                    </div>
+                    <input type="text" id="createpin1" class="form-control" aria-label="Default"
+                           aria-describedby="inputGroup-sizing-default">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Pin 2</span>
+                    </div>
+                    <input type="text" id="createpin2" class="form-control" aria-label="Default"
+                           aria-describedby="inputGroup-sizing-default">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Pin 3</span>
+                    </div>
+                    <input type="text" id="createpin3" class="form-control" aria-label="Default"
+                           aria-describedby="inputGroup-sizing-default">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Operation</span>
+                    </div>
+                    <input type="text" id="createoperation" class="form-control" aria-label="Default"
+                           aria-describedby="inputGroup-sizing-default">
+                </div>
+                <!--Send button-->
+                <div class="input-group mb-3">
+                    <input type="button" value="Send" onclick="createCondition();" class="form-control"
+                           aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                </div>
+                <!--Table of conditions-->
                 <div class="table-responsive">
                     <table class="table table-bordred table-striped" id="ConditionTable"></table>
                 </div>
+
             </div>
         </div>
     </div>
@@ -255,7 +297,7 @@
         table.innerHTML = "";
         $(table).append('<tr><th>MAC</th><th>pin ID</th><th>Condition ID</th><th>Opération</th></tr>');
         for (var i = 0; i < json.length; i++) {
-            $(table).append('<tr><td>' + json[i].namiogroup + '</td><td>' + json[i].pinid + '</td><td>' + json[i].namconditiongroup + '</td><td>' + json[i].valoperation + '</td></tr>');
+            $(table).append('<tr><td>' + json[i].namiogroup + '</td><td>' + json[i].pinid + '</td><td>' + json[i].namconditiongroup + '</td><td>' + json[i].valoperation + '</td><td><a href="#" onclick="deleteCondition(\''+ json[i].mac + '\', \'' + json[i].pinid + '\');">delete</a></td></tr>');
         }
     }
 
@@ -304,6 +346,19 @@
         });
     }
 
+    function deleteCondition(mac, pinid){
+        console.log("Deleting condition");
+    //     $.get('Condition/delete1', {MAC: mac, pin1: pin1, pin2: pin2,
+    //             pin3: pin3, operation: operation}, function (data) {
+    //         var json = JSON.parse(data);
+    //         buildCondition(json);
+    //     })
+        $.get('Condition/delete', {MAC: mac, pin3: pinid}, function (data) {
+            var json = JSON.parse(data);
+            buildIO(json);
+        });
+    }
+
     function createDevice() {
         console.log("creating device");
         var cip = document.getElementById("createDeviceCIP");
@@ -314,6 +369,23 @@
             buildDeviceTable(json);
         });
     }
+
+    function createCondition(){
+        console.log("creating condition");
+        var MAC = document.getElementById("createMAC");
+        var pin1 = document.getElementById("createpin1");
+        var pin2 = document.getElementById("createpin2");
+        var pin3 = document.getElementById("createpin3");
+        var operation = document.getElementById("createoperation");
+        $.get('Condition/create', {MAC: MAC.value, pin1: pin1.value, pin2: pin2.value, pin3: pin3.value, operation: operation.value},
+            function (data) {
+                var json = JSON.parse(data);
+                buildCondition(json);
+        });
+    }
+
+
+
 </script>
 </body>
 </html>

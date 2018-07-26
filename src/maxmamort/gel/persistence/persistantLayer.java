@@ -156,6 +156,7 @@ public class persistantLayer {
         updateUtil(query);
     }
 
+
     public void updateIoValue(String mac, int physicalPin, double newValue) {
         String sql = "INSERT INTO updateintinputmacpin VALUES ('" + mac + "' ," + physicalPin + ", '" + newValue + "');";
         updateUtil(sql);
