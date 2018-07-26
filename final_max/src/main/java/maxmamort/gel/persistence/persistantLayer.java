@@ -53,8 +53,9 @@ public class persistantLayer {
     }
 
     //Still have SQL for delete condition
-    public void deleteCondition(int cconditionid){
-        String sql = "DELETE FROM public.inputgroup WHERE namconditiongroup = 'conditionid';";
+    public void deleteCondition(int conditionid){
+        String sql = "DELETE FROM public.inputgroup WHERE namconditiongroup = '" + conditionid + "';";
+        deleteUtil(sql);
     }
 
 

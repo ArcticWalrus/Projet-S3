@@ -30,12 +30,13 @@ public class ConditionController {
     }
 
     @RequestMapping({"Condition/delete"})
-    public String deleteCondition(@RequestParam(value = "namcondition", defaultValue = "0") String conditionid) {
-        if (conditionid.equalsIgnoreCase("0")) {
+    public String deleteCondition(@RequestParam(value = "condition", defaultValue = "0") String condition) {
+        System.out.println("Hello");
+        if (condition.equalsIgnoreCase("0")) {
             return listCondition();
         }
         persistantLayer pl = new persistantLayer();
-        pl.deleteCondition(Integer.parseInt(conditionid));
+        pl.deleteCondition(Integer.parseInt(condition));
 
         return listCondition();
     }

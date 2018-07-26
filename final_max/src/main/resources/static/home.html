@@ -347,7 +347,7 @@
     }
 
     function deleteCondition(namcondition){
-        console.log("Deleting condition");
+        console.log("Deleting condition " + namcondition);
         $.get('Condition/delete', {condition: namcondition}, function (data) {
             var json = JSON.parse(data);
             buildCondition(json);
