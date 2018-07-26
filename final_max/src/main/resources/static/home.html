@@ -297,7 +297,7 @@
         table.innerHTML = "";
         $(table).append('<tr><th>MAC</th><th>pin ID</th><th>Condition ID</th><th>Opération</th></tr>');
         for (var i = 0; i < json.length; i++) {
-            $(table).append('<tr><td>' + json[i].namiogroup + '</td><td>' + json[i].pinid + '</td><td>' + json[i].namconditiongroup + '</td><td>' + json[i].valoperation + '</td><td><a href="#" onclick="deleteCondition(\''+ json[i].mac + '\', \'' + json[i].pinid + '\');">delete</a></td></tr>');
+            $(table).append('<tr><td>' + json[i].namiogroup + '</td><td>' + json[i].pinid + '</td><td>' + json[i].namconditiongroup + '</td><td>' + json[i].valoperation + '</td><td><a href="#" onclick="deleteCondition(\''+ json[i].namconditiongroup + '\');">delete</a></td></tr>');
         }
     }
 
@@ -346,16 +346,11 @@
         });
     }
 
-    function deleteCondition(mac, pinid){
+    function deleteCondition(namcondition){
         console.log("Deleting condition");
-    //     $.get('Condition/delete1', {MAC: mac, pin1: pin1, pin2: pin2,
-    //             pin3: pin3, operation: operation}, function (data) {
-    //         var json = JSON.parse(data);
-    //         buildCondition(json);
-    //     })
-        $.get('Condition/delete', {MAC: mac, pin3: pinid}, function (data) {
+        $.get('Condition/delete', {condition: namcondition}, function (data) {
             var json = JSON.parse(data);
-            buildIO(json);
+            buildCondition(json);
         });
     }
 

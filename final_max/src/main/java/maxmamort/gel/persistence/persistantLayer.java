@@ -53,16 +53,10 @@ public class persistantLayer {
     }
 
     //Still have SQL for delete condition
-    public void deleteCondition(String mac, int pin1, int pin2, int pin3, int operation){
-        //String sql = "DELETE FROM p"
-        System.out.println("Condition deleted!");
+    public void deleteCondition(int cconditionid){
+        String sql = "DELETE FROM public.inputgroup WHERE namconditiongroup = 'conditionid';";
     }
 
-    //Still have SQL for delete condition
-    public void deleteCondition2(String mac, int pin3){
-        //String sql = "DELETE FROM p"
-        System.out.println("Condition deleted with delete2!");
-    }
 
     public JSONArray getIo() {
         String sql = "SELECT valcip AS CIP, namdevice AS DeviceName, valmac AS MAC, namio AS IoName, pinid, configurationbits AS Config, valvalue AS value FROM public.io JOIN public.devices ON devices.valmac = io.namiogroup JOIN public.intinput ON intinput.serintinput = io.valinputid;";
