@@ -29,13 +29,6 @@
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="/login">Authentify</a>
-                </li>
-            </ul>
-        </div>
     </div>
 </nav>
 
@@ -298,7 +291,7 @@
         table.innerHTML = "";
         $(table).append('<tr><th>MAC</th><th>pin ID</th><th>Condition ID</th><th>Opération</th></tr>');
         for (var i = 0; i < json.length; i++) {
-            $(table).append('<tr><td>' + json[i].namiogroup + '</td><td>' + json[i].pinid + '</td><td>' + json[i].namconditiongroup + '</td><td>' + json[i].valoperation + '</td><td><a href="#" onclick="deleteCondition(\''+ json[i].namconditiongroup + '\');">delete</a></td></tr>');
+            $(table).append('<tr><td>' + json[i].namiogroup + '</td><td>' + json[i].pinid + '</td><td>' + json[i].namconditiongroup + '</td><td>' + json[i].valoperation + '</td><td><a href="#" onclick="deleteCondition(\'' + json[i].namconditiongroup + '\');">delete</a></td></tr>');
         }
     }
 
@@ -347,7 +340,7 @@
         });
     }
 
-    function deleteCondition(namcondition){
+    function deleteCondition(namcondition) {
         console.log("Deleting condition " + namcondition);
         $.get('Condition/delete', {condition: namcondition}, function (data) {
             var json = JSON.parse(data);
@@ -366,20 +359,25 @@
         });
     }
 
-    function createCondition(){
+    function createCondition() {
         console.log("creating condition");
         var MAC = document.getElementById("createMAC");
         var pin1 = document.getElementById("createpin1");
         var pin2 = document.getElementById("createpin2");
         var pin3 = document.getElementById("createpin3");
         var operation = document.getElementById("createoperation");
-        $.get('Condition/create', {MAC: MAC.value, pin1: pin1.value, pin2: pin2.value, pin3: pin3.value, operation: operation.value},
+        $.get('Condition/create', {
+                MAC: MAC.value,
+                pin1: pin1.value,
+                pin2: pin2.value,
+                pin3: pin3.value,
+                operation: operation.value
+            },
             function (data) {
                 var json = JSON.parse(data);
                 buildCondition(json);
-        });
+            });
     }
-
 
 
 </script>

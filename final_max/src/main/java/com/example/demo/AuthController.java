@@ -30,7 +30,7 @@ public class AuthController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         logoutHandler.logout(request, response, auth );
         new CookieClearingLogoutHandler(AbstractRememberMeServices.SPRING_SECURITY_REMEMBER_ME_COOKIE_KEY).logout(request, response, auth);
-        return "auth/logout";
+        return "redirect:/home";
     }
 
 

@@ -30,8 +30,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private AuthenticationProvider authenticationProvider;
     private AuthenticationEntryPoint authenticationEntryPoint;
-    private SingleSignOutFilter singleSignOutFilter;
-    private LogoutFilter logoutFilter;
 
     @Autowired
     public SecurityConfig(CasAuthenticationProvider casAuthenticationProvider, AuthenticationEntryPoint eP){
