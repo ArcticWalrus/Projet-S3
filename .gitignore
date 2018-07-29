@@ -52,3 +52,4 @@ fabric.properties
 # .idea/misc.xml 
 # *.ipr 
 *.zip
+final_max/src/main/java/maxmamort/gel/persistence/IdbAccess.java
