@@ -24,6 +24,6 @@ public class Main {
 
         JSONArray jsonFinal = al.pl.getConditionsAndInputs(al.temp_test);
 
-        LMThread lm = new LMThread(jsonFinal);
+       // LMThread lm = new LMThread(jsonFinal);
     }
 }

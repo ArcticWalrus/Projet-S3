@@ -52,6 +52,13 @@ public class persistantLayer {
         return selectUtil(sql);
     }
 
+    //Still have SQL for delete condition
+    public void deleteCondition(int conditionid){
+        String sql = "DELETE FROM public.inputgroup WHERE namconditiongroup = '" + conditionid + "';";
+        deleteUtil(sql);
+    }
+
+
     public JSONArray getIo() {
         String sql = "SELECT valcip AS CIP, namdevice AS DeviceName, valmac AS MAC, namio AS IoName, pinid, configurationbits AS Config, valvalue AS value FROM public.io JOIN public.devices ON devices.valmac = io.namiogroup JOIN public.intinput ON intinput.serintinput = io.valinputid;";
         return selectUtil(sql);

@@ -18,11 +18,8 @@ public class Main_Persistance_Layer
 //        _fapMainApp = new FrameworkApplication(2);
 //        _fapMainApp.startApp();
 //        System.out.println("fin du programme");
-
-        //Extraction for html tables
         persistantLayer pl = new persistantLayer();
-        JSONArray json = pl.getConditions();
-        System.out.println(json.toString());
+
 
 
     }

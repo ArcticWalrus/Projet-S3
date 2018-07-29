@@ -58,7 +58,7 @@ public class PersistenceProcessing extends InfoProcess {
 		} else if ("getUsers".equalsIgnoreCase(tempValue)) {
 			pl.getUsers();
 		} else if ("cleardb".equalsIgnoreCase(tempValue)) {
-			pl.cleardb();
+			pl.clearDB();
 		} else if ("createCondition".equalsIgnoreCase(tempValue)) {
 			int operation = jo.getInt("operation");
             String mac = jo.getString("mac");
