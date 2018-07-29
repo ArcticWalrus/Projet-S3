@@ -29,30 +29,31 @@ public class AppStart {
         SpringApplication.run(AppStart.class, args);
     }
 
+    //lien de notre page pour lequel l'utilisateur doit etre identifie
     @Bean
     public ServiceProperties serviceProperties() {
         ServiceProperties serviceProperties = new ServiceProperties();
-        serviceProperties.setService("http://localhost:9000/login/cas");
-        serviceProperties.setSendRenew(false);
+        serviceProperties.setService("http://localhost:9000/login/cas"); //default service login url
+        serviceProperties.setSendRenew(false); //false = only need to present credentials once
         return serviceProperties;
     }
 
+    //lien vers le cas de l'universite
     @Bean
     @Primary
     public AuthenticationEntryPoint authenticationEntryPoint(
             ServiceProperties sP) {
 
-        CasAuthenticationEntryPoint entryPoint
-                = new CasAuthenticationEntryPoint();
-        entryPoint.setLoginUrl("https://localhost:6443/cas/login");
+        CasAuthenticationEntryPoint entryPoint = new CasAuthenticationEntryPoint();
+        entryPoint.setLoginUrl("https://cas.usherbrooke.ca/login"); //cas de l'universite ancien : https://localhost:6443/cas/login
         entryPoint.setServiceProperties(sP);
         return entryPoint;
     }
 
+
     @Bean
     public TicketValidator ticketValidator() {
-        return new Cas30ServiceTicketValidator(
-                "https://localhost:6443/cas");
+        return new Cas30ServiceTicketValidator("https://localhost:6443/cas");
     }
 
     @Bean
