@@ -14,7 +14,6 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.AuthenticationEntryPoint;
 
-//http://localhost:8080/home.html
 @SpringBootApplication
 public class AppStart {
 

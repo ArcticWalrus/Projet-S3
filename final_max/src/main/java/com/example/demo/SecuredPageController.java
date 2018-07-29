@@ -15,11 +15,16 @@ public class SecuredPageController {
     public String index(ModelMap modelMap) {
         System.out.println("Got in secured controller");
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if(auth.isAuthenticated()){
+            System.out.println("Authentified");
+        }else{
+            System.out.println("Not authentified");
+        }
         if( auth != null && auth.getPrincipal() != null && auth.getPrincipal() instanceof UserDetails) {
             modelMap.put("username", ((UserDetails) auth.getPrincipal()).getUsername());
-            System.out.println("Auth is not null");
+            System.out.println("Auth is not null " +  ((UserDetails) auth.getPrincipal()).getUsername());
         }
         //return "/home";
-        return "secure/index";
+        return "secure/index.html";
     }
 }
