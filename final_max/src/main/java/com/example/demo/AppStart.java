@@ -23,6 +23,7 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 
 import javax.servlet.http.HttpSessionEvent;
 
+//http://localhost:8080/home.html
 @SpringBootApplication
 public class AppStart {
 

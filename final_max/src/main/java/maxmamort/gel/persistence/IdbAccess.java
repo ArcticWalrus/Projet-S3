@@ -8,8 +8,8 @@ import java.sql.PreparedStatement;
 public interface IdbAccess {
 
     //String dbLocation = "jdbc:postgresql://209.226.99.185:5433/projectS3"; //REMOTE IP
-    //String dbLocation = "jdbc:postgresql://maxmamort3.ddns.net:5433/projectS3-2"; //REMOTE IP
-    String dbLocation = "jdbc:postgresql://192.168.1.12:5433/projectS3-2"; //LOCAL IP
+    String dbLocation = "jdbc:postgresql://maxmamort3.ddns.net:5433/projectS3-2"; //REMOTE IP
+    //String dbLocation = "jdbc:postgresql://192.168.1.12:5433/projectS3-2"; //LOCAL IP
     String user = "maxmamort";
     String password = "bobol2010";
 
