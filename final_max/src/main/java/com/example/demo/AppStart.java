@@ -2,8 +2,7 @@ package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 
 import org.jasig.cas.client.session.SingleSignOutFilter;
 import org.jasig.cas.client.session.SingleSignOutHttpSessionListener;
@@ -29,31 +28,29 @@ public class AppStart {
         SpringApplication.run(AppStart.class, args);
     }
 
-    //lien de notre page pour lequel l'utilisateur doit etre identifie
+    String casUrl = 
     @Bean
     public ServiceProperties serviceProperties() {
         ServiceProperties serviceProperties = new ServiceProperties();
-        serviceProperties.setService("http://localhost:9000/login/cas"); //default service login url
-        serviceProperties.setSendRenew(false); //false = only need to present credentials once
+        serviceProperties.setService("http://localhost:8080/login/cas");
+        serviceProperties.setSendRenew(false);
         return serviceProperties;
     }
 
-    //lien vers le cas de l'universite
     @Bean
     @Primary
     public AuthenticationEntryPoint authenticationEntryPoint(
             ServiceProperties sP) {
 
         CasAuthenticationEntryPoint entryPoint = new CasAuthenticationEntryPoint();
-        entryPoint.setLoginUrl("https://cas.usherbrooke.ca/login"); //cas de l'universite ancien : https://localhost:6443/cas/login
+        entryPoint.setLoginUrl(casUrl + "/login");
         entryPoint.setServiceProperties(sP);
         return entryPoint;
     }
 
-
     @Bean
     public TicketValidator ticketValidator() {
-        return new Cas30ServiceTicketValidator("https://localhost:6443/cas");
+        return new Cas30ServiceTicketValidator(casUrl);
     }
 
     @Bean
@@ -62,10 +59,8 @@ public class AppStart {
         CasAuthenticationProvider provider = new CasAuthenticationProvider();
         provider.setServiceProperties(serviceProperties());
         provider.setTicketValidator(ticketValidator());
-        provider.setUserDetailsService(
-                s -> new User("casuser", "Mellon", true, true, true, true,
-                        AuthorityUtils.createAuthorityList("ROLE_ADMIN")));
-        provider.setKey("CAS_PROVIDER_LOCALHOST_9000");
+        provider.setUserDetailsService(s -> new User("bolm2210", "Bobol2010!", true, true, true, true,AuthorityUtils.createAuthorityList("ROLE_ADMIN")));
+        provider.setKey("CAS_PROVIDER_LOCALHOST_8080");
         return provider;
     }
 
@@ -77,7 +72,7 @@ public class AppStart {
     @Bean
     public LogoutFilter logoutFilter() {
         LogoutFilter logoutFilter = new LogoutFilter(
-                "https://localhost:6443/cas/logout", securityContextLogoutHandler());
+                casUrl + "/logout", securityContextLogoutHandler());
         logoutFilter.setFilterProcessesUrl("/logout/cas");
         return logoutFilter;
     }
@@ -85,7 +80,7 @@ public class AppStart {
     @Bean
     public SingleSignOutFilter singleSignOutFilter() {
         SingleSignOutFilter singleSignOutFilter = new SingleSignOutFilter();
-        singleSignOutFilter.setCasServerUrlPrefix("https://localhost:6443/cas");
+        singleSignOutFilter.setCasServerUrlPrefix(casUrl);
         singleSignOutFilter.setIgnoreInitConfiguration(true);
         return singleSignOutFilter;
     }
