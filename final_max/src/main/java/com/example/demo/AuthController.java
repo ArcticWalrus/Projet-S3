@@ -36,6 +36,7 @@ public class AuthController {
 
     @RequestMapping("/login")
     public String login() {
-        return "redirect:/secured";
+        return "test";
+        //return "redirect:/secured";
     }
 }
